@@ -1,0 +1,1767 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/2b5f1636998793759d736ce40b60247d.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/2b5f1636998793759d736ce40b60247d.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artist Preset Bundle</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+   <!-- <nav class="main-nav">
+    <div class="container nav-wrapper">
+        
+        <a href="https://sancruzo.de/" class="nav-logo">
+            <img src="https://sancruzowebsite.b-cdn.net/S-Blitz%20Logo%20Design%202024.png" alt="San Cruzo Logo">
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="https://sancruzo.de/presets/">Vocal Presets</a></li>
+            <li><a href="https://sancruzo.de/vocalkurs/">Vocal Mixing Kurs</a></li>
+            <li><a href="https://sancruzo.de/mixmaster/">Mix & Master Service</a></li>
+            </ul>
+
+        <a href="/cart" class="nav-cart">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+  <circle cx="9" cy="21" r="1"></circle>
+  <circle cx="20" cy="21" r="1"></circle>
+  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+</svg>
+        </a>
+
+    </div>
+</nav> -->
+
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h2 class="main-heading">ARTIST PRESET BUNDLE</h2>
+            <p class="sub-heading">12 Vocal Presets - Inspiriert von Deutschlands Top-Künstlern</p>
+        </div>
+    </div>
+
+    <div class="hero-player-wrapper">
+    <div class="hero-play-button" id="heroPlayBtn">
+        <i class="fas fa-play"></i>
+    </div>
+    <div class="hero-waveform-container" id="heroWaveform"></div>
+</div>
+
+<div class="bundle-image">
+    <img src="https://artist-pack.b-cdn.net/Sonstige%20Bilder/Artist%20preset%20pack%20artwork%20combined%20dark%20version%2012er.png" 
+    alt="bundle artwork" />
+</div>
+
+<div class="col-lg-12">
+    <h4 class="hero-price">€39 EUR</h4>
+</div>
+
+<div class="buy-button-wrapper">
+    <a id="scrollButton" href="#preise" class="buy-button">
+        JETZT KAUFEN
+        </a>
+</div>
+
+    <div class="compatible-section">
+            <h3>Kompatibel mit Stock Plugins & Waves</h3>
+            <div class="icons">
+                <img src="https://pvpp-images.b-cdn.net/Compatible-section/fllogo.png" alt="FL Studio" class="icon" />
+                <img src="https://pvpp-images.b-cdn.net/Compatible-section/logiclogo.png" alt="Logic Pro"
+                    class="icon" />
+                <img src="https://pvpp-images.b-cdn.net/Compatible-section/waveslogo.png" alt="Waves" class="icon" />
+            </div>
+        </div>
+
+    <section class="artist-collections sec">
+        <div class="container">
+            
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="collection-tabs-wrapper">
+                        <div class="collection-tabs" id="collectionTabs"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="display-area" id="displayArea">
+                <div class="row align-items-center">
+                    
+                    <div class="col-lg-5 mb-4 mb-lg-0 text-center">
+                        <img src="" id="displayImage" class="img-fluid display-3d-image" alt="Pack Cover">
+                    </div>
+
+                    <div class="col-lg-7">
+                        <div class="display-content-box">
+                            <h3 id="displayTitle" class="display-title">Loading...</h3>
+                            
+                            <div id="displayText" class="display-text">
+                                </div>
+
+                            <div id="audioContainer" class="audio-list mt-4">
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-reviews">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h3 class="reviews-title">Das sagen andere Nutzer:</h3>
+                    <p class="sub-heading">
+                        <a href="#" target="_blank" class="google-ref-link">
+                            4.9 von 5 auf Google Reviews <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+    
+            <div class="reviews-slider-wrapper">
+                <div class="swiper reviews-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%201b.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%202b.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%203b.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%204b.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%205b.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%206b.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%207b.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%208b.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%209b.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%2010.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%2011.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%2012.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%2013.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%2014.png" class="review-img"></div>
+                        <div class="swiper-slide"><img src="https://sancruzowebsite.b-cdn.net/Reviews/San%20Cruzo%20Review%2015.png" class="review-img"></div>
+                    </div>
+                </div>
+                <div class="swiper-button-next review-next"></div>
+                <div class="swiper-button-prev review-prev"></div>
+            </div>
+    
+        </div> 
+    </section>
+
+<section class="daw-preview-section sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                
+                <h3 class="section-title mb-4">Dein neues Setup</h3>
+                
+                <div class="daw-tabs-wrapper">
+                    
+                    <div class="daw-tab active" onclick="openDaw(event, 'daw-fl')">
+                        <img src="https://pvpp-images.b-cdn.net/Compatible-section/fllogo.png" alt="FL Studio Logo">
+                        <span class="daw-name">FL Studio</span>
+                    </div>
+
+                    <div class="daw-tab" onclick="openDaw(event, 'daw-logic')">
+                        <img src="https://pvpp-images.b-cdn.net/Compatible-section/logiclogo.png" alt="Logic Pro Logo">
+                        <span class="daw-name">Logic Pro</span>
+                    </div>
+
+                    <div class="daw-tab" onclick="openDaw(event, 'daw-waves')">
+                        <img src="https://pvpp-images.b-cdn.net/Compatible-section/waveslogo.png" alt="Waves Logo">
+                        <span class="daw-name">Waves</span>
+                    </div>
+
+                </div>
+
+                <div class="daw-content-wrapper">
+                    
+                    <div id="daw-fl" class="daw-content active-content">
+                        <img src="https://sancruzowebsite.b-cdn.net/DAW%20Screenshots/FL%20DAW%20Screenshots.jpg" 
+                             alt="FL Studio Preset Screenshot" class="img-fluid daw-screenshot shadow-lg">
+                    </div>
+
+                    <div id="daw-logic" class="daw-content">
+                        <img src="https://sancruzowebsite.b-cdn.net/DAW%20Screenshots/logic%20DAW%20Screenshots.jpg" 
+                             alt="Logic Pro Preset Screenshot" class="img-fluid daw-screenshot shadow-lg">
+                    </div>
+
+                    <div id="daw-waves" class="daw-content">
+                        <img src="https://sancruzowebsite.b-cdn.net/DAW%20Screenshots/Waves%20DAW%20Screenshots.jpg" 
+                             alt="Waves Preset Screenshot" class="img-fluid daw-screenshot shadow-lg">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="highlight-section sec">
+        <div class="container">
+            <h3>Erfolgreiche Künstler & Marken vertrauen auf meine Arbeit</h3>
+            <h4 class="sub-heading">Meine Mixing Highlights</h4>
+
+            <div class="highlight-scroller d-none d-lg-flex">
+                <div class="highlight-track">
+                    <div class="highlight-item-wrapper">
+                        <img src="https://pvpp-images.b-cdn.net/Mixing-Highlights/references-bassa2.png"
+                            class="highlight-item" alt="Bassa 2" />
+                    </div>
+                      <div class="highlight-item-wrapper">
+                        <a href="https://open.spotify.com/intl-de/track/4s51pU4PIcoReTay8pluzo?si=fd1e9eb0c9934075" target="_blank">
+                            <img src="https://pvpp-images.b-cdn.net/Mixing-Highlights/References-caney1c.png"
+                                class="highlight-item" alt="Caney 1" />
+                        </a>
+                    </div>
+                    <div class="highlight-item-wrapper">
+                        <a href="https://open.spotify.com/intl-de/track/4pHrsUucnIfuustV09VXKb?si=1467b6e619194cc4" target="_blank">
+                            <img src="https://pvpp-images.b-cdn.net/Mixing-Highlights/References-caney2d.png"
+                                class="highlight-item" alt="Caney 2" />
+                        </a>
+                    </div>
+                    <div class="highlight-item-wrapper">
+                        <a href="https://open.spotify.com/intl-de/track/0q3jXMMN5XZCHexSPkWipH?si=31b382c7d0b046e3" target="_blank">
+                            <img src="https://pvpp-images.b-cdn.net/Mixing-Highlights/references-nadiife.png"
+                                class="highlight-item" alt="Nadiife" />
+                        </a>
+                    </div>
+                    <div class="highlight-item-wrapper">
+                        <a href="https://open.spotify.com/intl-de/track/7t2C6805FQYU31zoQCA2Gl?si=2397c1eb66fe409d" target="_blank">
+                            <img src="https://pvpp-images.b-cdn.net/Mixing-Highlights/references-bassa.png"
+                                class="highlight-item" alt="Bassa" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper highlight-swiper-mobile d-lg-none">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="https://open.spotify.com/intl-de/track/0q3jXMMN5XZCHexSPkWipH?si=31b382c7d0b046e3" target="_blank">
+                            <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-highlight-section/highlight-1.png"
+                                class="highlight-item img-fluid" alt="Highlight 1" />
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://open.spotify.com/intl-de/track/4s51pU4PIcoReTay8pluzo?si=fd1e9eb0c9934075" target="_blank">
+                            <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-highlight-section/highlight-2.png"
+                                class="highlight-item img-fluid" alt="Highlight 2" />
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://open.spotify.com/intl-de/track/4pHrsUucnIfuustV09VXKb?si=1467b6e619194cc4" target="_blank">
+                            <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-highlight-section/highlight-3.png"
+                                class="highlight-item img-fluid" alt="Highlight 3" />
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="https://open.spotify.com/intl-de/track/7t2C6805FQYU31zoQCA2Gl?si=2397c1eb66fe409d" target="_blank">
+                            <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-highlight-section/highlight-4.png"
+                                class="highlight-item img-fluid" alt="Highlight 4" />
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+
+            <p class="sub-heading text-center" style="margin-top: 50px; color: #9f9f9f; padding-bottom: 7px; font-size: 18px;">
+    Firmen mit denen ich gearbeitet habe
+</p>
+
+            <div class="brand-strip__logos brand-strip__logos-desktop d-none d-lg-block">
+                <img src="https://pvpp-images.b-cdn.net/Brand-Karussell/Brandkarussel%20Remastered%20v3.png"
+                    alt="Logos von Meta, Adobe, Spotify" class="img-fluid" />
+            </div>
+
+            <div class="brand-strip-marquee brand-strip__logos-mobile d-lg-none">
+    <div class="marquee-track">
+        <div class="marquee-content">
+            
+            <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-1.png"
+                alt="Brand Strip 1" class="brandstrip-mobile-item img-fluid logo-gross" />
+            
+            <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-2.png"
+                alt="Brand Strip 2" class="brandstrip-mobile-item img-fluid logo-klein" />
+            
+            <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-3.png"
+                alt="Brand Strip 3" class="brandstrip-mobile-item img-fluid" />
+            
+
+            <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-1.png"
+                alt="Brand Strip 1" class="brandstrip-mobile-item img-fluid logo-gross" />
+            
+            <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-2.png"
+                alt="Brand Strip 2" class="brandstrip-mobile-item img-fluid logo-klein" />
+            
+            <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-3.png"
+                alt="Brand Strip 3" class="brandstrip-mobile-item img-fluid" />
+                
+        </div>
+    </div>
+</div>
+        </div>
+    </section>
+
+    <section class="backstory sec">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 backstory-left order-2 order-lg-0">
+                    <h2>MEIN ZIEL</h2>
+                    <p>
+                        Als Mixing Engineer und Künstler weiß ich wie es ist, wenn die
+                        technischen Aspekte <br />der Musikproduktion dir Kreativität und
+                        Zeit rauben. Deshalb habe ich mich dazu entschieden dieses Vocal
+                        Preset Bundle zu entwickeln, das dir dabei hilft deine Vocals
+                        auf das nächste Level zu bringen und dabei Zeit zu sparen.
+                    </p>
+                </div>
+                <div class="col-lg-6 creator-wrapper order-1 order-lg-0">
+                    <div class="creator-photo-wrapper">
+                        <img src="https://pvpp-images.b-cdn.net/Sonstiges/Robin%202025%20(Gelber%20HG%20v2).jpg"
+                            alt="Creator" class="creator-photo img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 mx-auto">
+                    <h3 class="faq-title">FAQs</h3>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-icon">?</span>
+                            <span class="faq-question-text">
+                                Mit welchen DAW funktionieren die Presets?
+                            </span>
+                            <span class="faq-toggle">▾</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Im Download enthalten sind 3 Versionen des Preset Bundles: </p>
+                                <ul class="lieferumfang">
+                                <li>Preset Bundle für FL Studio (Stock Plugins)</li>
+                                <li>Preset Bundle für Logic Pro (Stock Plugins)</li>
+                                <li>Preset Bundle für Waves Plugins (mit jeder DAW Kompatibel)</li>
+                                </ul>
+                            
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-icon">?</span>
+                            <span class="faq-question-text">
+                                Welche Plugins benötige ich?
+                            </span>
+                            <span class="faq-toggle">▾</span>
+                        </button>
+                        <div class="faq-answer">
+    <p>
+        <strong>FL Studio & Logic Pro Version:</strong> 
+        <br> Du brauchst nur die bereits enthaltenen Plugins deiner DAW (Stock Plugins)
+        <br>
+        <br>
+        <strong>Waves Version:</strong> 
+        <br>Alle verwendeten Plugins sind im Waves Essentials Abo erhältlich:
+    </p>
+    
+    <ul class="plugin-grid">
+        <li>StudioRack (Kostenlos)</li>
+        <li>DeEsser</li>
+        <li>F6 EQ</li>
+        <li>Renaissance Compressor</li>
+        <li>Renaissance EQ</li>
+        <li>Renaissance Vox</li>
+        <li>C4 Multiband Compressor</li>
+        <li>Manny Marroquin Triple D</li>
+        <li>Manny Marroquin Reverb</li>
+        <li>Infected Mushroom Pusher</li>
+        <li>C4 Multiband</li>
+        <li>TrueVerb</li>
+        <li>Doubler</li>
+        <li>CLA-76</li>
+        <li>H-Delay</li>
+        <li>BB Tubes</li>
+        <li>GTR Stomps</li>
+        <li>L1 Ultramaximizer</li>
+    </ul>
+</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-icon">?</span>
+                            <span class="faq-question-text">
+                                Wie installiere ich die Presets?
+                            </span>
+                            <span class="faq-toggle">▾</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Du erhältst eine Schritt-für-Schritt Video Anleitung
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-icon">?</span>
+                            <span class="faq-question-text">
+                                Ist auf den Presets Auto-Tune drauf?
+                            </span>
+                            <span class="faq-toggle">▾</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Nein, meine Einstellung vom Auto-Tune wäre
+                                höchstwahrscheinlich nicht kompatibel mit deinem Song, da man
+                                die Tonart immer individuell auf den eigenen Song einstellen
+                                muss, damit es gut klingt.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="faq-icon">?</span>
+                            <span class="faq-question-text">
+                                Erhalte ich kostenlose Updates?
+                            </span>
+                            <span class="faq-toggle">▾</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Ja, du erhältst alle zukünftigen Preset Updates kostenlos per
+                                E-Mail.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bundle-content-section">
+    <div class="content-wrapper">
+        
+        <h2 class="content-title">Inhalt</h2>
+
+        <div class="preset-list">
+            <div class="preset-row">
+                <span class="preset-name">SHAWTY: Reezy inspiriertes Vocal Preset</span>
+                <span class="preset-price">€29</span>
+            </div>
+
+            <div class="preset-row">
+                <span class="preset-name">SHABAB: Pashanim inspiriertes Vocal Preset</span>
+                <span class="preset-price">€29</span>
+            </div>
+            
+            <div class="preset-row">
+                <span class="preset-name">UFO: Ufo361 inspiriertes Vocal Preset</span>
+                <span class="preset-price">€29</span>
+            </div>
+
+            <div class="preset-row">
+                <span class="preset-name">ABSINTH: Absent inspiriertes Vocal Preset</span>
+                <span class="preset-price">€29</span>
+            </div>
+
+            <div class="preset-row">
+                <span class="preset-name">AKH: Nizi19 inspiriertes Vocal Preset</span>
+                <span class="preset-price">€29</span>
+            </div>
+
+            <div class="preset-row">
+                <span class="preset-name">101: Lucio101 inspiriertes Vocal Preset</span>
+                <span class="preset-price">€29</span>
+            </div>
+
+            <div class="preset-row">
+                <span class="preset-name">PALMEN: Raf Camora inspiriertes Vocal Preset</span>
+                <span class="preset-price">€29</span>
+            </div>
+
+            <div class="preset-row">
+                <span class="preset-name">ZAHNLÜCKE: Makko inspiriertes Vocal Preset</span>
+                <span class="preset-price">€29</span>
+            </div>
+
+            <div class="preset-row">
+                <span class="preset-name">FEUER: Faroon inspiriertes Vocal Preset</span>
+                <span class="preset-price">€29</span>
+            </div>
+
+             <div class="preset-row">
+                <span class="preset-name">NEW ERA CAP: Luis inspiriertes Vocal Preset</span>
+                <span class="preset-price">€29</span>
+            </div>
+
+             <div class="preset-row">
+                <span class="preset-name">CATALEYA: Samra inspiriertes Vocal Preset</span>
+                <span class="preset-price">€29</span>
+            </div>
+
+            <div class="preset-row">
+                <span class="preset-name">WE MADE IT: T-Low inspiriertes Vocal Preset</span>
+                <span class="preset-price">€29</span>
+            </div>
+
+        </div>
+
+        <div class="bundle-summary">
+            <div class="summary-row total-calc">
+                <span class="summary-label">GESAMT</span>
+                <span class="summary-price old-price">€348</span>
+            </div>
+            
+            <div class="summary-row final-deal">
+                <span class="summary-label">ARTIST PRESET BUNDLE</span>
+                <span class="summary-price deal-price">€39</span>
+            </div>
+        </div>
+
+        <div class="bottom-line"></div>
+
+    </div>
+</section>
+
+    <section class="pricing-section">
+        <div id="preise">
+   </div>
+  <h2 class="pricing-title">Wähle dein Paket</h2>
+
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <h3 class="plan-name">Artist Preset Bundle</h3>
+
+      <div class="price">
+        <span class="price-old">€39</span>
+      </div>
+
+      <div class="price-divider"></div>
+
+      <ul class="plan-features">
+        <li>12 Artist Vocal Presets</li>
+        <li>Lebenslange Updates (+neue Künstler)</li>
+        <li>Tutorials zur Nutzung</li>
+        <li class="unavailable">Pro Mastering Preset</li>
+      </ul>
+
+      <a href="https://www.sancruzo.com/cart/60924108865866:1"
+         class="plan-button outline">
+        Kaufen
+      </a>
+    </div>
+
+    <div class="pricing-card highlight">
+      <h3 class="plan-name-highlight">Artist Preset Bundle</br>+ Mastering Chain</h3>
+
+      <div class="price">
+        <span class="price-main">€44</span>
+      </div>
+
+      <div class="price-divider"></div>
+
+      <ul class="plan-features">
+        <li>12 Artist Vocal Presets</li>
+        <li>Lebenslange Updates (+neue Künstler)</li>
+        <li>Tutorials zur Nutzung</li>
+        <li>Pro Mastering Preset</li>
+      </ul>
+
+      <a href="https://www.sancruzo.com/cart/60924124102986:1"
+         class="plan-button filled">
+        Kaufen
+      </a>
+    </div>
+
+  </div>
+</section>
+
+ <section class="single-presets sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h3 class="single-presets-title">Suchst du einen bestimmten Sound?</h3>
+                <p class="sub-heading">Hole dir einzelne Artist Presets für je <strong>29€</strong></p>
+            </div>
+        </div>
+
+        <div class="single-presets-slider-wrapper" style="position: relative; padding: 0 50px;">
+    
+    <div class="swiper single-presets-swiper" style="overflow: hidden; padding: 10px;">
+        <div class="swiper-wrapper">
+             <div class="swiper-slide"><a href="https://sancruzo.de/presets/shawty/" class="single-item"><img src="https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/REEZY%20Preset%20Artwork%20Dark%203d%20edit%20(heller).png" alt="3"><h4>SHAWTY</h4><span>29€</span></a></div>
+             <div class="swiper-slide"><a href="https://sancruzo.de/presets/shabab/" class="single-item"><img src="https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Pashanim%20Preset%20Artwork%20Dark%203d%20edit.png" alt="1"><h4>SHABAB</h4><span>29€</span></a></div>
+             <div class="swiper-slide"><a href="https://sancruzo.de/presets/ufo/" class="single-item"><img src="https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/ufo%20Preset%20Artwork%20Dark%203d%20edit.png" alt="2"><h4>UFO</h4><span>29€</span></a></div>
+             <div class="swiper-slide"><a href="https://sancruzo.de/presets/absinth/" class="single-item"><img src="https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Absent%20Preset%20Artwork%20Dark%203d%20edit.png" alt="3"><h4>ABSINTH</h4><span>29€</span></a></div>
+            <div class="swiper-slide"><a href="https://sancruzo.de/presets/akh/" class="single-item"><img src="https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/nizi%20preset%20artwork%20dark%203d%20edit.png" alt="3"><h4>AKH</h4><span>29€</span></a></div>
+            <div class="swiper-slide"><a href="https://sancruzo.de/presets/101/" class="single-item"><img src="https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/lucio101%20preset%20artwork%20dark%203d%20edit.png" alt="2"><h4>101</h4><span>29€</span></a></div>
+            <div class="swiper-slide"><a href="https://sancruzo.de/presets/palmen/" class="single-item"><img src="https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/raf%20Preset%20Artwork%20Dark%203d%20edit.png" alt="1"><h4>PALMEN</h4><span>29€</span></a></div>
+             <div class="swiper-slide"><a href="https://sancruzo.de/presets/zahnlücke/" class="single-item"><img src="https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/makko%20preset%20artwork%20dark%203d%20edit.png" alt="3"><h4>ZAHNLÜCKE</h4><span>29€</span></a></div>
+             <div class="swiper-slide"><a href="https://sancruzo.de/presets/feuer/" class="single-item"><img src="https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Faroon%20Preset%20Artwork%20Dark%203d%20edit.png" alt="3"><h4>FEUER</h4><span>29€</span></a></div>
+             <div class="swiper-slide"><a href="https://sancruzo.de/presets/newera/" class="single-item"><img src="https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Luis%20Preset%20Artwork%20Dark%203d%20edit.png" alt="2"><h4>NEW ERA</h4><span>29€</span></a></div>
+             <div class="swiper-slide"><a href="https://sancruzo.de/presets/cataleya/" class="single-item"><img src="https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Samra%20preset%20artwork%20dark%203d%20edit.png" alt="2"><h4>CATALEYA</h4><span>29€</span></a></div>
+             <div class="swiper-slide"><a href="https://sancruzo.de/presets/wemadeit/" class="single-item"><img src="https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/tlow%20Preset%20Artwork%20Dark%203d%20edit.png" alt="1"><h4>WE MADE IT</h4><span>29€</span></a></div>
+        </div>
+    </div>
+
+    <div class="swiper-button-next" style="color: #f6d12e; font-weight: bold;"></div>
+    <div class="swiper-button-prev" style="color: #f6d12e; font-weight: bold;"></div>
+
+</div>
+        
+    
+    </div>
+</section> 
+
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-row d-flex justify-content-center align-items-center flex-wrap">
+                        <p class="footer-copy">© 2026, San Cruzo</p>
+                        <span class="dot d-none d-lg-inline">•</span>
+
+                        <div class="footer-links d-flex align-items-center flex-wrap">
+                            <a href="https://sancruzo.de/agb">AGB</a>
+                            <span class="dot">•</span>
+
+                            <a href="https://sancruzo.de/datenschutz">Datenschutzerklärung</a>
+                            <span class="dot">•</span>
+
+                            <a href="https://sancruzo.de/widerruf">Widerrufsbelehrung</a>
+                            <span class="dot">•</span>
+
+                            <a href="https://sancruzo.de/impressum">Impressum</a>
+                            <span class="dot">•</span>
+
+                            <a href="https://sancruzo.de/kontakt">Kontakt</a>
+                            <span class="dot">•</span>
+
+                            <a href="#" onclick="CookieScript.instance.show(); return false;">Cookies verwalten</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js"></script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // ############################################################
+            // TEIL A: DATEN & TABS (Artist Collections)
+            // ############################################################
+            
+            const collectionsData = [
+                {
+                    id: "shawty",
+                    name: "SHAWTY",
+                    tabImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/REEZY%20Preset%20Artwork%20Dark%203d%20edit%20(heller).png",
+                    mainImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/REEZY%20Preset%20Artwork%20Dark%203d%20edit%20(heller).png",
+                    title: `
+        <div style="position: relative; width: 100%;">
+            
+            <div style="
+                position: absolute;
+                top: -25px;   /* Zieht das Label etwas höher als den Text */
+                right: -25px;     /* Ganz rechts im Container */
+                background-color: rgb(180, 180, 180);
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 2px;
+                letter-spacing: 0.5px;
+                pointer-events: none;
+                line-height: 1.2;
+                white-space: nowrap; /* Verhindert Umbrüche im Label */
+            ">
+                29€ WERT
+            </div>
+
+            Inspiriert von Reezy<span style="font-size: 0.7em; vertical-align: top; font-weight: 300; opacity: 0.7;">*</span>
+        </div>
+    `,
+                    description: `
+        <div style="position: relative; padding-bottom: 0;">
+            
+            <div style="
+                margin-bottom: 0px; 
+                line-height: 1.5;
+                color: #fff
+            ">
+                High-End Sound auf US-Level. Kristallklare Höhen, softe S-Laute und dieser spezielle, melodische RnB-Touch. Für Vocals, die extrem „teuer“, luftig und international klingen sollen.
+            </div>
+
+            <div style="
+                position: absolute;
+                top: 310px;   /* Schiebt ihn optisch unter die Box */
+                left: 505px;
+                width: 100%;
+                pointer-events: none;
+            ">
+                <span style="
+                    font-size: 10px; 
+                    color: #888888; 
+                ">
+                    *Kein offizielles Produkt des Künstlers.
+                </span>
+            </div>
+            
+        </div>
+    `,
+                    tracks: [
+                        { title: "OHNE Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Reezy/Vorher%20Preview%20-%20Reezy.mp3" },
+                        { title: "MIT Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Reezy/Nachher%20Preview%20-%20Reezy.mp3" }
+                    ]
+                },
+            
+            {
+    id: "shabab",
+    name: "SHABAB",
+    tabImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Pashanim%20Preset%20Artwork%20Dark%203d%20edit.png",
+    mainImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Pashanim%20Preset%20Artwork%20Dark%203d%20edit.png",
+    
+    // HIER ist jetzt das Label drin, ganz am Anfang des Strings:
+    title: `
+        <div style="position: relative; width: 100%;">
+            
+            <div style="
+                position: absolute;
+                top: -25px;   /* Zieht das Label etwas höher als den Text */
+                right: -25px;     /* Ganz rechts im Container */
+                background-color: rgb(180, 180, 180);
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 2px;
+                letter-spacing: 0.5px;
+                pointer-events: none;
+                line-height: 1.2;
+                white-space: nowrap; /* Verhindert Umbrüche im Label */
+            ">
+                29€ WERT
+            </div>
+
+            Inspiriert von Pashanim<span style="font-size: 0.7em; vertical-align: top; font-weight: 300; opacity: 0.7;">*</span>
+        </div>
+    `,
+    
+    // Description ist jetzt wieder sauber:
+    description: `
+        <div style="position: relative; padding-bottom: 0;">
+            
+            <div style="
+                margin-bottom: 0px; 
+                line-height: 1.5;
+                color: #fff
+            ">
+                Authentischer Berlin-Sound. Hol dir den entspannten Vibe für laid-back Flows. Ein cleaner, direkter Mix, der deine Stimme mühelos und modern klingen lässt. Perfekt für Storytelling.
+            </div>
+
+            <div style="
+                position: absolute;
+                top: 310px;
+                left: 505px;
+                width: 100%;
+                pointer-events: none;
+            ">
+                <span style="
+                    font-size: 10px; 
+                    color: #888888; 
+                ">
+                    *Kein offizielles Produkt des Künstlers.
+                </span>
+            </div>
+            
+        </div>
+    `,
+
+    tracks: [
+        { title: "OHNE Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Pashanim/Vorher%20-%20Pashanim4.mp3" },
+        { title: "MIT Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Pashanim/Nachher%20-%20Pashanim3(2).mp3" }
+    ]
+},
+{
+                    id: "ufo",
+                    name: "UFO",
+                    tabImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/ufo%20Preset%20Artwork%20Dark%203d%20edit.png",
+                    mainImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/ufo%20Preset%20Artwork%20Dark%203d%20edit.png",
+                    title: `
+        <div style="position: relative; width: 100%;">
+            
+            <div style="
+                position: absolute;
+                top: -25px;   /* Zieht das Label etwas höher als den Text */
+                right: -25px;     /* Ganz rechts im Container */
+                background-color: rgb(180, 180, 180);
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 2px;
+                letter-spacing: 0.5px;
+                pointer-events: none;
+                line-height: 1.2;
+                white-space: nowrap; /* Verhindert Umbrüche im Label */
+            ">
+                29€ WERT
+            </div>
+
+            Inspiriert von Ufo361<span style="font-size: 0.7em; vertical-align: top; font-weight: 300; opacity: 0.7;">*</span>
+        </div>
+    `,
+                    description: `
+        <div style="position: relative; padding-bottom: 0;">
+            
+            <div style="
+                margin-bottom: 0px; 
+                line-height: 1.5;
+                color: #fff
+            ">
+                Futuristische Trap-Vocals. Experimentelle Effektketten mit markanten Delays und starker Sättigung. Der High-Tech Sound für alle, die klingen wollen wie aus der Zukunft. 
+            </div>
+
+            <div style="
+                position: absolute;
+                top: 310px;   /* Schiebt ihn optisch unter die Box */
+                left: 505px;
+                width: 100%;
+                pointer-events: none;
+            ">
+                <span style="
+                    font-size: 10px; 
+                    color: #888888; 
+                ">
+                    *Kein offizielles Produkt des Künstlers.
+                </span>
+            </div>
+            
+        </div>
+    `,
+                    tracks: [
+                        { title: "OHNE Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/ufo/Vorher%20Preview%20-%20Ufo361.mp3" },
+                        { title: "MIT Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/ufo/Nachher%20Preview%20-%20Ufo361.mp3" }
+                    ]
+                },
+
+{
+                    id: "absinth",
+                    name: "ABSINTH",
+                    tabImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Absent%20Preset%20Artwork%20Dark%203d%20edit.png",
+                    mainImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Absent%20Preset%20Artwork%20Dark%203d%20edit.png",
+                    title: `
+        <div style="position: relative; width: 100%;">
+            
+            <div style="
+                position: absolute;
+                top: -25px;   /* Zieht das Label etwas höher als den Text */
+                right: -25px;     /* Ganz rechts im Container */
+                background-color: rgb(180, 180, 180);
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 2px;
+                letter-spacing: 0.5px;
+                pointer-events: none;
+                line-height: 1.2;
+                white-space: nowrap; /* Verhindert Umbrüche im Label */
+            ">
+                29€ WERT
+            </div>
+
+            Inspiriert von Absent<span style="font-size: 0.7em; vertical-align: top; font-weight: 300; opacity: 0.7;">*</span>
+        </div>
+    `,
+                    description: `
+        <div style="position: relative; padding-bottom: 0;">
+            
+            <div style="
+                margin-bottom: 0px; 
+                line-height: 1.5;
+                color: #fff
+            ">
+                Dreckig, verwaschen und emotional. Große Hallräume treffen auf Grunge-Mäßige Verzerrung für diesen speziellen Grunge Sound: Atmosphärisch, aber Intensiv.
+            </div>
+
+            <div style="
+                position: absolute;
+                top: 310px;   /* Schiebt ihn optisch unter die Box */
+                left: 505px;
+                width: 100%;
+                pointer-events: none;
+            ">
+                <span style="
+                    font-size: 10px; 
+                    color: #888888; 
+                ">
+                    *Kein offizielles Produkt des Künstlers.
+                </span>
+            </div>
+            
+        </div>
+    `,
+                    tracks: [
+                        { title: "OHNE Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Absent/Vorher%20Preview%20-%20Absent.mp3" },
+                        { title: "MIT Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Absent/Nachher%20Preview%20-%20Absent.mp3" }
+                    ]
+                },
+
+                {
+                    id: "akh",
+                    name: "AKH",
+                    tabImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/nizi%20preset%20artwork%20dark%203d%20edit.png",
+                    mainImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/nizi%20preset%20artwork%20dark%203d%20edit.png",
+                    title: `
+        <div style="position: relative; width: 100%;">
+            
+            <div style="
+                position: absolute;
+                top: -25px;   /* Zieht das Label etwas höher als den Text */
+                right: -25px;     /* Ganz rechts im Container */
+                background-color: rgb(180, 180, 180);
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 2px;
+                letter-spacing: 0.5px;
+                pointer-events: none;
+                line-height: 1.2;
+                white-space: nowrap; /* Verhindert Umbrüche im Label */
+            ">
+                29€ WERT
+            </div>
+
+            Inspiriert von Nizi19<span style="font-size: 0.7em; vertical-align: top; font-weight: 300; opacity: 0.7;">*</span>
+        </div>
+    `,
+                    description: `
+        <div style="position: relative; padding-bottom: 0;">
+            
+            <div style="
+                margin-bottom: 0px; 
+                line-height: 1.5;
+                color: #fff
+            ">
+                Dreckig, verwaschen und emotional. Große Hallräume treffen auf Grunge-Mäßige Verzerrung für diesen speziellen Grunge Sound: Atmosphärisch, aber Intensiv.
+            </div>
+
+            <div style="
+                position: absolute;
+                top: 310px;   /* Schiebt ihn optisch unter die Box */
+                left: 505px;
+                width: 100%;
+                pointer-events: none;
+            ">
+                <span style="
+                    font-size: 10px; 
+                    color: #888888; 
+                ">
+                    *Kein offizielles Produkt des Künstlers.
+                </span>
+            </div>
+            
+        </div>
+    `,
+                    tracks: [
+                        { title: "OHNE Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Nizi19/Nizi19%20Preset%20Vorher.mp3" },
+                        { title: "MIT Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Nizi19/Nizi19%20Preset%20Nachher.mp3" }
+                    ]
+                },
+
+                {
+                    id: "101",
+                    name: "101",
+                    tabImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/lucio101%20preset%20artwork%20dark%203d%20edit.png",
+                    mainImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/lucio101%20preset%20artwork%20dark%203d%20edit.png",
+                    title: `
+        <div style="position: relative; width: 100%;">
+            
+            <div style="
+                position: absolute;
+                top: -25px;   /* Zieht das Label etwas höher als den Text */
+                right: -25px;     /* Ganz rechts im Container */
+                background-color: rgb(180, 180, 180);
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 2px;
+                letter-spacing: 0.5px;
+                pointer-events: none;
+                line-height: 1.2;
+                white-space: nowrap; /* Verhindert Umbrüche im Label */
+            ">
+                29€ WERT
+            </div>
+
+            Inspiriert von Lucio101<span style="font-size: 0.7em; vertical-align: top; font-weight: 300; opacity: 0.7;">*</span>
+        </div>
+    `,
+                    description: `
+        <div style="position: relative; padding-bottom: 0;">
+            
+            <div style="
+                margin-bottom: 0px; 
+                line-height: 1.5;
+                color: #fff
+            ">
+                Düsterer Berlin-Vibe für tiefe Stimmen. Trockene, direkte Vocals, die eine dunkle Atmosphäre erzeugen. Knackige Kompression sorgt dafür, dass sich der Flow perfekt durch den Beat schneidet.
+            </div>
+
+            <div style="
+                position: absolute;
+                top: 310px;   /* Schiebt ihn optisch unter die Box */
+                left: 505px;
+                width: 100%;
+                pointer-events: none;
+            ">
+                <span style="
+                    font-size: 10px; 
+                    color: #888888; 
+                ">
+                    *Kein offizielles Produkt des Künstlers.
+                </span>
+            </div>
+            
+        </div>
+    `,
+                    tracks: [
+                        { title: "OHNE Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Lucio101/Vorher%20Preview%20-%20Lucio101.mp3" },
+                        { title: "MIT Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Lucio101/Nachher%20Preview%20-%20Lucio101.mp3" }
+                    ]
+                },
+        
+                {
+                    id: "palmen",
+                    name: "PALMEN",
+                    tabImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/raf%20Preset%20Artwork%20Dark%203d%20edit.png", 
+                    mainImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/raf%20Preset%20Artwork%20Dark%203d%20edit.png", 
+                    title: `
+        <div style="position: relative; width: 100%;">
+            
+            <div style="
+                position: absolute;
+                top: -25px;   /* Zieht das Label etwas höher als den Text */
+                right: -25px;     /* Ganz rechts im Container */
+                background-color: rgb(180, 180, 180);
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 2px;
+                letter-spacing: 0.5px;
+                pointer-events: none;
+                line-height: 1.2;
+                white-space: nowrap; /* Verhindert Umbrüche im Label */
+            ">
+                29€ WERT
+            </div>
+
+            Inspiriert von Raf Camora<span style="font-size: 0.7em; vertical-align: top; font-weight: 300; opacity: 0.7;">*</span>
+        </div>
+    `,
+                    description: `
+        <div style="position: relative; padding-bottom: 0;">
+            
+            <div style="
+                margin-bottom: 0px; 
+                line-height: 1.5;
+                color: #fff
+            ">
+                Düster, atmosphärisch und tanzbar. Die perfekte Mischung aus Druck und Räumlichkeit für den epischen Dancehall-Rap-Sound. Bringt die nötige Breite und epische Tiefe in deine Stimme.
+            </div>
+
+            <div style="
+                position: absolute;
+                top: 310px;   /* Schiebt ihn optisch unter die Box */
+                left: 505px;
+                width: 100%;
+                pointer-events: none;
+            ">
+                <span style="
+                    font-size: 10px; 
+                    color: #888888; 
+                ">
+                    *Kein offizielles Produkt des Künstlers.
+                </span>
+            </div>
+            
+        </div>
+    `,
+                    tracks: [
+                        { title: "OHNE Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Raf%20Camora/Vorher%20Preview%20-%20Raf%20Camora.mp3" },
+                        { title: "MIT Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Raf%20Camora/Nachher%20Preview%20-%20Raf%20Camora1.mp3" }
+                    ]
+                },
+                {
+                    id: "zahnlücke",
+                    name: "ZAHNLÜCKE",
+                    tabImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/makko%20preset%20artwork%20dark%203d%20edit.png", 
+                    mainImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/makko%20preset%20artwork%20dark%203d%20edit.png", 
+                    title: `
+        <div style="position: relative; width: 100%;">
+            
+            <div style="
+                position: absolute;
+                top: -25px;   /* Zieht das Label etwas höher als den Text */
+                right: -25px;     /* Ganz rechts im Container */
+                background-color: rgb(180, 180, 180);
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 2px;
+                letter-spacing: 0.5px;
+                pointer-events: none;
+                line-height: 1.2;
+                white-space: nowrap; /* Verhindert Umbrüche im Label */
+            ">
+                29€ WERT
+            </div>
+
+            Inspiriert von Makko<span style="font-size: 0.7em; vertical-align: top; font-weight: 300; opacity: 0.7;">*</span>
+        </div>
+    `,
+                    description: `
+        <div style="position: relative; padding-bottom: 0;">
+            
+            <div style="
+                margin-bottom: 0px; 
+                line-height: 1.5;
+                color: #fff
+            ">
+                Chillige Skate-Vibes. Ein natürlicher Sound mit warme Mitten und entspannter Kompression für den authentischen Makko-Sound. Klingt 'feel good', aber mit melancholischem Unterton.
+            </div>
+
+            <div style="
+                position: absolute;
+                top: 310px;   /* Schiebt ihn optisch unter die Box */
+                left: 505px;
+                width: 100%;
+                pointer-events: none;
+            ">
+                <span style="
+                    font-size: 10px; 
+                    color: #888888; 
+                ">
+                    *Kein offizielles Produkt des Künstlers.
+                </span>
+            </div>
+            
+        </div>
+    `,
+                    tracks: [
+                        { title: "OHNE Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Makko/Makko%20Preview%20-%20Vorher.mp3" },
+                        { title: "MIT Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Makko/vorhernachherpreview_Makko_nachher3.mp3" }
+                    ]
+                },
+                 {
+                    id: "feuer",
+                    name: "FEUER",
+                    tabImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Faroon%20Preset%20Artwork%20Dark%203d%20edit.png",
+                    mainImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Faroon%20Preset%20Artwork%20Dark%203d%20edit.png",
+                    title: `
+        <div style="position: relative; width: 100%;">
+            
+            <div style="
+                position: absolute;
+                top: -25px;   /* Zieht das Label etwas höher als den Text */
+                right: -25px;     /* Ganz rechts im Container */
+                background-color: rgb(180, 180, 180);
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 2px;
+                letter-spacing: 0.5px;
+                pointer-events: none;
+                line-height: 1.2;
+                white-space: nowrap; /* Verhindert Umbrüche im Label */
+            ">
+                29€ WERT
+            </div>
+
+            Inspiriert von Faroon<span style="font-size: 0.7em; vertical-align: top; font-weight: 300; opacity: 0.7;">*</span>
+        </div>
+    `,
+                    description: `
+        <div style="position: relative; padding-bottom: 0;">
+            
+            <div style="
+                margin-bottom: 0px; 
+                line-height: 1.5;
+                color: #fff
+            ">
+                Futuristischer US-Trap Vibe. Moderner Chorus-Sound trifft auf atmosphärische Adlibs. Breite Reverbs und Delays sorgen in Kombination mit dem präsenten Grundsound für eine internationale, sphärische Atmosphäre.
+            </div>
+
+            <div style="
+                position: absolute;
+                top: 310px;   /* Schiebt ihn optisch unter die Box */
+                left: 505px;
+                width: 100%;
+                pointer-events: none;
+            ">
+                <span style="
+                    font-size: 10px; 
+                    color: #888888; 
+                ">
+                    *Kein offizielles Produkt des Künstlers.
+                </span>
+            </div>
+            
+        </div>
+    `,
+                    tracks: [
+                        { title: "OHNE Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Faroon/Vorher%20Preview%20-%20Faroon.mp3" },
+                        { title: "MIT Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Faroon/Nachher%20Preview%20-%20Faroon.mp3" }
+                    ]
+                },
+                {
+                    id: "newera",
+                    name: "NEW ERA",
+                    tabImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Luis%20Preset%20Artwork%20Dark%203d%20edit.png",
+                    mainImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Luis%20Preset%20Artwork%20Dark%203d%20edit.png",
+                    title: `
+        <div style="position: relative; width: 100%;">
+            
+            <div style="
+                position: absolute;
+                top: -25px;   /* Zieht das Label etwas höher als den Text */
+                right: -25px;     /* Ganz rechts im Container */
+                background-color: rgb(180, 180, 180);
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 2px;
+                letter-spacing: 0.5px;
+                pointer-events: none;
+                line-height: 1.2;
+                white-space: nowrap; /* Verhindert Umbrüche im Label */
+            ">
+                29€ WERT
+            </div>
+
+            Inspiriert von Luis<span style="font-size: 0.7em; vertical-align: top; font-weight: 300; opacity: 0.7;">*</span>
+        </div>
+    `,
+                   description: `
+        <div style="position: relative; padding-bottom: 0;">
+            
+            <div style="
+                margin-bottom: 0px; 
+                line-height: 1.5;
+                color: #fff
+            ">
+                New Wave Ästhetik. Luftige Höhen und moderne Effekte für experimentelle Flows. Ideal für melodische Parts, die modern, ein bisschen futuristisch und sehr sauber klingen sollen.
+            </div>
+
+            <div style="
+                position: absolute;
+                top: 310px;   /* Schiebt ihn optisch unter die Box */
+                left: 505px;
+                width: 100%;
+                pointer-events: none;
+            ">
+                <span style="
+                    font-size: 10px; 
+                    color: #888888; 
+                ">
+                    *Kein offizielles Produkt des Künstlers.
+                </span>
+            </div>
+            
+        </div>
+    `,
+                    tracks: [
+                        { title: "OHNE Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Luis/Vorher%20Preview%20-%20Luis.mp3" },
+                        { title: "MIT Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Luis/Nachher%20Preview%20-%20Luis.mp3" }
+                    ]
+                },
+                {
+                    id: "cataleya",
+                    name: "CATALEYA",
+                    tabImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Samra%20preset%20artwork%20dark%203d%20edit.png",
+                    mainImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Samra%20preset%20artwork%20dark%203d%20edit.png",
+                    title: `
+        <div style="position: relative; width: 100%;">
+            
+            <div style="
+                position: absolute;
+                top: -25px;   /* Zieht das Label etwas höher als den Text */
+                right: -25px;     /* Ganz rechts im Container */
+                background-color: rgb(180, 180, 180);
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 2px;
+                letter-spacing: 0.5px;
+                pointer-events: none;
+                line-height: 1.2;
+                white-space: nowrap; /* Verhindert Umbrüche im Label */
+            ">
+                29€ WERT
+            </div>
+
+            Inspiriert von Samra<span style="font-size: 0.7em; vertical-align: top; font-weight: 300; opacity: 0.7;">*</span>
+        </div>
+    `,
+                    description: `
+        <div style="position: relative; padding-bottom: 0;">
+            
+            <div style="
+                margin-bottom: 0px; 
+                line-height: 1.5;
+                color: #fff
+            ">
+                Aggressiv und direkt. Maximale Power für raue Stimmen und Straßenrap. Starke Kompression und Sättigung sorgen dafür, dass deine Parts mit roher Energie ganz weit nach vorne gemischt werden.
+            </div>
+
+            <div style="
+                position: absolute;
+                top: 310px;   /* Schiebt ihn optisch unter die Box */
+                left: 505px;
+                width: 100%;
+                pointer-events: none;
+            ">
+                <span style="
+                    font-size: 10px; 
+                    color: #888888; 
+                ">
+                    *Kein offizielles Produkt des Künstlers.
+                </span>
+            </div>
+            
+        </div>
+    `,
+                    tracks: [
+                        { title: "OHNE Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Samra/Vorher%20Preview%20-%20Samra2.mp3" },
+                        { title: "MIT Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/Samra/Nachher%20Preview%20-%20Samra2.mp3" }
+                    ]
+                },
+                
+                {
+                    id: "wemadeit",
+                    name: "WE MADE IT",
+                    tabImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/tlow%20Preset%20Artwork%20Dark%203d%20edit.png",
+                    mainImage: "https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/tlow%20Preset%20Artwork%20Dark%203d%20edit.png",
+                    title: `
+        <div style="position: relative; width: 100%;">
+            
+            <div style="
+                position: absolute;
+                top: -25px;   /* Zieht das Label etwas höher als den Text */
+                right: -25px;     /* Ganz rechts im Container */
+                background-color: rgb(180, 180, 180);
+                color: #000;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 6px 10px;
+                border-radius: 2px;
+                letter-spacing: 0.5px;
+                pointer-events: none;
+                line-height: 1.2;
+                white-space: nowrap; /* Verhindert Umbrüche im Label */
+            ">
+                29€ WERT
+            </div>
+
+            Inspiriert von T-Low<span style="font-size: 0.7em; vertical-align: top; font-weight: 300; opacity: 0.7;">*</span>
+        </div>
+    `,
+                    description: `
+        <div style="position: relative; padding-bottom: 0;">
+            
+            <div style="
+                margin-bottom: 0px; 
+                line-height: 1.5;
+                color: #fff
+            ">
+                Viel Sättigung, viel Atmosphäre - Aber mit klarer Stimme. Der Emo-Rap-Sound mit Delay-Reverb Kombinationen, die deine Vocals fast schon im Beat schweben lassen. Ideal für Melodien.
+            </div>
+
+            <div style="
+                position: absolute;
+                top: 310px;   /* Schiebt ihn optisch unter die Box */
+                left: 505px;
+                width: 100%;
+                pointer-events: none;
+            ">
+                <span style="
+                    font-size: 10px; 
+                    color: #888888; 
+                ">
+                    *Kein offizielles Produkt des Künstlers.
+                </span>
+            </div>
+            
+        </div>
+    `,
+                    tracks: [
+                        { title: "OHNE Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/T-Low/Vorher%20Preview%20-%20T-Low.mp3" },
+                        { title: "MIT Preset", url: "https://artist-pack.b-cdn.net/Audio%20Previews/T-Low/Nachher%20Preview%20-%20T-Low%201.mp3" }
+                    ]
+                },
+            
+        
+            
+            ];
+
+            // --- STATE VARIABLEN ---
+            let activeWavesurfers = []; 
+            let activeIndex = 0; 
+            const tabsContainer = document.getElementById('collectionTabs');
+
+            // --- FUNKTIONEN ---
+            function init() {
+                if(tabsContainer) {
+                    renderTabs();
+                    loadContent(0);
+                }
+            }
+
+            function renderTabs() {
+                tabsContainer.innerHTML = '';
+                collectionsData.forEach((collection, index) => {
+                    const btn = document.createElement('div');
+                    btn.className = `collection-tab ${index === activeIndex ? 'active' : ''}`;
+                    btn.onclick = () => switchTab(index);
+                    btn.innerHTML = `
+                        <div class="tab-image-wrapper">
+                            <img src="${collection.tabImage}" alt="${collection.name}">
+                        </div>
+                        <span class="tab-name">${collection.name}</span>
+                    `;
+                    tabsContainer.appendChild(btn);
+                });
+            }
+
+            function switchTab(index) {
+                if (index === activeIndex) return;
+                activeIndex = index;
+                document.querySelectorAll('.collection-tab').forEach((tab, i) => {
+                    if (i === index) tab.classList.add('active');
+                    else tab.classList.remove('active');
+                });
+                const displayArea = document.getElementById('displayArea');
+                displayArea.style.opacity = 0;
+                setTimeout(() => {
+                    loadContent(index);
+                    displayArea.style.opacity = 1;
+                }, 200);
+            }
+
+            function loadContent(index) {
+                const data = collectionsData[index];
+                document.getElementById('displayImage').src = data.mainImage;
+                document.getElementById('displayTitle').innerHTML = data.title;
+                document.getElementById('displayText').innerHTML = data.description;
+                destroyOldPlayers();
+                createAudioPlayers(data.tracks);
+            }
+
+            function destroyOldPlayers() {
+                activeWavesurfers.forEach(ws => ws.destroy());
+                activeWavesurfers = [];
+                document.getElementById('audioContainer').innerHTML = '';
+            }
+
+            function createAudioPlayers(tracks) {
+                const audioContainer = document.getElementById('audioContainer');
+                tracks.forEach((track, i) => {
+                    const wrapper = document.createElement("div");
+                    wrapper.classList.add("waveformSet");
+                    const uniqueId = `wave-${Date.now()}-${i}`;
+                    wrapper.innerHTML = `
+                        <div class="wave-row">
+                            <i class="fas fa-play play-btn-icon" id="btn-${uniqueId}"></i>
+                            <div class="waveformContainer" id="${uniqueId}"></div>
+                        </div>
+                        <div class="wave-title">${track.title}</div>
+                    `;
+                    audioContainer.appendChild(wrapper);
+
+                    const ws = WaveSurfer.create({
+                        container: `#${uniqueId}`,
+                        waveColor: "#555",
+                        progressColor: "#fff", 
+                        height: 40,
+                        hideScrollbar: true,
+                        cursorWidth: 0,
+                        url: track.url,
+                    });
+
+                    const btn = document.getElementById(`btn-${uniqueId}`);
+                    ws.on('finish', () => {
+                        ws.seekTo(0);
+                        btn.classList.remove("fa-pause");
+                        btn.classList.add("fa-play");
+                    });
+                    btn.addEventListener("click", () => {
+                        activeWavesurfers.forEach(otherWs => {
+                            if (otherWs !== ws) otherWs.pause();
+                        });
+                        document.querySelectorAll('.play-btn-icon').forEach(b => {
+                            if(b !== btn) {
+                                b.classList.remove("fa-pause");
+                                b.classList.add("fa-play");
+                            }
+                        });
+                        if (ws.isPlaying()) {
+                            ws.pause();
+                            btn.classList.remove("fa-pause");
+                            btn.classList.add("fa-play");
+                        } else {
+                            ws.play();
+                            btn.classList.remove("fa-play");
+                            btn.classList.add("fa-pause");
+                        }
+                    });
+                    activeWavesurfers.push(ws);
+                });
+            }
+
+            // TABS STARTEN
+            init();
+
+
+            // ############################################################
+            // TEIL B: HERO PLAYER (Dein großer Player oben)
+            // ############################################################
+            if(document.getElementById('heroWaveform')) {
+                const heroWave = WaveSurfer.create({
+                    container: '#heroWaveform',
+                    waveColor: '#808080',   // Dein gewünschtes Grau
+                    progressColor: '#ebebeb', // Dein gewünschtes Hellgrau
+                    height: 60,
+                    cursorWidth: 0,
+                    responsive: true,
+                    url: 'https://artist-pack.b-cdn.net/Audio%20Previews/Mashup/Preset%20Demo%20Mashup.mp3' 
+                });
+
+                const heroBtn = document.getElementById('heroPlayBtn');
+                if(heroBtn) {
+                    const heroIcon = heroBtn.querySelector('i');
+                    heroBtn.addEventListener('click', () => {
+                        heroWave.playPause();
+                    });
+                    heroWave.on('play', () => {
+                        heroIcon.classList.remove('fa-play');
+                        heroIcon.classList.add('fa-pause');
+                        // Andere Player stoppen
+                        activeWavesurfers.forEach(ws => ws.pause());
+                    });
+                    heroWave.on('pause', () => {
+                        heroIcon.classList.remove('fa-pause');
+                        heroIcon.classList.add('fa-play');
+                    });
+                    heroWave.on('finish', () => {
+                        heroWave.seekTo(0);
+                        heroIcon.classList.remove('fa-pause');
+                        heroIcon.classList.add('fa-play');
+                    });
+                }
+            }
+
+
+            // ############################################################
+            // TEIL C: SLIDER / SWIPER LOGIK
+            // ############################################################
+            
+            // 1. MOBILE HIGHLIGHT SLIDER (Referenzen oben)
+            if(document.querySelector(".highlight-swiper-mobile")) {
+                new Swiper(".highlight-swiper-mobile", {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    loop: true,
+                    observer: true,
+                    observeParents: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: ".highlight-swiper-mobile .swiper-pagination",
+                        clickable: true,
+                    },
+                });
+            }
+
+        
+
+
+            // ############################################################
+            // TEIL D: FAQs
+            // ############################################################
+            const faqItems = document.querySelectorAll(".faq-item");
+            if (faqItems.length > 0) {
+                faqItems.forEach((item) => {
+                    const question = item.querySelector(".faq-question");
+                    const answer = item.querySelector(".faq-answer");
+                    if (question && answer) {
+                        answer.style.maxHeight = "0px";
+                        question.addEventListener("click", () => {
+                            const isOpen = item.classList.contains("is-open");
+                            faqItems.forEach((i) => {
+                                if (i !== item) {
+                                    i.classList.remove("is-open");
+                                    const otherAnswer = i.querySelector(".faq-answer");
+                                    if (otherAnswer) otherAnswer.style.maxHeight = "0px";
+                                }
+                            });
+                            if (isOpen) {
+                                item.classList.remove("is-open");
+                                answer.style.maxHeight = "0px";
+                            } else {
+                                item.classList.add("is-open");
+                                answer.style.maxHeight = answer.scrollHeight + "px";
+                            }
+                        });
+                    }
+                });
+            }
+
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // 1. UNSER PRESET SCROLLER
+    new Swiper('.single-presets-swiper', {
+        slidesPerView: 1,       // Handy: 1 Bild
+        spaceBetween: 20,
+        loop: false,
+        
+        // Pfeile verbinden
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // Responsive: Hier sagen wir "Mach mehr Bilder auf PC"
+        breakpoints: {
+            600: { slidesPerView: 2 },
+            900: { slidesPerView: 3 },
+            1200: { slidesPerView: 5 } // Desktop: 5 Bilder nebeneinander!
+        }
+    });
+
+
+    // 2. NEU HINZUGEFÜGT: REVIEWS SWIPER (VON HOMEPAGE)
+    const reviewsSwiper = new Swiper('.reviews-swiper', {
+        slidesPerView: 3,
+        slidesPerGroup: 3, 
+        spaceBetween: 30,
+        loop: false,
+        speed: 800,
+        grabCursor: true,
+
+        navigation: {
+            nextEl: '.review-next',
+            prevEl: '.review-prev',
+        },
+
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 25,
+            },
+            1024: {
+                slidesPerView: 3,
+                slidesPerGroup: 3,
+                spaceBetween: 30,
+            }
+        }
+    });
+
+
+    // 3. (Optional) Dein Highlight Slider oben - falls du ihn noch brauchst
+    if(document.querySelector(".highlight-swiper-mobile")) {
+        new Swiper(".highlight-swiper-mobile", {
+            slidesPerView: 1, spaceBetween: 20, loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true }
+        });
+    }
+
+    
+
+});
+</script>
+<script>
+    function openDaw(evt, dawName) {
+        var i, tabcontent, tablinks;
+
+        // 1. Alle Bilder ausblenden
+        tabcontent = document.getElementsByClassName("daw-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove("active-content");
+        }
+
+        // 2. Allen Tabs den Status "active" wegnehmen
+        tablinks = document.getElementsByClassName("daw-tab");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // 3. Das gewählte Bild anzeigen
+        document.getElementById(dawName).style.display = "block";
+        
+        // 4. Dem geklickten Tab den Status "active" geben
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+
+
+</body>
+</html>

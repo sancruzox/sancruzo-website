@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/2b5f1636998793759d736ce40b60247d.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mix & Master Service | San Cruzo</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="icon" type="image/png" href="https://sancruzowebsite.b-cdn.net/S-Blitz%20Logo%20Design%202024.png">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+   <nav class="main-nav">
+    <div class="container nav-wrapper">
+        
+        <a href="https://sancruzo.de/" class="nav-logo">
+            <img src="https://sancruzowebsite.b-cdn.net/S-Blitz%20Logo%20Design%202024.png" alt="San Cruzo Logo">
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="https://sancruzo.de/presets/">Vocal Presets</a></li>
+            <li><a href="https://sancruzo.de/vocalkurs/">Vocal Mixing Kurs</a></li>
+            <li><a href="https://sancruzo.de/mixmaster/">Mix & Master Service</a></li>
+            </ul>
+
+        <a href="/cart" class="nav-cart">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+  <circle cx="9" cy="21" r="1"></circle>
+  <circle cx="20" cy="21" r="1"></circle>
+  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+</svg>
+            </a>
+
+        </div>
+    </nav>
+
+    <header class="service-hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="container">
+            <div class="hero-content text-center">
+                <h1 class="hero-title">MIXING<br>& MASTERING</h1>
+                <p class="hero-desc">
+                    Ich hole das Beste aus deinen Rohaufnahmen heraus. Handgemacht, detailverliebt und bereit für den Release.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#pricing" class="btn-main">PREISE ANSEHEN</a>
+                    <a href="#process" class="btn-secondary">WIE ES FUNKTIONIERT</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+   <section id="demos" class="section-demos">
+    <div class="container">
+        
+        <div class="section-header text-center">
+            <h2 class="section-title">Hör den Unterschied</h2>
+            <p class="section-sub">Vergleiche Rohaufnahme vs. Finaler Mix</p>
+        </div>
+
+        <div class="display-content-box mx-auto" style="max-width: 800px;">
+            
+            <div id="mixing-demo-container" class="audio-list"></div>
+
+        </div>
+
+    </div>
+</section>
+
+    <section id="pricing" class="section-pricing">
+    <div class="container">
+        
+        <div class="pricing-grid">
+            
+            <div class="pricing-card">
+                <div class="plan-icon"><i class="fas fa-laptop-code"></i></div>
+                
+                <h3 class="plan-title">MASTERING</h3>
+                
+                <div class="price-wrapper">
+                    <span class="amount">65€</span>
+                    <span class="period">PRO SONG</span>
+                </div>
+                
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> 1-Track Mastering</li>
+                    <li><i class="fas fa-check"></i> Stem Mastering</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Mixing</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Kreative Effekte</li>
+                </ul>
+                
+                <button onclick="selectService('Mastering (49€)')" class="btn-outline full-width">JETZT BUCHEN</button>
+            </div>
+
+            <div class="pricing-card highlight">
+                <span class="badge-popular">BELIEBT</span>
+                
+                <div class="plan-icon"><i class="fas fa-microphone-lines"></i></div>
+                
+                <h3 class="plan-title">VOCAL MIXING</h3>
+                
+                <div class="price-wrapper">
+                    <span class="amount">160€</span>
+                    <span class="period">PRO SONG</span>
+                </div>
+                
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Vocal Mixing</li>
+                    <li><i class="fas fa-check"></i> Mastering</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Instrumental Mixing</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Melodyne gegen Gebühr</li>
+                </ul>
+                
+                <button onclick="selectService('Vocal Mixing (129€)')" class="btn-main full-width">JETZT BUCHEN</button>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-icon"><i class="fas fa-sliders"></i></div>
+                
+                <h3 class="plan-title">MIXING & MASTERING</h3>
+                
+                <div class="price-wrapper">
+                    <span class="amount">250€</span>
+                    <span class="period">PRO SONG</span>
+                </div>
+                
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Vocal Mixing</li>
+                    <li><i class="fas fa-check"></i> Instrumental Mixing</li>
+                    <li><i class="fas fa-check"></i> Melodyne</li>
+                    <li><i class="fas fa-check"></i> Mastering</li>
+                </ul>
+                
+                <button onclick="selectService('Full Stem Mixing (199€)')" class="btn-outline full-width">JETZT BUCHEN</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="creator">
+    <div class="creator-inner">
+      <div class="creator-photo">
+        <img src="https://email-kurs-page.b-cdn.net/Robin%202025%20(Gelber%20HG%20v3).jpg" alt="San Cruzo">
+      </div>
+      <div class="creator-copy">
+        <h2>Arbeite mit San Cruzo, der …</h2>
+        <ul class="creator-list">
+          <li>18+ Mio Streams auf seinen Mixes für Artists erreicht hat</li>
+          <li>sich die letzten Jahre obsessiv dem Thema Mixing gewidmet hat</li>
+          <li>Insgesamt über 65.000 Follower mit seinem Wissen überzeugt hat</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="highlight-section">
+    <h3>Erfolgreiche Künstler & Marken vertrauen auf meine Arbeit</h3>
+    <h4>Meine Mixing Highlights</h4>
+
+    <div class="highlight-scroller desktop-only">
+      <div class="highlight-track">
+        <img src="https://pvpp-images.b-cdn.net/Mixing-Highlights/references-bassa2.png" class="highlight-item" alt="Bassa 2" />
+
+        <a href="https://open.spotify.com/intl-de/track/0q3jXMMN5XZCHexSPkWipH?si=31b382c7d0b046e3" target="_blank">
+          <img src="https://pvpp-images.b-cdn.net/Mixing-Highlights/references-nadiife.png" class="highlight-item" alt="Nadiife" />
+        </a>
+
+        <a href="https://open.spotify.com/intl-de/track/4s51pU4PIcoReTay8pluzo?si=fd1e9eb0c9934075" target="_blank">
+          <img src="https://pvpp-images.b-cdn.net/Mixing-Highlights/References-caney1c.png" class="highlight-item" alt="Caney 1" />
+        </a>
+
+        <a href="https://open.spotify.com/intl-de/track/4pHrsUucnIfuustV09VXKb?si=1467b6e619194cc4" target="_blank">
+          <img src="https://pvpp-images.b-cdn.net/Mixing-Highlights/References-caney2d.png" class="highlight-item" alt="Caney 2" />
+        </a>
+
+        <a href="https://open.spotify.com/intl-de/track/7t2C6805FQYU31zoQCA2Gl?si=2397c1eb66fe409d" target="_blank">
+          <img src="https://pvpp-images.b-cdn.net/Mixing-Highlights/references-bassa.png" class="highlight-item" alt="Bassa" />
+        </a>
+      </div>
+    </div>
+
+    <div class="swiper highlight-swiper-mobile mobile-only">
+      <div class="swiper-wrapper">
+          <div class="swiper-slide">
+              <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-highlight-section/highlight-1.png" class="highlight-item img-fluid" alt="Bassa 2" />
+          </div>
+          <div class="swiper-slide">
+              <a href="https://open.spotify.com/intl-de/track/0q3jXMMN5XZCHexSPkWipH?si=31b382c7d0b046e3" target="_blank">
+                  <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-highlight-section/highlight-2.png" class="highlight-item img-fluid" alt="Nadiife" />
+              </a>
+          </div>
+          <div class="swiper-slide">
+              <a href="https://open.spotify.com/intl-de/track/4s51pU4PIcoReTay8pluzo?si=fd1e9eb0c9934075" target="_blank">
+                  <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-highlight-section/highlight-3.png" class="highlight-item img-fluid" alt="Caney 1" />
+              </a>
+          </div>
+          <div class="swiper-slide">
+              <a href="https://open.spotify.com/intl-de/track/7t2C6805FQYU31zoQCA2Gl?si=2397c1eb66fe409d" target="_blank">
+                  <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-highlight-section/highlight-4.png" class="highlight-item img-fluid" alt="Bassa" />
+              </a>
+          </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+
+  <section class="brand-strip">
+    <p class="brand-strip__label">
+      Firmen mit denen ich gearbeitet habe
+    </p>
+
+    <div class="brand-strip__logos desktop-only">
+      <img src="https://pvpp-images.b-cdn.net/Brand-Karussell/Brandkarussel%20Remastered%20v3.png" alt="Logos von Meta, Adobe, Spotify">
+    </div>
+
+    <div class="brand-strip-marquee mobile-only">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-1.png" alt="Brand 1" class="brandstrip-mobile-item logo-gross" />
+                <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-2.png" alt="Brand 2" class="brandstrip-mobile-item logo-klein" />
+                <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-3.png" alt="Brand 3" class="brandstrip-mobile-item" />
+                
+                <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-1.png" alt="Brand 1" class="brandstrip-mobile-item logo-gross" />
+                <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-2.png" alt="Brand 2" class="brandstrip-mobile-item logo-klein" />
+                <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-3.png" alt="Brand 3" class="brandstrip-mobile-item" />
+                
+                 <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-1.png" alt="Brand 1" class="brandstrip-mobile-item logo-gross" />
+                 <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-2.png" alt="Brand 2" class="brandstrip-mobile-item logo-klein" />
+                 <img src="https://pvpp-images.b-cdn.net/Mobile/mobile-brandstrip/brandstrip-3.png" alt="Brand 3" class="brandstrip-mobile-item" />
+            </div>
+        </div>
+    </div>
+  </section>
+
+    <section id="process" class="section-process">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-title">Die nächsten Schritte</h2>
+        </div>
+        
+        <div class="process-steps">
+            
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-envelope-open-text"></i></div>
+                <h4>1. AUFTRAG</h4>
+                <p>Fülle einfach die Felder im Kontaktformular aus, klicke auf "Senden" und lehn dich zurück. Ich melde mich schnellstmöglich bei dir. Keine Angst, hier ist noch keine Zahlung fällig.</p>
+            </div>
+
+            <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                <h4>2. BEZAHLUNG</h4>
+                <p>Nachdem ich deinen Auftrag erhalten und gesichtet habe, melde ich mich bei dir um die letzten Details zu besprechen und sende dir eine Rechnung mit allen Details zur Zahlung.</p>
+            </div>
+
+            <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-sliders-h"></i></div>
+                <h4>3. LET'S GO!</h4>
+                <p>Nachdem die Zahlung eingegangen ist, beginne ich mit deinem Song. Je nach Projekt kannst du innerhalb von 3-7 Werktagen mit deinem fertigen Song rechnen.</p>
+            </div>
+
+            <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+
+            <div class="step">
+                <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
+                <h4>4. REVISION</h4>
+                <p>Im Preis inbegriffen sind drei Revisionsphasen, in denen du mir alle deine Änderungswünsche äußern kannst, damit der Song genau so wird, wie du ihn dir vorstellst.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="references" class="section-references">
+    <div class="container">
+        
+        <div class="section-header text-center">
+            <h2 class="section-title">Mehr Referenzen</h2>
+            <p class="section-sub">Check meine Mixing Highlights auf Spotify</p>
+        </div>
+
+        <div class="display-content-box mx-auto" style="max-width: 800px;">
+    
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/62Bzno5cUkbqhcxjP12oCN?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+    <p class="spotify-note">
+        <i class="fas fa-info-circle"></i> Hinweis: Für die beste Audioqualität direkt auf Spotify hören.
+    </p>
+
+</div>
+
+    </div>
+</section>
+
+<section id="contact" class="section-contact">
+    <div class="container">
+        <div class="contact-wrapper">
+            <h2 class="contact-heading">Dein Auftrag für mich</h2>
+            
+            <form action="https://formspree.io/f/mykwlypg" method="POST" class="contact-form">
+                
+                <div class="form-group full-width">
+                    <div class="select-wrapper">
+                        <select name="service" id="service-select" required>
+                            <option value="" disabled selected>Wähle deinen Service...</option>
+                            <option value="Mastering (49€)">Mastering (65€)</option>
+                            <option value="Vocal Mixing (129€)">Vocal Mixing (160€)</option>
+                            <option value="Full Stem Mixing (199€)">Mixing & Mastering (250€)</option>
+                            <option value="Andere Anfrage">Andere Anfrage</option>
+                        </select>
+                        <i class="fas fa-chevron-down select-icon"></i>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="E-Mail *" required>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <input type="tel" name="phone" placeholder="Telefonnummer">
+                </div>
+
+                <div class="form-group full-width">
+                    <input type="url" name="reference" placeholder="Hast du einen Referenz Song? (Link)">
+                </div>
+
+                <div class="form-group full-width">
+                    <input type="url" name="files" placeholder="Deine Dateien (Link zu WeTransfer/Dropbox/Drive)">
+                </div>
+
+                <div class="form-group full-width">
+                    <textarea name="message" rows="5" placeholder="Kommentar"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">SENDEN</button>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-row d-flex justify-content-center align-items-center flex-wrap">
+                        <p class="footer-copy">© 2026, San Cruzo</p>
+                        <span class="dot d-none d-lg-inline">•</span>
+
+                        <div class="footer-links d-flex align-items-center flex-wrap">
+                            <a href="https://sancruzo.de/agb">AGB</a>
+                            <span class="dot">•</span>
+
+                            <a href="https://sancruzo.de/datenschutz">Datenschutzerklärung</a>
+                            <span class="dot">•</span>
+
+                            <a href="https://sancruzo.de/widerruf">Widerrufsbelehrung</a>
+                            <span class="dot">•</span>
+
+                            <a href="https://sancruzo.de/impressum">Impressum</a>
+                            <span class="dot">•</span>
+
+                            <a href="https://sancruzo.de/kontakt">Kontakt</a>
+                            <span class="dot">•</span>
+
+                            <a href="#" onclick="CookieScript.instance.show(); return false;">Cookies verwalten</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    
+    // 1. Deine Tracks definieren
+    const demoTracks = [
+        { 
+            title: "Rohaufnahme", 
+            url: "https://sancruzowebsite.b-cdn.net/Mix%20%26%20Master/Audio-Demo/Levin%20Liam%20Preview%20-%20Vorher.mp3" 
+        },
+        { 
+            title: "Finaler Mix & Master", 
+            url: "https://sancruzowebsite.b-cdn.net/Mix%20%26%20Master/Audio-Demo/Levin%20Liam%20Preview%20-%20Nachher.mp3" 
+        }
+    ];
+
+    const container = document.getElementById('mixing-demo-container');
+    let activeWavesurfers = [];
+
+    if (container) {
+        demoTracks.forEach((track, index) => {
+            // HTML Struktur erstellen (Artist Page Aufbau)
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("waveformSet");
+            const uniqueId = `mix-wave-${index}`;
+            
+            wrapper.innerHTML = `
+                <div class="wave-row">
+                    <i class="fas fa-play play-btn-icon" id="btn-${uniqueId}"></i>
+                    <div class="waveformContainer" id="${uniqueId}"></div>
+                </div>
+                <div class="wave-title">${track.title}</div>
+            `;
+            container.appendChild(wrapper);
+
+            // WaveSurfer erstellen
+            const ws = WaveSurfer.create({
+                container: `#${uniqueId}`,
+                waveColor: "#555",       
+                progressColor: "#fff",   // Weißer Progress wie auf Artist Page
+                height: 40,              // Höhe wie Artist Page
+                hideScrollbar: true,
+                cursorWidth: 0,
+                url: track.url,
+            });
+
+            // Button Logik
+            const btn = document.getElementById(`btn-${uniqueId}`);
+            
+            ws.on('finish', () => {
+                ws.seekTo(0);
+                btn.classList.remove("fa-pause");
+                btn.classList.add("fa-play");
+            });
+
+            btn.addEventListener("click", () => {
+                // Andere stoppen
+                activeWavesurfers.forEach(otherWs => {
+                    if (otherWs !== ws) otherWs.pause();
+                });
+                
+                // Icons aller Buttons resetten
+                document.querySelectorAll('.play-btn-icon').forEach(b => {
+                    if(b !== btn) {
+                        b.classList.remove("fa-pause");
+                        b.classList.add("fa-play");
+                    }
+                });
+
+                if (ws.isPlaying()) {
+                    ws.pause();
+                    btn.classList.remove("fa-pause");
+                    btn.classList.add("fa-play");
+                } else {
+                    ws.play();
+                    btn.classList.remove("fa-play");
+                    btn.classList.add("fa-pause");
+                }
+            });
+
+            activeWavesurfers.push(ws);
+        });
+    }
+});
+</script>
+
+<script>
+    function selectService(serviceValue) {
+        // 1. Dropdown Element finden
+        const dropdown = document.getElementById('service-select');
+        
+        // 2. Wert setzen
+        if(dropdown) {
+            dropdown.value = serviceValue;
+        }
+
+        // 3. Smooth zum Formular scrollen
+        const contactSection = document.getElementById('contact');
+        if(contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
+
+</body>
+</html>
