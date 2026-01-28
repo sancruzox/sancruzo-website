@@ -1,0 +1,766 @@
+/* --- GLOBAL --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background-color: #181818; color: #fff; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* --- NAVIGATION BAR STYLES --- */
+
+.nav-logo img {
+    height: 40px; /* Anpassen: 40px, 50px oder 60px – je nachdem wie groß du es willst */
+    width: auto;  /* Behält das Seitenverhältnis bei */
+    display: block; /* Verhindert ungewollte Lücken unter dem Bild */
+}
+
+.main-nav {
+    /* HIER DIE ÄNDERUNG: */
+    position: relative; /* Statt 'sticky' oder 'fixed' */
+    
+    /* 'top: 0' brauchst du nicht mehr zwingend, stört aber auch nicht */
+    
+    z-index: 1000; 
+    
+    /* Der Rest bleibt gleich */
+    background: rgba(36, 37, 40, 0.9); 
+    backdrop-filter: blur(10px); 
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05); 
+}
+
+/* --- NAVIGATION CONTAINER --- */
+.nav-wrapper {
+    position: relative; /* WICHTIG: Referenzpunkt für die Mitte */
+    display: flex;
+    justify-content: space-between; /* Drückt Logo nach links, Cart nach rechts */
+    align-items: center;
+}
+
+/* --- LOGO --- */
+.nav-logo {
+    margin: 0; /* Kein margin-auto mehr nötig */
+    z-index: 10; /* Damit es klickbar bleibt */
+}
+
+.nav-logo img { height: 35px; width: auto; display: block; }
+
+/* MENÜ LINKS */
+.nav-links {
+    display: flex;
+    list-style: none; /* Keine Punkte */
+    gap: 40px; /* Abstand zwischen den Worten */
+    margin: 0;
+    padding: 0;
+    margin-right: 300px;
+}
+
+/* Basis-Style für die Links */
+.nav-links li a {
+    color: #c2c2c2;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400; /* 600 ist schön kräftig, 400 wäre dünner */
+    letter-spacing: 0; 
+    /*text-transform: uppercase; */
+    
+    /* TRICK: Wir setzen eine unsichtbare Linie (transparent),
+       damit der Platz schon reserviert ist. */
+    border-bottom: 0.5px solid transparent;
+    padding-bottom: 0px; /* Abstand zwischen Wort und Strich */
+    
+    transition: all 0.3s ease;
+}
+
+/* Hover-Effekt: Linie und Text werden gelb */
+.nav-links li a:hover {
+    color: #ffffff; /* Deine Gelb-Farbe */
+   border-color: #ffffff; /* Macht die transparente Linie sichtbar */
+}
+
+/* Active-Klasse (falls du anzeigen willst, wo man gerade ist) */
+.nav-links li a.active {
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* --- MOBILE ANPASSUNG (Einfach: Links untereinander) --- */
+@media (max-width: 768px) {
+    .nav-wrapper {
+        flex-direction: column; /* Untereinander statt nebeneinander */
+        gap: 15px;
+    }
+    
+    .nav-links {
+        gap: 20px;
+        font-size: 0.8rem;
+    }
+}
+
+/* --- WARENKORB (Rechts) --- */
+.nav-cart {
+    color: #efefef;
+    font-size: 1.1rem;
+    z-index: 10;
+    /* Optional: Abstand zum rechten Rand, falls gewünscht */
+    /* margin-right: 10px; */ 
+}
+
+/* --- DAS MENÜ (Exakt Zentriert) --- */
+/* Nur auf Desktop anwenden, sonst Crash auf Handy */
+@media (min-width: 769px) {
+    .nav-links {
+        position: absolute; /* Löst es heraus */
+        left: 50%;          /* Startet in der Mitte */
+        transform: translateX(-50%); /* Schiebt es um die eigene Hälfte zurück -> EXAKTE MITTE */
+        
+        display: flex;
+        gap: 40px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap; /* Verhindert Umbrüche */
+    }
+}
+
+/* --- MOBILE FALLBACK (Damit Handy noch geht) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        position: static; /* Normales Verhalten zurück */
+        transform: none;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .nav-wrapper {
+        flex-direction: column;
+    }
+}
+
+
+
+/* --- HERO SIMPLE (Deine Wunsch-Struktur) --- */
+
+
+/* 1. TEXT LINKSBÜNDIG */
+.hero-text-block {
+    text-align: left; /* Hart linksbündig */
+    max-width: 800px; /* Damit der Text bei riesigen Bildschirmen nicht zu lang wird */
+    margin-bottom: 50px; /* Abstand zum Bild darunter */
+}
+
+.hero-sub { display: block; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: #b1b1b1; margin-bottom: 30px; font-weight: 400; }
+
+.hero-title { 
+    font-size: 2.5rem; 
+    line-height: 1.1; color: #fff; 
+    margin-bottom: 25px; 
+    font-weight: 600; 
+}
+
+.hero-desc { color: #ccc; font-size: 1.1rem; line-height: 1.6; margin-bottom: 35px; max-width: 600px; }
+
+.btn-main { display: inline-block; background-color: #efce2b; color: #000; font-weight: 500; padding: 15px 40px; border-radius: 4px; text-decoration: none; text-transform: uppercase; transition: 0.3s; }
+.btn-main:hover { background-color: #ffe055; transform: translateY(0px); }
+
+
+/* 2. BILD ZENTRIERT */
+/* --- HERO SIMPLE --- */
+.hero-simple {
+    padding-top: 60px; /* Abstand zur Navi */
+    background-color: #181818;
+    /* padding-bottom entfernt, damit Bild direkt an die nächste Section anschließt (optional) */
+    padding-bottom: 0; 
+}
+
+/* Text bleibt wie er ist */
+.hero-text-block {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 0px; /* Abstand zum Bild */
+    margin-left: 180px;
+}
+
+/* BILD CONTAINER (Full Width) */
+.hero-image-block {
+    width: 100%;       /* Nimmt die volle Fensterbreite */
+    text-align: center;
+    overflow: hidden;  /* Sicherheitshalber, falls Bild zu breit */
+    line-height: 0;    /* Entfernt oft lästige weiße Linien unter Bildern */
+}
+
+.hero-img {
+    width: 100%;       /* Bild streckt sich auf volle Breite */
+    max-width: 100%;   /* Keine Obergrenze mehr! */
+    height: auto;      /* Höhe passt sich automatisch an */
+    display: block;
+    
+    /* Der Fade-Out Effekt unten (optional) */
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+
+/* --- RESTLICHE SEITE --- */
+.section-categories { padding: 0px 0 80px 0; background: transparent; margin-top: 30px;}
+.category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.cat-box { background: #1e2026; padding: 40px 30px; border-radius: 12px; text-decoration: none; border: 1px solid rgba(255,255,255,0.05); text-align: center; transition: 0.3s; }
+.cat-box:hover { transform: translateY(-3px); border-color: rgba(243, 243, 243, 0.3); }
+.cat-icon { font-size: 2rem; color: #f6d12e; margin-bottom: 20px; }
+.cat-box h3 { color: #fff; font-size: 1.2rem; font-weight: 600; text-transform: uppercase; margin: 0; }
+
+/* --- FOOTER FIX --- */
+.site-footer {
+  background: #151515;
+  padding: 40px 0;
+  color: #ebebeb;
+  margin-top: 80px;
+  font-family: "Montserrat";
+  text-align: center; /* Sicherheitshalber Text global zentrieren */
+}
+
+.site-footer .footer-row {
+  display: flex;
+  justify-content: center; /* WICHTIG: Zentriert alles horizontal */
+  align-items: center;     /* Zentriert alles vertikal */
+  flex-wrap: wrap;         /* Bricht um, wenn Platz fehlt */
+  gap: 15px;               /* Etwas mehr Abstand zwischen Copyright und Links */
+  width: 100%;             /* Nimmt volle Container-Breite */
+}
+
+.site-footer .footer-copy {
+  font-size: 10px;
+  opacity: 0.85;
+  white-space: nowrap;
+  margin-bottom: 0;
+  color: #ebebeb;
+}
+
+/* Container für die Links (AGB, etc.) */
+.site-footer .footer-links {
+  display: flex;
+  justify-content: center; /* Zentriert die Links in ihrem Container */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.site-footer .footer-links a {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 10px;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.site-footer .footer-links a:hover {
+  opacity: 1;
+  border-bottom: 1px solid #ffffff;
+}
+
+.site-footer .dot {
+  opacity: 0.5;
+  font-size: 10px; 
+  margin: 0 5px; /* Abstand um den Punkt */
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .site-footer {
+    margin-top: 60px;
+    padding: 30px 0;
+  }
+  
+  .site-footer .footer-row {
+    flex-direction: column; /* Untereinander auf Handy */
+    gap: 15px;
+  }
+  
+  /* Verstecke den Punkt zwischen Copyright und Links auf Mobile */
+  .site-footer .dot.d-lg-inline {
+      display: none !important; 
+  }
+
+  .site-footer .footer-links {
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-title { font-size: 3rem; }
+    /* Auf Handy Bild volle Breite */
+    .hero-img { max-width: 100%; }
+}
+/* --- SINGLE PRESET SLIDER SECTION --- */
+.section-single-slider {
+    background-color: #181818; 
+    padding: 80px 0;
+    overflow: hidden;
+    gap: 0px;
+}
+
+.single-presets-title {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sub-heading {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.sub-heading strong { color: #f6d12e; }
+
+/* Wrapper für den Slider */
+.single-presets-slider-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px; /* Platz für Pfeile */
+}
+
+.single-presets-swiper {
+    width: 100%;
+    /* Padding oben/unten wichtig, damit der Hover-Effekt (Schatten) nicht abgeschnitten wird */
+    padding: 20px 5px 30px 5px; 
+}
+
+
+/* --- HIER KOMMT DAS DESIGN DER PRODUCT CARDS --- */
+/* (Kopie von deiner Collection-Seite, damit es auch auf der Home funktioniert) */
+
+/* PRODUCT CARD DESIGN */
+.product-card {
+    /* Breite auf 100% setzen, damit sie die Grid-Spalte ausfüllt */
+    width: 100%; 
+    
+    /* Deine alten Styles bleiben: */
+    background: #1c1d21;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+.image-wrapper {
+    /* 1. Flexbox aktiviert die Zentrierung */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 2. Hintergrund transparent oder passend zur Karte */
+    background: transparent; 
+    
+    /* 3. Verhältnis anpassen: Quadratisch (1/1) passt meist besser zu 3D-Boxen */
+    aspect-ratio: 1/1; 
+    
+    /* 4. Etwas Innenabstand, damit die Box nicht am Rand klebt */
+    padding: 15px; 
+    
+    position: relative;
+    overflow: hidden;
+}
+
+.product-img {
+    /* 5. Bild darf nicht verzerrt werden */
+    width: auto;
+    height: auto;
+    
+    /* 6. Maximale Größe begrenzen, damit es im Rahmen bleibt */
+    max-width: 70%;
+    max-height: 70%;
+    
+    /* 7. WICHTIG: 'contain' zeigt das ganze Bild ohne Abschneiden */
+    object-fit: contain; 
+    
+    transition: transform 0.5s ease;
+    
+    /* Optional: Ein schöner Schatten direkt am Bild für 3D-Effekt */
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+}
+
+
+/* Badges (Neu, Bestseller) */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 10px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.badge.new { background: #f6d12e; color: #000; }
+.badge.best { background: #dcdcdc; color: #000; }
+
+/* Info Bereich unten */
+.card-info {
+    padding: 15px; /* Etwas weniger Padding für kompaktere Karten */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    
+    /* HIER GEÄNDERT: Alles zentrieren */
+    text-align: center; 
+    align-items: center; /* Wichtig für Flexbox-Kinder */
+    background-color: #121212;
+}
+
+.product-title {
+    font-size: 0.75rem; /* Schrift minimal kleiner, damit sie in kleine Karten passt */
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.price-row {
+    margin-top: auto;
+    display: flex;
+    
+    /* HIER GEÄNDERT: Nicht mehr 'space-between', sondern 'center' */
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    
+    /* Abstand zwischen Preis und Pfeil-Button */
+    gap: 15px; 
+}
+
+.product-artist {
+    font-size: 0.75rem;
+    color: #9c9c9c;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-weight: 500;
+    color: #9e9e9e;
+    font-size: 0.9rem;
+}
+
+
+/* --- PFEILE ANPASSEN --- */
+.single-presets-slider-wrapper .swiper-button-next,
+.single-presets-slider-wrapper .swiper-button-prev {
+    color: #b1b1b1;
+    background: transparent;
+    transition: all 0.3s;
+    padding: 0 70px;
+
+}
+
+/* 1. Mehr Platz an den Seiten schaffen */
+.single-presets-slider-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    /* HIER ÄNDERN: Von 40px auf 70px oder 80px erhöhen */
+    /* Das drückt die Produkte nach innen und schafft Platz für die Pfeile */
+    padding: 0 70px; 
+}
+
+/* 2. Pfeile nach außen schieben */
+.single-presets-slider-wrapper .swiper-button-prev {
+    /* Linker Pfeil weiter nach links */
+    left: -20px; 
+}
+
+.single-presets-slider-wrapper .swiper-button-next {
+    /* Rechter Pfeil weiter nach rechts */
+    right: -20px; 
+}
+
+.single-presets-slider-wrapper .swiper-button-next:after,
+.single-presets-slider-wrapper .swiper-button-prev:after {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.single-presets-slider-wrapper .swiper-button-next:hover,
+.single-presets-slider-wrapper .swiper-button-prev:hover {
+    color: #f5ff39;
+}
+
+.compatible-section { 
+  width: 100%; /* Jetzt reicht 100% */
+  margin-top: 0px; /* Margin evtl anpassen, da es keine Hero-Eltern mehr gibt */
+  text-align: center;
+  background-color: #26262b;
+  padding: 2rem 0;
+  padding-top: 30px;
+}
+.compatible-section h3 {
+  font-size: 1rem;
+  color: #a3a3a3;
+  font-weight: 400;
+}
+.compatible-section .icons {
+  gap: 30px;
+  flex-wrap: wrap;
+  padding-top: 15px;
+}
+.compatible-section .icons .icon {
+  width: 60px;
+  height: 60px;
+  margin-right:10px ;
+}
+
+/* --- REVIEWS SECTION --- */
+.section-reviews {
+    background-color: transparent; /* Passt zum Dark Mode */
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.reviews-title {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Wrapper für Pfeile + Slider */
+.reviews-slider-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px; /* Platz für Pfeile an den Seiten */
+}
+
+.reviews-swiper {
+    width: 100%;
+    padding: 10px; /* Damit Schatten nicht abgeschnitten werden */
+}
+
+/* Das Review Bild Styling */
+.review-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Runde Ecken für die Screenshots */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Schöner Schatten */
+    transition: transform 0.3s ease;
+}
+
+
+/* --- REVIEWS PFEILE (Spezifisch) --- */
+/* Wir nutzen eigene Klassen (.review-next/prev), damit wir sie unabhängig steuern können */
+.reviews-slider-wrapper .review-next,
+.reviews-slider-wrapper .review-prev {
+    color: #9c9c9c; /* Gold */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.reviews-slider-wrapper .review-next:after,
+.reviews-slider-wrapper .review-prev:after {
+    font-size: 30px;
+    font-family: 'swiper-icons'; /* Swiper Standard Icons */
+    font-weight: bold;
+}
+
+.reviews-slider-wrapper .review-next:hover,
+.reviews-slider-wrapper .review-prev:hover {
+    color: #fcff54;
+}
+
+/* Positionierung */
+.reviews-slider-wrapper .review-prev { left: 0; }
+.reviews-slider-wrapper .review-next { right: 0; }
+
+/* Icon Content zuweisen (nötig für Custom Classes bei Swiper) */
+.reviews-slider-wrapper .review-prev:after { content: 'prev'; }
+.reviews-slider-wrapper .review-next:after { content: 'next'; }
+
+.google-ref-link {
+    color: #ccc; /* Dezent grau */
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2); /* Feine Linie */
+    transition: all 0.3s ease;
+    margin-left: 5px;
+}
+
+.google-ref-link:hover {
+    color: #f6f6f6; /* Gold beim Drüberfahren */
+    border-color: #f2f2f2;
+}
+
+/* --- TRUST BADGE SECTION --- */
+.trust-section {
+    background-color: transparent; /* Hintergrund durchsichtig wie gewünscht */
+    padding-top: 50px;            /* Etwas Abstand zur Navi */
+    padding-bottom: 0;            /* Kein Abstand nach unten zum Hero */
+    text-align: center;           /* Bild zentrieren */
+    width: 100%;
+}
+
+.trust-img {
+    max-width: 100%;      /* Damit es auf dem Handy nicht rausragt */
+    height: auto;         /* Verhältnis beibehalten */
+    width: 250px;         /* Hier kannst du die Größe steuern (z.B. 500px - 800px) */
+    display: inline-block;
+    opacity: 0.9;         /* Optional: Leicht abdunkeln für edlen Look */
+}
+
+/* Anpassung für Mobile */
+@media (max-width: 768px) {
+    .trust-img {
+        width: 80%;       /* Auf Handy etwas breiter füllen */
+        max-width: 300px;
+    }
+}
+
+/* --- GHOST BUTTON (Outline Style) --- */
+.btn-outline {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 2px solid #d2d1d1; /* Goldener Rand */
+    color: #e6e6e6;            /* Goldene Schrift */
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px; /* Leicht abgerundet wie deine Cards */
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    /* background: #f8f8f8; /* Wird beim Drüberfahren Gold */
+    /* color: #000;         /* Schrift wird Schwarz */
+    /*box-shadow: 0 0 15px rgba(246, 209, 46, 0.4); /* Leucht-Effekt */
+    border-color: #ffffff;
+    transform: translateY(0px); 
+    color: white;
+    border: 2.5px solid;
+}
+/* --- BUTTON ZENTRIERUNG --- */
+.btn-center-wrapper {
+    display: flex;           /* Aktiviert Flexbox */
+    justify-content: center; /* Zentriert den Inhalt horizontal exakt in die Mitte */
+    align-items: center;     /* Zentriert vertikal (zur Sicherheit) */
+    width: 100%;             /* Nimmt die volle Breite ein */
+    margin-top: 20px;        /* Abstand nach oben zum Slider */
+}
+/* --- BACKSTORY SECTION (Fixed Layout) --- */
+.backstory {
+    background: #1e2229;
+    padding: 35px 0;
+    position: relative;
+    /* Kleiner Abstand nach oben zur Review Section */
+    margin-top: 30px; 
+    margin-bottom: 100px;
+}
+
+/* Das Grid-System für diese Section */
+.story-grid {
+    display: flex;
+    align-items: center; /* Vertikal mittig */
+    justify-content: space-between;
+    gap: 50px; /* Abstand zwischen Text und Bild */
+}
+
+/* Linke Seite (Text) */
+.story-content {
+    flex: 1; /* Nimmt den verfügbaren Platz */
+    padding-right: 20px;
+}
+
+.story-content h2 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.story-content p {
+    color: #c8c8c8;
+    font-size: 0.8rem;
+    line-height: 1.8; /* Bessere Lesbarkeit */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Rechte Seite (Bild Container) */
+.story-image {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Bild im rechten Bereich zentrieren */
+}
+
+/* Der runde Kreis */
+.creator-photo-wrapper {
+    width: 280px;       /* Feste Größe für den Kreis */
+    height: 280px;
+    border-radius: 50%; /* Macht es kreisrund */
+    overflow: hidden;   /* Schneidet alles ab was übersteht */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+/* Das Bild selbst */
+.creator-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; 
+    
+    /* Dein Zoom-Effekt */
+    transform: scale(1.3) translateY(15px); 
+}
+
+/* --- MOBILE RESPONSIVE (Handy) --- */
+@media (max-width: 900px) {
+    .story-grid {
+        flex-direction: column-reverse; /* Bild nach OBEN, Text nach UNTEN */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .story-content {
+        padding-right: 0;
+    }
+
+    .creator-photo-wrapper {
+        width: 250px; /* Kleiner auf Handy */
+        height: 250px;
+        margin: 0 auto; /* Zentrieren */
+    }
+}

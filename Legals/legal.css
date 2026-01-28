@@ -1,0 +1,97 @@
+/* ================================
+   STYLE FÜR RECHTSTEXTE / LEGAL PAGES
+   ================================ */
+
+/* Grundlayout */
+body.legal-page {
+  background: #0d0d0d;
+  font-family: 'Montserrat';
+  color: #e8e8e8;
+  padding: 60px 20px 120px;
+}
+
+/* Container */
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #1a1a1a;
+  padding: 50px 45px;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Hauptüberschrift */
+.legal-container h1 {
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 35px;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+/* Unterüberschriften */
+.legal-container h2 {
+  color: #f6d12e; /* Gelb */
+  font-size: 22px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* Absätze */
+.legal-container p {
+  color: #d3d3d3;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+/* Listen */
+.legal-container ul,
+.legal-container ol {
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+.legal-container li {
+  margin-bottom: 8px;
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+/* Links */
+.legal-container a {
+  color: #f6d12e;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.legal-container a:hover {
+  color: white;
+}
+
+/* Trenner-Linie */
+.legal-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+  margin: 35px 0;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .legal-container {
+    padding: 35px 25px;
+  }
+  .legal-container h1 {
+    font-size: 30px;
+  }
+  .legal-container h2 {
+    font-size: 20px;
+  }
+  .legal-container p {
+    font-size: 15px;
+  }
+}
