@@ -616,3 +616,28 @@ body {
     gap: 10px 15px; /* Vertikaler und horizontaler Abstand */
   }
 } /* <--- HIER FEHLTE DIE SCHLIESSENDE KLAMMER */
+.compatible-section { 
+  width: 100%; /* Jetzt reicht 100% */
+  margin-top: 50px; /* Margin evtl anpassen, da es keine Hero-Eltern mehr gibt */
+  text-align: center;
+  background-color: #17171a;
+  padding: 2rem 0;
+  padding-top: 30px;
+  margin-bottom: -70px;
+  margin-top: 80px;
+}
+.compatible-section h3 {
+  font-size: 1rem;
+  color: #808080;
+  font-weight: 400;
+}
+.compatible-section .icons {
+  gap: 30px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+}
+.compatible-section .icons .icon {
+  width: 60px;
+  height: 60px;
+  margin-right:10px ;
+}
