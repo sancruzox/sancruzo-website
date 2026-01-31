@@ -153,13 +153,14 @@ ul { list-style: none; }
 
 /* Titel Anpassung (Montserrat wie gewünscht) */
 .hero-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;                 
+    letter-spacing: -0.04em;   
     font-size: 3.5rem; /* Etwas kleiner als vorher, wirkt edler */
     line-height: 1.1; 
     color: #fff;
     margin-bottom: 25px; 
-    text-transform: uppercase;
-    font-weight: 800;
+    text-transform: none;
+    font-weight: 600;
 }
 
 .hero-desc {
@@ -268,14 +269,15 @@ ul { list-style: none; }
 
 .section-header { margin-bottom: 60px; }
 .section-title {
-    font-family: 'Montserrat', sans-serif; /* HIER GEÄNDERT */
+    font-family: 'Inter', sans-serif;                 
+    letter-spacing: -0.04em;   
     font-size: 2rem;
     color: #fff;
     margin-bottom: 10px;
     
     /* Optional: Montserrat ist oft etwas breiter als Barlow Condensed. 
        Falls es zu wuchtig wirkt, kannst du die font-weight anpassen: */
-    font-weight: 700; 
+    font-weight: 600; 
 }
 .section-sub { color: #888; font-size: 1.1rem; margin-bottom: -20px;}
 
@@ -835,7 +837,8 @@ input:checked + .slider:before { transform: translateX(26px); }
 }
 
 #contact .contact-heading {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;                 
+    letter-spacing: -0.04em;   
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 30px;
