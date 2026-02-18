@@ -641,3 +641,30 @@ body {
   height: 60px;
   margin-right:10px ;
 }
+
+/* --- TRUST BADGE SECTION --- */
+.trust-section {
+    background-color: transparent; /* Hintergrund durchsichtig wie gewünscht */
+    padding-top: 50px;            /* Etwas Abstand zur Navi */
+    padding-bottom: 0;            /* Kein Abstand nach unten zum Hero */
+    text-align: center;           /* Bild zentrieren */
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: -50px;
+}
+
+.trust-img {
+    max-width: 100%;      /* Damit es auf dem Handy nicht rausragt */
+    height: auto;         /* Verhältnis beibehalten */
+    width: 250px;         /* Hier kannst du die Größe steuern (z.B. 500px - 800px) */
+    display: inline-block;
+    opacity: 0.9;         /* Optional: Leicht abdunkeln für edlen Look */
+}
+
+/* Anpassung für Mobile */
+@media (max-width: 768px) {
+    .trust-img {
+        width: 80%;       /* Auf Handy etwas breiter füllen */
+        max-width: 300px;
+    }
+}

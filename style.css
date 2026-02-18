@@ -766,3 +766,139 @@ body { background-color: #181818; color: #fff; font-family: 'Montserrat', sans-s
         margin: 0 auto; /* Zentrieren */
     }
 }
+
+/* =========================================
+   MOBILE NAVIGATION (FIX)
+   ========================================= */
+
+/* 1. Desktop: Neue Buttons unsichtbar machen */
+.nav-toggle, .nav-close {
+    display: none;
+}
+
+/* 2. Mobile Anpassung (Wirklich nur bis 768px) */
+@media (max-width: 768px) {
+    
+    /* Grid Layout für die Leiste (Burger | Logo | Cart) */
+    .nav-wrapper {
+        display: grid;
+        grid-template-columns: 50px 1fr 50px;
+        align-items: center;
+        justify-items: center;
+        height: 60px;
+    }
+
+    /* Elemente im Grid platzieren */
+    .nav-toggle { grid-column: 1; justify-self: start; }
+    .nav-logo   { grid-column: 2; margin: 0; }
+    .nav-cart   { grid-column: 3; justify-self: end; }
+
+    /* --- HAMBURGER STYLING --- */
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+    .nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 2px;
+    }
+
+    /* --- DAS MENÜ (Die Liste selbst wird zum Sidebar) --- */
+    .nav-links {
+        display: flex !important; /* Flexbox erzwingen */
+        flex-direction: column;
+        
+        position: fixed;
+        top: 0;
+        left: -100%; /* Versteckt links */
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: #121212;
+        border-right: 1px solid rgba(255,255,255,0.1);
+        z-index: 2000;
+        padding: 80px 30px; /* Platz oben für Close Button */
+        margin: 0 !important; /* Altes Margin überschreiben */
+        transition: left 0.3s ease-in-out;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+        
+        /* Reset der Desktop-Positionierung */
+        transform: none !important; 
+    }
+
+    /* Wenn offen */
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Links im Mobile Menü */
+    .nav-links li a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 15px 0; /* Mehr Klickfläche */
+        border-bottom: 1px solid rgba(255,255,255,0); /* Trennlinien */
+    }
+
+    /* Schließen Button (X) */
+    .nav-close {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+}
+
+/* =========================================
+   HERO MOBILE ANPASSUNGEN (Nur bis 768px)
+   ========================================= */
+@media (max-width: 768px) {
+
+    /* 1. TEXT ZENTRIEREN */
+    .hero-text-block {
+        text-align: center !important; /* Erzwingt Zentrierung */
+        margin-left: 0 !important;     /* Entfernt den Desktop-Abstand links */
+        margin-right: 0 !important;
+        width: 100% !important;
+        padding: 0 20px;               /* Etwas Luft zum Rand */
+        
+        /* Flexbox sicherstellen, damit auch der Button mittig sitzt */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* 2. BILD ZOOMEN */
+    .hero-image-block {
+        overflow: hidden; /* Verhindert, dass der Zoom seitlich rausragt */
+    }
+    
+    .hero-img {
+        /* Zoomt das Bild um 30% (Ändere 1.3 zu 1.5 für noch mehr Zoom) */
+        transform: scale(1.3); 
+        transform-origin: center center; /* Zoomt genau in die Mitte */
+        margin-top: 20px; /* Optional: Etwas Abstand zum Text */
+    }
+
+    /* 3. TRUST BADGE KLEINER */
+    .trust-img {
+        max-width: 200px !important; /* Hier die gewünschte Breite einstellen */
+        width: auto;
+        margin-top: 10px;
+    }
+}

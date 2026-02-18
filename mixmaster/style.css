@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #0a0c13; /* Dark Background */
+    background-color: #181818; /* Dark Background */
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
@@ -90,7 +90,7 @@ ul { list-style: none; }
     position: relative;
     /* Höhe etwas anpassen, damit genug Platz ist */
     padding: 150px 0 100px 0; 
-    background-color: #0d0f16;
+    background-color: #181818;
     
     /* Hintergrundbild */
     background-image: url('https://sancruzowebsite.b-cdn.net/homepagebanner_mobil_Remastered%20v8.jpg'); 
@@ -265,7 +265,7 @@ ul { list-style: none; }
 /* =========================================
    4. AUDIO DEMOS SECTION
    ========================================= */
-.section-demos { padding: 80px 0; background-color: #0a0c13; }
+.section-demos { padding: 80px 0; background-color: #181818; }
 
 .section-header { margin-bottom: 60px; }
 .section-title {
@@ -329,7 +329,7 @@ input:checked + .slider:before { transform: translateX(26px); }
    ========================================= */
 .section-pricing {
     padding: 80px 0;
-    background-color: #0f1118; /* Dunkler Kontrast-Hintergrund */
+    background-color: #181818; /* Dunkler Kontrast-Hintergrund */
 }
 
 .pricing-grid {
@@ -746,7 +746,18 @@ input:checked + .slider:before { transform: translateX(26px); }
     .pricing-card.highlight { transform: none; padding: 40px 30px; }
     .process-steps { flex-direction: column; align-items: center; }
     .step-arrow { transform: rotate(90deg); padding: 10px 0; }
-    .hero-title { font-size: 3rem; }
+    .hero-title { 
+      font-size: 2.7rem; 
+      text-align: center;
+    }
+    .hero-desc { 
+       text-align: center;
+       
+       /* Das hier ist der Schlüssel: */
+       margin-left: auto;
+       margin-right: auto;
+    }
+
     .footer-row { flex-direction: column; text-align: center; }
 }
 
@@ -828,7 +839,7 @@ input:checked + .slider:before { transform: translateX(26px); }
 /* 1. SEKTION & LAYOUT */
 #contact.section-contact {
     padding: 80px 0;
-    background-color: #0a0c13;
+    background-color: #181818;
 }
 
 #contact .contact-wrapper {
@@ -953,7 +964,7 @@ input:checked + .slider:before { transform: translateX(26px); }
    ========================================= */
 .section-references {
     padding: 80px 0;
-    background-color: #0a0c13; /* Gleicher Hintergrund wie Demos */
+    background-color: #181818; /* Gleicher Hintergrund wie Demos */
 }
 
 /* Optional: Falls du den Spotify Player auf dem Handy etwas kleiner willst */
@@ -1026,6 +1037,7 @@ input:checked + .slider:before { transform: translateX(26px); }
   display: flex;
   flex-direction: column;
   gap: 20px;
+  color: #c2c2c2;
 }
 
 .creator-list li {
@@ -1041,7 +1053,7 @@ input:checked + .slider:before { transform: translateX(26px); }
   position: absolute;
   left: 0;
   top: 0;
-  color: #ffffff;
+  color: #c2c2c2;
   font-size: 1.8rem;
   transform: translateY(-7px);
 }
@@ -1053,12 +1065,16 @@ input:checked + .slider:before { transform: translateX(26px); }
     gap: 40px;
   }
   .creator-copy {
-    text-align: left;
+    text-align: center;
+    font-size: 0.5rem;
   }
   .creator-photo img {
     width: 260px;
     height: 260px;
   }
+  .creator-list {
+    color: #c2c2c2;
+    }
 }
 /* ===== Brand Strip / Logos ===== */
 
@@ -1230,4 +1246,164 @@ input:checked + .slider:before { transform: translateX(26px); }
 .swiper-pagination-bullet-active {
   opacity: 1;
   background: #f6d12e; /* Optional: Gelbe Farbe wie auf Website 1 */
+}
+/* =========================================
+   MOBILE NAVIGATION (FIX)
+   ========================================= */
+
+/* 1. Desktop: Neue Buttons unsichtbar machen */
+.nav-toggle, .nav-close {
+    display: none;
+}
+
+/* 2. Mobile Anpassung (Wirklich nur bis 768px) */
+@media (max-width: 768px) {
+    
+    /* Grid Layout für die Leiste (Burger | Logo | Cart) */
+    .nav-wrapper {
+        display: grid;
+        grid-template-columns: 50px 1fr 50px;
+        align-items: center;
+        justify-items: center;
+        height: 60px;
+    }
+
+    /* Elemente im Grid platzieren */
+    .nav-toggle { grid-column: 1; justify-self: start; }
+    .nav-logo   { grid-column: 2; margin: 0; }
+    .nav-cart   { grid-column: 3; justify-self: end; }
+
+    /* --- HAMBURGER STYLING --- */
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+    .nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 2px;
+    }
+
+    /* --- DAS MENÜ (Die Liste selbst wird zum Sidebar) --- */
+    .nav-links {
+        display: flex !important; /* Flexbox erzwingen */
+        flex-direction: column;
+        
+        position: fixed;
+        top: 0;
+        left: -100%; /* Versteckt links */
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: #121212;
+        border-right: 1px solid rgba(255,255,255,0.1);
+        z-index: 2000;
+        padding: 80px 30px; /* Platz oben für Close Button */
+        margin: 0 !important; /* Altes Margin überschreiben */
+        transition: left 0.3s ease-in-out;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+        
+        /* Reset der Desktop-Positionierung */
+        transform: none !important; 
+    }
+
+    /* Wenn offen */
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Links im Mobile Menü */
+    .nav-links li a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 15px 0; /* Mehr Klickfläche */
+        border-bottom: 1px solid rgba(255,255,255,0); /* Trennlinien */
+    }
+
+    /* Schließen Button (X) */
+    .nav-close {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+}
+
+/* =========================================
+   MOBILE HERO ANPASSUNG (Kein Hintergrundbild)
+   ========================================= */
+
+@media (max-width: 991px) {
+    
+    .service-hero {
+        /* 1. Bild entfernen */
+        background-image: none !important; 
+        
+        /* 2. Hintergrundfarbe sicherstellen (Dein Standard-Dunkel) */
+        background-color: #181818; 
+        
+        /* Optional: Padding etwas verringern, da kein riesiges Bild mehr da ist */
+        padding: 80px 0 40px 0; 
+    }
+
+    /* 3. Den Verlauf-Overlay auch ausblenden (braucht man ohne Bild nicht) */
+    .hero-bg-overlay {
+        display: none !important;
+    }
+}
+
+/* =========================================
+   SERVICE PAGE HERO - MOBILE BILD UPDATE
+   ========================================= */
+
+/* 1. Grundeinstellung: Das Bild-Element standardmäßig verstecken */
+/* (Wir nutzen auf Desktop ja das Background-Image des Headers) */
+.mobile-hero-image {
+    display: none;
+}
+
+/* 2. Mobile Anpassung (unter 991px) */
+/* Update für Mobile Hero Bild */
+@media (max-width: 991px) {
+    /* ... deine anderen Einstellungen für .service-hero bleiben ... */
+
+    .mobile-hero-image {
+        display: block;
+        width: 100%;
+        text-align: center;
+        overflow: hidden; 
+        margin-top: 20px; /* Etwas weniger Abstand, da der Fade oben Platz frisst */
+    }
+
+    .mobile-hero-image .hero-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-top: 60px;
+        margin-right: 100px;
+        
+/* Zoom (2) UND Verschiebung nach links (-50px) */
+transform: scale(2) translateX(-80px);
+
+        
+        /* 2. DOUBLE FADE (Oben UND Unten weich ausblenden) */
+        /* Verlauf: Transparent(0%) -> Sichtbar(15%) -> Sichtbar(85%) -> Transparent(100%) */
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+        mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    }
 }
