@@ -1124,7 +1124,9 @@ color: #000000;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  /* gap: 32px; */
+margin-left: 580px;
+
 }
 
 /* CARD */
