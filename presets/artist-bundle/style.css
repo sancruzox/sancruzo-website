@@ -19,7 +19,7 @@ body {
 }
 
 /* =========================================
-   NAVIGATION BAR (Final)
+   NAVIGATION BAR (DESKTOP & BASIS)
    ========================================= */
 
 .main-nav {
@@ -38,22 +38,23 @@ body {
     align-items: center;
 }
 
-/* LOGO */
+/* --- LOGO --- */
 .nav-logo {
     margin: 0; 
-    z-index: 10;
+    z-index: 10; 
 }
+
 .nav-logo img { 
     height: 35px; 
     width: auto; 
     display: block; 
 }
 
-/* MENÜ LINKS */
+/* --- MENÜ LINKS (Desktop) --- */
 .nav-links {
     display: flex;
-    list-style: none;
-    gap: 40px;
+    list-style: none; 
+    gap: 40px; 
     margin: 0;
     padding: 0;
 }
@@ -65,29 +66,29 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400; 
     letter-spacing: 0; 
-    
     border-bottom: 0.5px solid transparent;
-    padding-bottom: 0px;
-    
+    padding-bottom: 0px; 
     transition: all 0.3s ease;
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
+.nav-links li a:hover {
     color: #ffffff; 
     border-color: #ffffff; 
 }
 
-/* WARENKORB ICON (Kein Hover Effekt) */
+.nav-links li a.active {
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* --- WARENKORB --- */
 .nav-cart {
     color: #efefef;
     font-size: 1.1rem;
     z-index: 10;
-    display: flex;
-    align-items: center;
 }
 
-/* --- DESKTOP ZENTRIERUNG --- */
+/* --- EXAKTE ZENTRIERUNG DES MENÜS (Desktop) --- */
 @media (min-width: 769px) {
     .nav-links {
         position: absolute; 
@@ -97,20 +98,98 @@ body {
     }
 }
 
-/* --- MOBILE ANPASSUNG --- */
+
+/* =========================================
+   MOBILE NAVIGATION (HAMBURGER MENÜ)
+   ========================================= */
+
+/* Mobile Buttons auf dem Desktop verstecken */
+.nav-toggle, .nav-close {
+    display: none;
+}
+
 @media (max-width: 768px) {
-    .nav-wrapper {
-        flex-direction: column; 
-        gap: 15px;
-    }
     
-    .nav-links {
-        position: static; 
-        transform: none;
+    /* Grid Layout für die Leiste (Burger | Logo | Cart) */
+    .nav-wrapper {
+        display: grid;
+        grid-template-columns: 50px 1fr 50px;
+        align-items: center;
+        justify-items: center;
+        height: 60px;
+    }
+
+    /* Elemente im Grid platzieren */
+    .nav-toggle { grid-column: 1; justify-self: start; }
+    .nav-logo   { grid-column: 2; margin: 0; }
+    .nav-cart   { grid-column: 3; justify-self: end; }
+
+    /* Hamburger Button Styling */
+    .nav-toggle {
+        display: flex;
         flex-direction: column;
-        gap: 20px;
-        text-align: center;
-        margin-top: 20px;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+    .nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 2px;
+    }
+
+    /* Das Menü (Die Liste wird zur Sidebar) */
+    .nav-links {
+        display: flex !important; /* Flexbox erzwingen */
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%; /* Versteckt links */
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: #121212;
+        border-right: 1px solid rgba(255,255,255,0.1);
+        z-index: 2000;
+        padding: 80px 30px; /* Platz oben für Close Button */
+        margin: 0 !important; 
+        transition: left 0.3s ease-in-out;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+        transform: none !important; 
+        text-align: left;
+    }
+
+    /* Wenn offen (Klasse wird via JS hinzugefügt) */
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Links im Mobile Menü */
+    .nav-links li a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 15px 0; /* Mehr Klickfläche */
+        border-bottom: 1px solid rgba(255,255,255,0); /* Trennlinien (hier auf transparent gesetzt) */
+    }
+
+    /* Schließen Button (X) */
+    .nav-close {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 2rem;
+        cursor: pointer;
     }
 }
 
@@ -133,6 +212,14 @@ body {
     color: #888;
     font-weight: 400;
     font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+  .sub-heading { 
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin-bottom: -20px;
+  }
 }
 
 
@@ -697,6 +784,7 @@ color: #000000;
 @media (max-width: 991px) {
   .backstory {
     padding: 40px 20px;
+    padding-bottom: 0px;
   }
   .backstory .backstory-left {
     margin-bottom: 2rem;
@@ -1356,7 +1444,6 @@ color: #000000;
         padding-top: 20px;
         padding-bottom: 50px;
     }
-
     /* 2. DER WRAPPER (Hier lag das Problem mit dem "Untereinander") */
     html body .highlight-section .highlight-swiper-mobile .swiper-wrapper {
         display: flex !important; /* Zwingt die Bilder nebeneinander */
@@ -1630,7 +1717,7 @@ html {
 
 @media (max-width: 767px) {
     .bundle-image {
-        width: 95%;
+        width: 90%;
         height: auto;
         /* Damit es zentriert ist: */
         display: block !important;  
@@ -1826,8 +1913,11 @@ html {
         gap: 20px;
     }
     .daw-tab img {
-        height: 30px; /* Kleiner auf Handy */
+        height: 40px; /* Kleiner auf Handy */
     }
+    .daw-preview-section {
+        margin-top: -100px;
+  }
 }
 
 /* Style für die Überschrift der DAW Section */

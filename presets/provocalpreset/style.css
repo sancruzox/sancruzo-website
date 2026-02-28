@@ -18,13 +18,12 @@ body {
 }
 
 /* =========================================
-   NAVIGATION BAR (Original Design)
+   NAVIGATION BAR (DESKTOP & BASIS)
    ========================================= */
 
 .main-nav {
     position: relative; 
     z-index: 1000; 
-    /* Dein Original Dunkelgrau mit Transparenz */
     background: rgba(36, 37, 40, 0.9); 
     backdrop-filter: blur(10px); 
     padding: 10px 0;
@@ -38,22 +37,23 @@ body {
     align-items: center;
 }
 
-/* LOGO */
+/* --- LOGO --- */
 .nav-logo {
     margin: 0; 
-    z-index: 10;
+    z-index: 10; 
 }
+
 .nav-logo img { 
-    height: 35px; /* Oder 40px, je nach deinem Wunsch */
+    height: 35px; 
     width: auto; 
     display: block; 
 }
 
-/* MENÜ LINKS */
+/* --- MENÜ LINKS (Desktop) --- */
 .nav-links {
     display: flex;
-    list-style: none;
-    gap: 40px;
+    list-style: none; 
+    gap: 40px; 
     margin: 0;
     padding: 0;
 }
@@ -63,35 +63,31 @@ body {
     text-decoration: none;
     font-size: 0.85rem;
     font-family: 'Open Sans', sans-serif;
-    
-    /* HIER KORRIGIERT: Weight 400 (dünn) */
     font-weight: 400; 
     letter-spacing: 0; 
-    
-    /* Unsichtbare Linie für Layout-Stabilität */
     border-bottom: 0.5px solid transparent;
-    padding-bottom: 0px;
-    
+    padding-bottom: 0px; 
     transition: all 0.3s ease;
 }
 
-/* HOVER: WEISS (Original) */
-.nav-links li a:hover,
-.nav-links li a.active {
-    color: #ffffff; /* Weiß */
-    border-color: #ffffff; /* Weißer Strich */
+.nav-links li a:hover {
+    color: #ffffff; 
+    border-color: #ffffff; 
 }
 
-/* WARENKORB ICON */
+.nav-links li a.active {
+    color: #fff;
+    border-color: #ffffff;
+}
+
+/* --- WARENKORB --- */
 .nav-cart {
     color: #efefef;
     font-size: 1.1rem;
     z-index: 10;
-    display: flex;
-    align-items: center;
 }
 
-/* --- DESKTOP ZENTRIERUNG --- */
+/* --- EXAKTE ZENTRIERUNG DES MENÜS (Desktop) --- */
 @media (min-width: 769px) {
     .nav-links {
         position: absolute; 
@@ -101,20 +97,98 @@ body {
     }
 }
 
-/* --- MOBILE ANPASSUNG --- */
+
+/* =========================================
+   MOBILE NAVIGATION (HAMBURGER MENÜ)
+   ========================================= */
+
+/* Mobile Buttons auf dem Desktop verstecken */
+.nav-toggle, .nav-close {
+    display: none;
+}
+
 @media (max-width: 768px) {
-    .nav-wrapper {
-        flex-direction: column; 
-        gap: 15px;
-    }
     
-    .nav-links {
-        position: static; 
-        transform: none;
+    /* Grid Layout für die Leiste (Burger | Logo | Cart) */
+    .nav-wrapper {
+        display: grid;
+        grid-template-columns: 50px 1fr 50px;
+        align-items: center;
+        justify-items: center;
+        height: 60px;
+    }
+
+    /* Elemente im Grid platzieren */
+    .nav-toggle { grid-column: 1; justify-self: start; }
+    .nav-logo   { grid-column: 2; margin: 0; }
+    .nav-cart   { grid-column: 3; justify-self: end; }
+
+    /* Hamburger Button Styling */
+    .nav-toggle {
+        display: flex;
         flex-direction: column;
-        gap: 20px;
-        text-align: center;
-        margin-top: 20px; /* Kleiner Abstand nach oben */
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+    .nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 2px;
+    }
+
+    /* Das Menü (Die Liste wird zur Sidebar) */
+    .nav-links {
+        display: flex !important; /* Flexbox erzwingen */
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%; /* Versteckt links */
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: #121212;
+        border-right: 1px solid rgba(255,255,255,0.1);
+        z-index: 2000;
+        padding: 80px 30px; /* Platz oben für Close Button */
+        margin: 0 !important; 
+        transition: left 0.3s ease-in-out;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+        transform: none !important; 
+        text-align: left;
+    }
+
+    /* Wenn offen (Klasse wird via JS hinzugefügt) */
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Links im Mobile Menü */
+    .nav-links li a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 15px 0; /* Mehr Klickfläche */
+        border-bottom: 1px solid rgba(255,255,255,0); /* Trennlinien (hier auf transparent gesetzt) */
+    }
+
+    /* Schließen Button (X) */
+    .nav-close {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 2rem;
+        cursor: pointer;
     }
 }
 
@@ -141,12 +215,34 @@ body {
 }
 @media all and (max-width: 767px) {
   .main-heading {
-    font-size: 1.7rem;
-    font-weight: bold;
+    font-size: 3rem;
+    font-weight: 450;
   }
   .main-heading .highlight {
     display: block;
   }
+  .sub-heading {
+    font-size: 0.9rem;
+    font-weight: 400;
+     }
+}
+
+/* =========================================
+   PRODUKTBILD MOBILE ANPASSUNG
+   ========================================= */
+
+@media (max-width: 768px) {
+    .product-image1 {
+        width: 90% !important;        /* Nimmt nur noch 80% des Bildschirms ein */
+        max-width: 300px !important;  /* Darf maximal 250px breit werden */
+        margin: 0 auto !important;    /* Zentriert das Bild perfekt in der Mitte */
+        display: block !important;    /* Wichtig für die Zentrierung */
+        
+        /* Optional: Falls das Bild vorher durch transform verschoben war, 
+           setzen wir das auf dem Handy zurück, damit es sauber sitzt */
+        transform: translateY(40) !important; 
+        padding-bottom: 30px;
+    }
 }
 
 .sub-heading {
@@ -426,13 +522,18 @@ color: #000000;
   padding-bottom: 0;
   row-gap: 24px;
 }
+/* =========================================
+   WAVEFORM PLAYER MOBILE (1 Player pro Zeile)
+   ========================================= */
+
 @media (max-width: 767px) {
-  .waveformSets {
-    grid-template-columns: 1fr;
-    gap: 22px 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
+    .waveformSets {
+        /* Zwingt das Layout auf genau 1 Spalte (untereinander) */
+        grid-template-columns: 1fr !important; 
+        
+        /* Sorgt für einen schönen Abstand nach unten zwischen den Playern */
+        gap: 27px 0 !important; 
+    }
 }
 
 .waveformSet {
@@ -762,6 +863,7 @@ color: #000000;
 @media (max-width: 991px) {
   .backstory {
     padding: 40px 20px;
+    padding-bottom: 0px;
   }
   .backstory .backstory-left {
     margin-bottom: 2rem;
@@ -1798,8 +1900,11 @@ html {
         gap: 20px;
     }
     .daw-tab img {
-        height: 30px; /* Kleiner auf Handy */
+        height: 40px; /* Kleiner auf Handy */
     }
+    .daw-preview-section {
+        margin-top: -100px;
+  }
 }
 
 /* Style für die Überschrift der DAW Section */
