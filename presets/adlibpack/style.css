@@ -1975,3 +1975,45 @@ html {
         padding: 0 15px; /* Verhindert, dass der Text am Displayrand klebt */
     }
 }
+/* =========================================
+   SIMPLE IMAGE SECTION
+   ========================================= */
+
+.simple-image-section {
+    background-color: transparent; /* Passt sich deinem dunklen Hintergrund an */
+    padding: 60px 0;
+    text-align: center;
+}
+
+.simple-heading {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.simple-image-wrapper {
+    max-width: 800px; /* Verhindert, dass das Bild auf riesigen Bildschirmen zu groß wird */
+    margin: 0 auto;   /* Zentriert das Bild exakt in der Mitte */
+}
+
+.simple-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Leichte Rundung der Ecken */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Ein weicher Schatten für Tiefe */
+    display: block;
+}
+
+/* --- MOBILE ANPASSUNG --- */
+@media (max-width: 768px) {
+    .simple-image-section {
+        padding: 40px 20px; /* Etwas weniger Abstand oben/unten, Luft an den Seiten */
+    }
+    
+    .simple-heading {
+        font-size: 1.8rem; /* Überschrift auf dem Handy etwas kleiner */
+        margin-bottom: 20px;
+    }
+}
