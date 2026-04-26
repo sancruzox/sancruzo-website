@@ -128,12 +128,21 @@ body {
 }
 
 .main-heading {
-  font-family: "Barlow Condensed", sans-serif; /* Hier die Änderung */
-  font-size: 4.85rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 4rem;
   color: #ffffff;
   text-align: center;
-  font-weight: 400;
+  font-weight: 300;
+  letter-spacing: -0.28rem;
+  line-height: 1.1;
   margin-bottom: -10px;
+}
+.main-heading-serif {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 4rem;
+  letter-spacing: 0;
 }
 .main-heading .highlight {
   color: #ffff00;
@@ -141,11 +150,8 @@ body {
 }
 @media all and (max-width: 767px) {
   .main-heading {
-    font-size: 1.7rem;
-    font-weight: bold;
-  }
-  .main-heading .highlight {
-    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
   }
 }
 
