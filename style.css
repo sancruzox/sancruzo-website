@@ -148,10 +148,10 @@ body { background-color: #181818; color: #fff; font-family: 'Montserrat', sans-s
     margin-bottom: 50px; /* Abstand zum Bild darunter */
 }
 
-.hero-sub { display: block; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: #b1b1b1; margin-bottom: 30px; font-weight: 400; }
+.hero-sub { display: block; font-size: 1.2rem; letter-spacing: 0.5px; color: #b1b1b1; margin-bottom: 30px; font-weight: 400; }
 
 .hero-title {
-    font-size: 3.2rem;
+    font-size: 4rem;
     line-height: 1.1; color: #fff;
     margin-bottom: 25px;
     font-weight: 500;
@@ -169,8 +169,8 @@ body { background-color: #181818; color: #fff; font-family: 'Montserrat', sans-s
 
 .hero-desc { color: #ccc; font-size: 1.1rem; line-height: 1.6; margin-bottom: 35px; max-width: 600px; }
 
-.btn-main { display: inline-block; background-color: #efce2b; color: #000; font-weight: 500; padding: 15px 40px; border-radius: 4px; text-decoration: none; text-transform: uppercase; transition: 0.3s; }
-.btn-main:hover { background-color: #ffe055; transform: translateY(0px); }
+.btn-main { display: inline-block; background-color: #efce2b; color: #000; font-weight: 550; font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; font-size: 1.1rem; letter-spacing: 0.02em; padding: 14px 40px; border-radius: 100px; text-decoration: none; transition: 0.3s; }
+.btn-main:hover { background-color: #ffe055; }
 
 
 /* 2. BILD ZENTRIERT */
@@ -661,17 +661,17 @@ body { background-color: #181818; color: #fff; font-family: 'Montserrat', sans-s
 /* --- GHOST BUTTON (Outline Style) --- */
 .btn-outline {
     display: inline-block;
-    padding: 12px 35px;
+    padding: 14px 40px;
     border: 2px solid #d2d1d1; /* Goldener Rand */
     color: #e6e6e6;            /* Goldene Schrift */
     background: transparent;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    font-weight: 550;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
     text-decoration: none;
-    border-radius: 4px; /* Leicht abgerundet wie deine Cards */
+    border-radius: 100px;
     transition: all 0.3s ease;
 }
 
