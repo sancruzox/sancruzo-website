@@ -1,17 +1,16 @@
 @charset "UTF-8";
-
-/* ================= GLOBALS ================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+html,
 body {
-    font-family: "Montserrat", sans-serif;
-    height: 100%;
-    background-color: #0a0c13;
- /* background: linear-gradient(180deg, #000000 0%, #1b1b1b 40%, #1f1f1f 100%);
+  height: 100%;
+  font-family: "Montserrat"; 
+  background-color: #0a0c13;
+  /* background: linear-gradient(180deg, #000000 0%, #1b1b1b 40%, #1f1f1f 100%);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,12 +18,13 @@ body {
 }
 
 /* =========================================
-   NAVIGATION BAR (DESKTOP & BASIS)
+   NAVIGATION BAR (Original Design)
    ========================================= */
 
 .main-nav {
     position: relative; 
     z-index: 1000; 
+    /* Dein Original Dunkelgrau mit Transparenz */
     background: rgba(36, 37, 40, 0.9); 
     backdrop-filter: blur(10px); 
     padding: 10px 0;
@@ -38,23 +38,22 @@ body {
     align-items: center;
 }
 
-/* --- LOGO --- */
+/* LOGO */
 .nav-logo {
     margin: 0; 
-    z-index: 10; 
+    z-index: 10;
 }
-
 .nav-logo img { 
-    height: 35px; 
+    height: 35px; /* Oder 40px, je nach deinem Wunsch */
     width: auto; 
     display: block; 
 }
 
-/* --- MENÜ LINKS (Desktop) --- */
+/* MENÜ LINKS */
 .nav-links {
     display: flex;
-    list-style: none; 
-    gap: 40px; 
+    list-style: none;
+    gap: 40px;
     margin: 0;
     padding: 0;
 }
@@ -64,31 +63,35 @@ body {
     text-decoration: none;
     font-size: 0.85rem;
     font-family: 'Open Sans', sans-serif;
+    
+    /* HIER KORRIGIERT: Weight 400 (dünn) */
     font-weight: 400; 
     letter-spacing: 0; 
+    
+    /* Unsichtbare Linie für Layout-Stabilität */
     border-bottom: 0.5px solid transparent;
-    padding-bottom: 0px; 
+    padding-bottom: 0px;
+    
     transition: all 0.3s ease;
 }
 
-.nav-links li a:hover {
-    color: #ffffff; 
-    border-color: #ffffff; 
-}
-
+/* HOVER: WEISS (Original) */
+.nav-links li a:hover,
 .nav-links li a.active {
-    color: #fff;
-    border-color: #ffffff;
+    color: #ffffff; /* Weiß */
+    border-color: #ffffff; /* Weißer Strich */
 }
 
-/* --- WARENKORB --- */
+/* WARENKORB ICON */
 .nav-cart {
     color: #efefef;
     font-size: 1.1rem;
     z-index: 10;
+    display: flex;
+    align-items: center;
 }
 
-/* --- EXAKTE ZENTRIERUNG DES MENÜS (Desktop) --- */
+/* --- DESKTOP ZENTRIERUNG --- */
 @media (min-width: 769px) {
     .nav-links {
         position: absolute; 
@@ -98,354 +101,243 @@ body {
     }
 }
 
-
-/* =========================================
-   MOBILE NAVIGATION (HAMBURGER MENÜ)
-   ========================================= */
-
-/* Mobile Buttons auf dem Desktop verstecken */
-.nav-toggle, .nav-close {
-    display: none;
-}
-
+/* --- MOBILE ANPASSUNG --- */
 @media (max-width: 768px) {
-    
-    /* Grid Layout für die Leiste (Burger | Logo | Cart) */
     .nav-wrapper {
-        display: grid;
-        grid-template-columns: 50px 1fr 50px;
-        align-items: center;
-        justify-items: center;
-        height: 60px;
+        flex-direction: column; 
+        gap: 15px;
     }
-
-    /* Elemente im Grid platzieren */
-    .nav-toggle { grid-column: 1; justify-self: start; }
-    .nav-logo   { grid-column: 2; margin: 0; }
-    .nav-cart   { grid-column: 3; justify-self: end; }
-
-    /* Hamburger Button Styling */
-    .nav-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 20px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 1001;
-    }
-    .nav-toggle span {
-        display: block;
-        width: 100%;
-        height: 2px;
-        background-color: #fff;
-        border-radius: 2px;
-    }
-
-    /* Das Menü (Die Liste wird zur Sidebar) */
+    
     .nav-links {
-        display: flex !important; /* Flexbox erzwingen */
+        position: static; 
+        transform: none;
         flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: -100%; /* Versteckt links */
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        background-color: #121212;
-        border-right: 1px solid rgba(255,255,255,0.1);
-        z-index: 2000;
-        padding: 80px 30px; /* Platz oben für Close Button */
-        margin: 0 !important; 
-        transition: left 0.3s ease-in-out;
-        box-shadow: 10px 0 30px rgba(0,0,0,0.5);
-        transform: none !important; 
-        text-align: left;
-    }
-
-    /* Wenn offen (Klasse wird via JS hinzugefügt) */
-    .nav-links.active {
-        left: 0;
-    }
-
-    /* Links im Mobile Menü */
-    .nav-links li a {
-        font-size: 1.1rem;
-        display: block;
-        padding: 15px 0; /* Mehr Klickfläche */
-        border-bottom: 1px solid rgba(255,255,255,0); /* Trennlinien (hier auf transparent gesetzt) */
-    }
-
-    /* Schließen Button (X) */
-    .nav-close {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background: transparent;
-        border: none;
-        color: #fff;
-        font-size: 2rem;
-        cursor: pointer;
+        gap: 20px;
+        text-align: center;
+        margin-top: 20px; /* Kleiner Abstand nach oben */
     }
 }
 
 .sec {
-    padding: 4rem 0;
+  padding: 4rem 0;
 }
-
-/* Headings */
-.main-heading {
-    font-family: 'Inter', sans-serif;
-    font-size: 4rem;
-    font-weight: 300;
-    color: #ffffff;
-    text-align: center;
-    letter-spacing: -0.28rem;
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-    padding-top: 50px;
-}
-.main-heading-serif {
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 4.2rem;
-    letter-spacing: 0;
-}
-@media (max-width: 767px) {
-    .main-heading {
-        font-size: 1.6rem;
-        font-weight: 700;
-        letter-spacing: -0.05rem;
-    }
-    .main-heading-serif {
-        font-size: 1.6rem;
-    }
-}
-
-.sub-heading {
-    color: #888;
-    font-weight: 400;
-    font-size: 1rem;
-}
-
-@media (max-width: 767px) {
-  .sub-heading { 
-    font-weight: 400;
-    font-size: 0.9rem;
-    margin-bottom: -20px;
+@media (min-width: 768px) {
+  .sec {
+    padding: 3rem 0rem;
   }
 }
 
-
-/* ================= TABS NAVIGATION (Oben) ================= */
-.artist-collections .container {
-    max-width: 1400px;
+.main-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 4rem;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: -0.28rem;
+  line-height: 1.1;
+  margin-bottom: -10px;
 }
-
-.collection-tabs-wrapper {
-    width: 100%;
-    /* Horizontal Scrollbar auf Mobile ermöglichen */
-    overflow-x: auto;
-    padding-bottom: 20px; /* Platz für Scrollbar */
-    
-    /* Scrollbar verstecken (optional, aber schöner) */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+.main-heading-serif {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 4.2rem;
+  letter-spacing: 0;
 }
-.collection-tabs-wrapper::-webkit-scrollbar {
-    display: none;
+.main-heading .highlight {
+  color: #ffff00;
+  text-shadow: 0 0 0px rgba(253, 253, 35, 0.5);
 }
-
-.collection-tabs {
-    display: flex;
-    justify-content: center; /* Zentriert auf Desktop */
-    gap: 1px;
-    min-width: max-content; /* Wichtig für Mobile Scroll */
-    padding: 0 20px;
-    padding-top: 40px;
-}
-
-@media (max-width: 991px) {
-    .collection-tabs {
-        justify-content: flex-start; /* Linksstart auf Mobile */
-    }
-}
-
-/* Einzelner Tab */
-.collection-tab {
-    width: 100px;
-    cursor: pointer;
-    text-align: center;
-    opacity: 0.5; /* Inaktiv gedimmt */
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.collection-tab:hover {
-    opacity: 0.8;
-    transform: translateY(-5px);
-}
-
-.collection-tab.active {
-    opacity: 1;
-    transform: translateY(-5px);
-}
-
-/* Das Bild im Tab (Kleine Karte) */
-.tab-image-wrapper {
-    width: 80px;
-    height: 110px; /* Hochformat wie im Screenshot */
-    border-radius: 6px;
-    overflow: hidden;
-    margin-bottom: 10px;
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease;
-    background: #222;
-}
-
-.collection-tab.active .tab-image-wrapper {
-    border-color: #fff; /* Weißer Rahmen für aktives Element */
-
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-}
-
-.tab-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%); /* Schwarzweiß wenn inaktiv */
-    transition: filter 0.3s ease;
-}
-
-.collection-tab.active .tab-image-wrapper img {
-    filter: grayscale(0%); /* Farbe wenn aktiv */
-}
-
-/* Name unter dem Tab */
-.tab-name {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #ccc;
-}
-.collection-tab.active .tab-name {
-    color: #fff;
-}
-
-
-/* ================= DISPLAY AREA (Hauptinhalt) ================= */
-.display-area {
-    transition: opacity 0.2s ease-in-out; /* Für den Fade-Effekt beim Wechsel */
-}
-
-/* Großes Bild Links */
-.display-3d-image {
-    max-height: 400px;
-    width: auto;
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6)); /* Schöner Schatten */
-    transform: perspective(1000px) rotateY(-5deg); /* Leichter 3D Effekt wie im Video */
-    transition: transform 0.5s ease;
-}
-/* .display-3d-image:hover { 
-    transform: perspective(1000px) rotateY(0deg) scale(1.01);
-}
-*/
-
-/* Box Rechts — näher ans Bild */
-.display-area .col-lg-7 {
-    padding-left: 0 !important;
-    margin-left: -40px;
-}
-.display-text div[style*="position: absolute"] {
-    left: 555px !important;
-}
-
-.display-content-box {
-    background: #1c1d21; /* Leichter Kontrast zum Body Background */
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 40px;
-    /* box-shadow: 0 10px 30px rgba(0,0,0,0.3); */
-}
-
-.display-title {
-    font-size: 1.5rem;
+@media all and (max-width: 767px) {
+  .main-heading {
+    font-size: 1.6rem;
     font-weight: 700;
-    color: #f6d12e; /* Gold */
-    margin-bottom: 20px;
-    line-height: 1.3;
+    letter-spacing: -0.05rem;
+  }
+  .main-heading-serif {
+    font-size: 1.6rem;
+  }
 }
 
-.display-text p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #ccc;
-    margin-bottom: 15px;
+.sub-heading {
+  color: #c8c8c8;
+  text-align: center;
+  margin-top: 1.4rem;
+  margin-bottom: -50px;
+}
+.sub-heading .highlight {
+  color: #ffff00;
+  text-shadow: 0 0 0px rgba(253, 253, 35, 0.5);
+  font-weight: 600;
+}
+.inner-heading {
+  color: rgb(245, 255, 63);
+  text-align: left;;
+  font-weight: 600;
+  font-size: 25px;
+  /* text-shadow: 0 0 8px rgba(253, 253, 35, 0.5);*/
 }
 
-
-/* ================= AUDIO PLAYER ================= */
-.waveformSet {
-    margin-bottom: 15px;
-    /* background: rgba(255,255,255,0.03); */
-    padding: 10px 15px;
-     /* padding-top: 20px; */
-    border-radius: 8px;
+.hero .intro-video-wrapper {
+  width: 100%;
+  height: 100%;
+  margin-top: 1rem;
+}
+/* 1. Dein bestehender Wrapper braucht 'position: relative' */
+.hero .intro-video-wrapper {
+  position: relative; /* WICHTIG: Damit das Overlay sich hieran orientiert */
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 10px; /* Radius auf den Wrapper verschieben ist sauberer */
+  overflow: hidden;    /* Damit nichts über die runden Ecken steht */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;     /* Zeigt dem User, dass es klickbar ist */
 }
 
-/* 1. Den Abstand beim LETZTEN Player entfernen */
-.waveformSet:last-child {
-    margin-bottom: 0;
+/* 2. Dein iframe (angepasst, damit er den Wrapper ausfüllt) */
+/* 2. Das Video-Element (damit es sich an den Wrapper anpasst) */
+.video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Sorgt dafür, dass das Video den Bereich komplett ausfüllt ohne Verzerrung */
+  display: block;
 }
 
-/* 2. Optional: Wenn es dir immer noch zu viel ist, 
-   reduziere das Padding der Box nur unten etwas */
-.display-content-box {
-    /* Dein bestehendes Padding (z.B. 40px) überschreiben: */
-    padding: 40px 40px 30px 40px; /* Oben Rechts Unten Links */
+/* =========================================
+   NEUES VIDEO & PLAYER DESIGN
+   ========================================= */
+
+/* 1. Der Container */
+.hero .intro-video-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background: #000; /* Falls Video lädt, ist Hintergrund schwarz */
 }
 
-.wave-row {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+/* 2. Das Video selbst (Behebt den Zoom-Fehler) */
+.video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Video füllt den Kasten perfekt aus */
+  display: block;
 }
 
-.play-btn-icon {
-    font-size: 18px;
-    color: #fff;
-    cursor: pointer;
-    width: 20px;
-    text-align: center;
-    transition: color 0.2s;
+/* 3. Das Overlay (Hintergrund über dem Video) */
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Flexbox zentriert den Button perfekt */
+  display: flex;            
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.1); /* Ganz leichter Schatten */
+  transition: all 0.3s ease;
 }
 
-.waveformContainer {
-    flex: 1;
+/* 4. Der Button (Glas-Look) */
+/* 4. Der Button (Abgerundetes Rechteck / "Squircle") */
+.play-circle {
+  /* Rechteckige Maße (etwas breiter als hoch) */
+  width: 80px;
+  height: 70px; 
+  
+  /* Die Abrundung (hier kannst du spielen: 10px = eckiger, 30px = runder) */
+  border-radius: 10px;
+  
+  /* Der Glas-Effekt (bleibt gleich) */
+ background: rgba(255, 255, 255, 0.15); 
+   /* background: rgb(47, 47, 47,0.3); */
+  /backdrop-filter: blur(10px);          
+  -webkit-backdrop-filter: blur(10px); 
+  
+  /* Feiner Rand */
+  border: 0px solid rgba(229, 229, 229, 0.3);
+  
+  /* Zentrierung */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Schatten */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  
+  /* Animation */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.wave-title {
-    font-size: 0.8rem;
-    color: #b6b6b6;
-    margin-top: 5px;
-    margin-left: 35px; /* Unter die Waveform rücken */
-    letter-spacing: 1px;
-    text-align: center;
+/* 5. Das Icon im Kreis */
+.play-circle svg {
+  margin-left: 5px; /* Optische Korrektur, damit Dreieck mittig wirkt */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+
 }
 
-.compatible-section {
-  margin-top: 3rem;
+.hero .price {
+  font-size: 18px;
+  text-align: center;
+  padding-top: 50px;
+  color: white;
+  font-weight: 500;
+}
+.hero .buy-button-wrapper {
+  margin-top: 2rem;
+  text-align: center;
+  padding-top: 50px;
+  
+}
+.hero .buy-button-wrapper .buy-button {
+    display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 100px;
+  /* ← kompakter, nicer */
+  border-radius: 2px;
+background-color:#f7d638;
+color: #000000;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: transform 0.01s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, background-color 0.15s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 5px 15px rgba(247, 214, 56, 0.3);
+}
+ 
+
+}
+.hero .buy-button-wrapper .buy-button span {
+  color: #005ea6;
+}
+.hero .buy-button-wrapper .buy-button .paypal-logo {
+  height: 33px;
+  margin-left: 4px;
+  margin-top: 4px;
+  vertical-align: middle;
+}
+.hero .buy-button-wrapper .buy-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(247, 214, 56, 0.3);
+}
+.compatible-section { 
+  width: 100%; /* Jetzt reicht 100% */
+  margin-top: 50px; /* Margin evtl anpassen, da es keine Hero-Eltern mehr gibt */
   text-align: center;
   background-color: #26262b;
   padding: 2rem 0;
+  padding-top: 30px;
 }
 .compatible-section h3 {
   font-size: 1rem;
@@ -461,61 +353,125 @@ body {
   height: 60px;
   margin-right:10px ;
 }
-.bundle-image {
-  display: flex;
-  justify-content: center; /* Zentriert horizontal */
-  align-items: center;     /* (Optional) Zentriert vertikal */
-  padding-top: 10px;
-  padding-bottom: 0px;
-}
-/* Hier änderst du die Größe */
-.bundle-image img {
-  width: 700px; /* Deine Wunschbreite */
-  height: auto; /* Wichtig: Damit es nicht verzerrt wird */
-  max-width: 100%; 
-}
-.hero-price {
-  font-size: 18px;
-  text-align: center;
-  padding-top: 50px;
+
+.brete .box {
+  background: #1c1d21;
+  border-radius: 8px;
+  height: auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
   color: white;
+  position: relative;
+  border: 0px solid #444444;
+  /* box-shadow: 0 10px 30px rgba(0,0,0,0.3); */
+  padding-top: 30px !important; /* War vorher ca. 24px (1.5rem) */
+  transform: translateY(-35px);
+}
+@media (max-width: 767px) {
+  .brete .box {
+    text-align: center;
+  }
+}
+.brete .box .price-tag {
+  display: flex;
+  justify-content: space-between;
+}
+.brete .box .price-tag .tag {
+  background-color: rgb(180, 180, 180);
+  color: black;
+  padding: 6px 22px;
   font-weight: 500;
-}
-.buy-button-wrapper {
-  margin-top: 2rem;
-  text-align: center;
-}
-.buy-button-wrapper .buy-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 70px;
-  /* ← kompakter, nicer */
-  border-radius: 100px;
-background-color:#f7d638;
-color: #000000;
-  font-weight: 600;
   font-size: 14px;
-  text-decoration: none;
+  border-radius: 2px;
+}
+@media (max-width: 767px) {
+  .brete .box .price-tag {
+    justify-content: center;
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+  .brete .box .price-tag .tag {
+    background-color: transparent;
+    color: #e6e207;
+    padding: 0;
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 767px) {
+  .brete .box .inner-heading {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .brete .box .inner-heading br {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .brete .box p {
+    text-align: center;
+  }
+}
+@media (max-width: 767px) {
+  .brete .product-image1,
+  .brete .product-image2 {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 2rem auto;
+    display: block;
+}
+}
+
+.waveformSets {
+  margin-top: 24px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+  padding: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 0;
+  row-gap: 24px;
+}
+@media (max-width: 767px) {
+  .waveformSets {
+    grid-template-columns: 1fr;
+    gap: 22px 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.waveformSet {
+  display: flex;
+  flex-direction: column;
+}
+
+.wave-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.wave-row .fas {
+  font-size: 18px;
+  color: #fff;
   cursor: pointer;
-  border: none;
-  outline: none;
-  transition: transform 0.01s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, background-color 0.15s ease;
-  transition: all 0.2s ease;
+  flex-shrink: 0;
 }
-.buy-button-wrapper .buy-button span {
-  color: #005ea6;
+.wave-row .waveformContainer {
+  flex: 1;
+  min-width: 0;
 }
-.buy-button-wrapper .buy-button .paypal-logo {
-  height: 33px;
-  margin-left: 4px;
+
+.wave-title {
   margin-top: 4px;
-  vertical-align: middle;
-}
-.buy-button-wrapper .buy-button:hover {
-  /* background-color: #efc436; */
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(247, 214, 56, 0.3);
+  font-size: 12px;
+  color: #cccccc;
+  text-align: center;
+  background: transparent;
 }
 
 /* --- REVIEWS SECTION (NEU EINGEFÜGT VON HOMEPAGE) --- */
@@ -539,6 +495,7 @@ color: #000000;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 60px; /* Platz für Pfeile an den Seiten */
+    padding-top: 30px;
 }
 
 .reviews-swiper {
@@ -815,7 +772,6 @@ color: #000000;
 @media (max-width: 991px) {
   .backstory {
     padding: 40px 20px;
-    padding-bottom: 0px;
   }
   .backstory .backstory-left {
     margin-bottom: 2rem;
@@ -1210,6 +1166,7 @@ color: #000000;
   border: 1px solid rgba(255,255,255,0.15);
 }
 
+
 /* Plan Name */
 .plan-name {
   font-size: 20px;
@@ -1236,6 +1193,7 @@ color: #000000;
   color: #ffffff;
   padding-top: 36px;
 }
+
 
 /* Price */
 .price {
@@ -1280,6 +1238,7 @@ color: #000000;
   color: #f6ff4f;
   font-weight: 700;
 }
+
 .plan-features li.unavailable {
   color: #666666; /* Dunkelgrau statt Weiß */
   opacity: 0.6;
@@ -1297,7 +1256,7 @@ color: #000000;
   width: 100%;
   text-align: center;
   padding: 14px 0;
-  border-radius: 100px;
+  border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
   font-size: 15px;
@@ -1321,6 +1280,7 @@ color: #000000;
 .plan-button:hover {
   transform: translateY(-1px);
 }
+
 
 /* =========================
    MOBILE
@@ -1452,300 +1412,163 @@ color: #000000;
     .lieferumfang {
         padding-bottom: 10px ;         /* Kleiner Einzug */
     }
-    }
+  }
 
-    @media (max-width: 550px) {
-    .lieferumfang {
-        padding-bottom: 10px;
-    }
-} /* Hier wurde die Klammer geschlossen */
-
-/* =========================================
-   NUCLEAR FIX: MOBILE SLIDER (V2)
+  /* =========================================
+   3D HOVER EFFEKT FÜR PRODUKT-BOXEN
    ========================================= */
 
-@media (max-width: 991px) {
-    /* 1. Der Hauptcontainer */
-    html body .highlight-section .highlight-swiper-mobile {
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        width: 100% !important;
-        overflow: hidden !important; /* Wichtig, damit nichts rausragt */
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
-    /* 2. DER WRAPPER (Hier lag das Problem mit dem "Untereinander") */
-    html body .highlight-section .highlight-swiper-mobile .swiper-wrapper {
-        display: flex !important; /* Zwingt die Bilder nebeneinander */
-        flex-direction: row !important;
-        width: 100% !important;
-        height: 100% !important;
-        box-sizing: content-box !important;
+/* Wir aktivieren den Effekt nur auf Desktop (ab 992px), 
+   damit es auf dem Handy sauber untereinander bleibt */
+
+  /* @media (min-width: 992px) {
+
+    /* Basis-Einstellungen für beide Bilder */
+    /*.product-image1,
+    .product-image2 {
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s ease;
+        /* Schöner, weicher Schlagschatten für Tiefe */
+        /*filter: drop-shadow(0 15px 20px rgba(0,0,0,0.4));
+        cursor: pointer;
     }
 
-    /* 3. Die einzelnen Slides */
-    html body .highlight-section .highlight-swiper-mobile .swiper-slide {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        flex-shrink: 0 !important;
-        width: 100% !important; /* Nimmt die volle Breite ein */
-        height: auto !important;
+    /* Bild LINKS: Dreht sich leicht nach rechts (zum Text) */
+    /*.product-image1 {
+        /* perspective: Bestimmt wie "tief" der 3D Raum ist */
+        /*transform: perspective(1000px) rotateY(5deg) scale(0.95);
     }
-    
-    /* 4. Die Pagination-Punkte */
-    html body .highlight-section .highlight-swiper-mobile .swiper-pagination {
-        display: block !important;
-        opacity: 1 !important;
-        bottom: 0px !important;
-        position: absolute !important;
-        width: 100% !important;
-        z-index: 10 !important;
+
+    /* Bild RECHTS: Dreht sich leicht nach links (zum Text) */
+    /*.product-image2 {
+        transform: perspective(1000px) rotateY(5deg) scale(0.95);
     }
-    
-    /* Desktop-Elemente ausblenden */
-    html body .highlight-scroller {
-        display: none !important;
+
+    /* HOVER STATE (Für beide gleich) */
+    /* Das Bild dreht sich gerade zum User und kommt näher */
+    /*.product-image1:hover,
+    .product-image2:hover {
+        transform: perspective(1000px) rotateY(0deg) scale(0.97); /* Zoom & Gerade */
+       /* filter: drop-shadow(0 15px 20px rgba(0,0,0,0.6)); /* Schatten wird größer */
     }
 }
-/* =========================================
-   PAGINATION NOTFALL-FIX (Sichtbar machen)
-   ========================================= */
-
-@media (max-width: 991px) {
-    /* 1. Container vorbereiten */
-    html body .highlight-section .highlight-swiper-mobile {
-        position: relative !important; /* Wichtig für die Positionierung der Punkte */
-        padding-bottom: 50px !important; /* Platz unten für die Punkte schaffen */
-        overflow: visible !important; /* Testweise erlauben, dass Dinge rausraken */
-    }
-
-    /* 2. Den Container der Punkte erzwingen */
-    html body .highlight-section .highlight-swiper-mobile .swiper-pagination {
-        display: flex !important;
-        position: absolute !important;
-        bottom: 0px !important;     /* Ganz unten am Rand */
-        left: 0 !important;
-        width: 100% !important;
-        height: 40px !important;    /* Feste Höhe erzwingen */
-        justify-content: center !important;
-        align-items: center !important;
-        z-index: 9999 !important;   /* Ganz nach vorne */
-        opacity: 1 !important;
-        background: transparent !important; /* Kein Hintergrundbalken */
-    }
-
-    /* 3. Die Punkte selbst (Bullets) */
-    html body .highlight-section .highlight-swiper-mobile .swiper-pagination-bullet {
-        display: inline-block !important;
-        width: 6px !important;
-        height: 6px !important;
-        margin: 0 4px !important;
-        border-radius: 50% !important;
-        opacity: 1 !important;
-        
-        /* TEST-FARBE (Rot): Wenn du sie siehst, ändern wir es zu Gold */
-        background: #333 !important;
-    }
-
-    /* 4. Der aktive Punkt */
-    html body .highlight-section .highlight-swiper-mobile .swiper-pagination-bullet-active {
-        background: #f6d12e !important; /* Gold */
-        transform: scale(1.3) !important;
-    }
+}
+html {
+    scroll-behavior: smooth;
+}
+#preise {
+    /* Das ist magisch: Der Browser stoppt beim Scrollen 15vh (15% der Bildschirmhöhe) VOR dem Element */
+    scroll-margin-top: 8vh; 
 }
 
-/* =========================================
-   HERO PLAYER (Cymatics Style)
-   ========================================= */
-
-.hero-player-wrapper {
-    width: 100%;
-    max-width: 900px; /* Nicht zu breit auf riesigen Screens */
-    margin: 50px auto 20px auto; /* Abstand nach oben/unten */
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 0 20px; /* Damit es auf Handy nicht am Rand klebt */
+/* Container und Abstände */
+.artist-cross-sell {
+  background-color: transparent; /* Passt sich deinem Hintergrund an */
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Optional: feine Trennlinie oben */
+  padding-top: 50px;
 }
 
-/* Der Runde Play-Button */
-.hero-play-button {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    color: #ebebeb;             /* Goldenes Icon */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    cursor: pointer;
-    flex-shrink: 0; /* Verhindert, dass der Button gequetscht wird */
-    transition: all 0.2s ease;
-    margin-bottom: 22px;
+/* Die Überschrift oben */
+.artist-cross-sell .section-title {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 40px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Bild Gestaltung */
+.artist-cross-sell .image-wrapper img {
+  width: 100%;
+  max-width: 900px; /* Damit es auf großen Bildschirmen nicht riesig wird */
+  height: auto;
+  display: block;
+  margin: 0 auto 30px auto;
+  /* Ein leichter Schein/Schatten für Tiefe, passend zum Dark Mode */
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
+  transition: transform 0.3s ease;
 }
 
 
-/* Der Container für die Wellen */
-.hero-waveform-container {
-    flex: 1; /* Nimmt den restlichen Platz ein */
-    height: 80px; /* Schön hoch wie im Screenshot */
-    opacity: 0.9;
+/* Produkt Titel */
+.artist-cross-sell .product-name {
+  color: #f7d638; /* Dein Gold-Ton */
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Beschreibungstext */
+.artist-cross-sell .product-desc {
+  color: #c8c8c8; /* Helles Grau für gute Lesbarkeit */
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+}
+
+/* Preis */
+.artist-cross-sell .product-price {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* Button Design (Identisch zu deinem gelben Button) */
+.artist-cross-sell .gold-cta-button {
+  display: inline-block;
+  background-color: #f7ea38;
+  color: #000000;
+  padding: 14px 50px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+/* Button Hover Effekt */
+.artist-cross-sell .gold-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(247, 214, 56, 0.3);
 }
 
 /* Mobile Anpassung */
 @media (max-width: 767px) {
-    .hero-player-wrapper {
-        gap: 0px;
-        margin-top: 30px;
-    }
-    .hero-play-button {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-        margin-top: 20px;
-        
-    }
-    .hero-waveform-container {
-        height: 60px; /* Etwas flacher auf Handy */
-    }
-}
-
-.single-presets-title {
-    color: #fff;
-    font-size: 1.8rem;
-    font-weight: 500;
-    padding-top: 50px;
-}
-
-/* =========================================
-   SINGLE PRESETS STYLING (Compact & Clean)
-   ========================================= */
-
-/* 1. Äußerer Rahmen */
-.single-presets-slider-wrapper {
-    position: relative;
-    max-width: 1100px; /* Etwas schmaler insgesamt -> wirkt kompakter */
-    margin: 0 auto;
-    padding: 0 50px;   /* Platz für die Pfeile */
-}
-
-/* 2. Swiper Container */
-.single-presets-swiper {
-    width: 100%;
-    overflow: hidden;
-    padding: 10px 5px 20px 5px; /* Platz für Schatten */
-}
-
-/* 3. Die Karte (Kompakter) */
-.single-item {
-    display: block;
-    background: #151515; /* Ein Tick dunkler für mehr "Premium" Look */
-    border-radius: 8px;  /* Etwas weniger rund */
-    padding: 12px;       /* Weniger Innenabstand (vorher 15px) */
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.08);
-    text-align: center;
-    transition: all 0.2s ease;
-    height: 100%;
-}
-
-.single-item:hover {
-    transform: translateY(-3px); /* Nicht ganz so hoch springen */
-    border-color: #f6d12e;
-    background: #1f1f1f;
-    outline-color: #fff;
-}
-
-/* 4. Das Bild (Kleiner zwingen) */
-.single-item img {
-    width: 100%;
-    height: auto;
-    max-height: 180px; /* HIER: Maximale Höhe reduziert (vorher 250px) */
-    object-fit: contain;
-    margin-bottom: 8px;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
-}
-
-@media (max-width: 767px) {
-    #displayImage {
-        width: 60% !important;      /* Macht es halb so breit */
-        max-width: 300px !important; /* Sicherheitshalber: nie breiter als 200px */
-        height: auto !important;    /* Verhältnis beibehalten */
-        
-        /* Damit es zentriert ist: */
-        display: block !important;  
-        margin: 0 auto !important;  
-    }
-}
-
-/* 5. Typografie (Kleiner & Feiner) */
-.single-info h4 {
-    font-size: 0.8rem; /* Kleiner (vorher 0.9rem) */
-    color: #eee;
-    margin: 0 0 2px 0;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.single-info span {
-    font-size: 0.75rem; /* Preis kleiner */
-    color: #f6d12e;
-    font-weight: 500;
-}
-
-/* --- PFEILE (Dezent & Gold) --- */
-.single-presets-slider-wrapper .swiper-button-next,
-.single-presets-slider-wrapper .swiper-button-prev {
-    color: #f6d12e !important;
-    width: 30px !important;  /* Kleinerer Klickbereich */
-    height: 30px !important;
-    position: absolute !important;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 100;
-    margin-top: -10px; /* Leichte optische Korrektur nach oben wegen Bildhöhe */
-}
-
-/* Icon Größe reduzieren */
-.single-presets-slider-wrapper .swiper-button-next::after,
-.single-presets-slider-wrapper .swiper-button-prev::after {
-    font-size: 18px !important; /* Pfeil-Symbol kleiner (vorher 24-28px) */
-    font-weight: bold;
-}
-
-/* Position links/rechts */
-.single-presets-slider-wrapper .swiper-button-prev { left: 5px !important; }
-.single-presets-slider-wrapper .swiper-button-next { right: 5px !important; }
-
-.swiper-slide h4 {
-  color: #fff;
-  font-size: 13px;
-
+  .artist-cross-sell .section-title {
+    font-size: 1.4rem;
   }
-
-  .swiper-slide span {
-  color: #fff459;
-  font-size: 13px;
-  font-weight: 400;
+  .artist-cross-sell .product-name {
+    font-size: 1.3rem;
+  }
+  .artist-cross-sell .image-wrapper img {
+    max-width: 100%;
+  }
 }
 
-.single-item:hover {
-    border: 1px solid #393939!important;
-}
-html {
-    scroll-behavior: smooth;
-    width: 100%;
-    overflow-x: hidden !important; /* WICHTIG: Verbietet seitliches Scrollen */
-    position: relative;
-}
-#preise {
-    /* Das ist magisch: Der Browser stoppt beim Scrollen 15vh (15% der Bildschirmhöhe) VOR dem Element */
-    scroll-margin-top: 10vh; 
-}
 
+
+
+.bundle-image {
+  display: flex;
+  justify-content: center; /* Zentriert horizontal */
+  align-items: center;     /* (Optional) Zentriert vertikal */
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+/* Hier änderst du die Größe */
+.bundle-image img {
+  width: 800px; /* Deine Wunschbreite */
+  height: auto; /* Wichtig: Damit es nicht verzerrt wird */
+  max-width: 200%; 
+}
 @media (max-width: 767px) {
     .bundle-image {
         width: 90%;
@@ -1756,99 +1579,250 @@ html {
     }
 }
 
-/* --- BUNDLE CONTENT SECTION STYLES --- */
-
-.bundle-content-section {
-    background-color: transparent;
-    color: #b0b0b0; /* Helles Grau für den Text */
-    padding: 60px 20px;
-    font-family: 'Montserrat', 'Arial', sans-serif; /* Oder deine Standard-Schriftart */
+.brete .box {
+    background: #1c1d21; /* Leichter Kontrast zum Body Background */
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 40px;
+    margin-bottom: 0px;
+    /* box-shadow: 0 10px 30px rgba(0,0,0,0.3); */
 }
 
-.content-wrapper {
-    max-width: 800px; /* Begrenzt die Breite, damit es lesbar bleibt */
-    margin: 0 auto;
-}
-
-/* Überschrift "Inhalt" */
-.content-title {
-    text-align: center;
-    color: #fde047; /* Helles Gelb */
-    font-size: 28px;
+.inner-heading {
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 40px;
+    color: #f6d12e; /* Gold */
+    margin-bottom: 20px;
+    line-height: 1.3;
 }
 
-/* Die Liste der Presets */
-.preset-list {
-    margin-bottom: 30px;
-    font-size: 16px; /* Schriftgröße der Liste */
+.inner-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ffffff;
+
+}
+.product-image1 {
+    /* Begrenzt die Breite auf 80% des verfügbaren Platzes */
+    max-width: 100%; 
+    
+    /* Oder eine feste Pixel-Größe, wenn du es starr willst: */
+    /* max-width: 350px; */
+
+    width: 100%;    /* Damit es responsive bleibt */
+    height: auto;   /* Verhältnis beibehalten */
+    
+    /* Damit es in der Spalte mittig sitzt: */
+    display: block;
+    margin: 0 auto; 
+    transform: translateY(-35px);
+}
+.product-image2 {
+    /* Begrenzt die Breite auf 80% des verfügbaren Platzes */
+    max-width: 95%; 
+    
+    /* Oder eine feste Pixel-Größe, wenn du es starr willst: */
+    /* max-width: 350px; */
+
+    width: 100%;    /* Damit es responsive bleibt */
+    height: auto;   /* Verhältnis beibehalten */
+    
+    /* Damit es in der Spalte mittig sitzt: */
+    display: block;
+    margin: 0 auto; 
+    transform: translateY(-12px);
+}
+.product-image3 {
+    /* Begrenzt die Breite auf 80% des verfügbaren Platzes */
+    max-width: 95%; 
+    
+    /* Oder eine feste Pixel-Größe, wenn du es starr willst: */
+    /* max-width: 350px; */
+
+    width: 100%;    /* Damit es responsive bleibt */
+    height: auto;   /* Verhältnis beibehalten */
+    
+    /* Damit es in der Spalte mittig sitzt: */
+    display: block;
+    margin: 0 auto; 
+    transform: translateY(-15px);
+}
+.style-label {
+    color: #e6e6e6; /* Helles Grau, gut lesbar auf Dark Mode */
+    font-weight: 400;
+}
+/* 1. Den Abstand unter der Hero-Section entfernen */
+.hero.sec {
+    padding-bottom: 0px !important;
 }
 
-.preset-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    line-height: 1.4;
+/* 2. Den Abstand über der Brete-Section verringern */
+.brete.sec {
+    padding-top: 10px !important; /* Etwas Platz lassen, aber nicht riesig */
+}
+/* 1. Erzwingt Abstand unter dem Text "Firmen mit denen..." */
+.highlight-section .sub-heading {
+    margin-bottom: 30px !important; /* Schiebt die Logos nach unten */
+    position: relative;             /* Stellt sicher, dass es im Fluss bleibt */
+    z-index: 1;
 }
 
-.preset-name {
-    text-align: left;
+/* 2. Stellt sicher, dass die Logos nicht von sich aus nach oben rutschen */
+.brand-strip__logos {
+    margin-top: 0px !important;     /* Verhindert negativen Abstand nach oben */
+    position: relative;
+    z-index: 1;
 }
 
-.preset-price {
-    text-align: right;
-    min-width: 50px;
+/* 1. Bild darf den neuen, größeren Platz voll ausnutzen */
+.brete .product-image1 {
+    width: 90%;       /* Füllt den col-lg-5 Container komplett */
+    max-width: 100%;   /* Keine künstliche Begrenzung mehr */
+    transform: translateY(-50px);   /* Falls du vorher Verschiebungen hattest, hier resetten */
+    /* Optional: Wenn es noch größer wirken soll: scale(1.1) */
 }
 
-/* Zusammenfassungs-Bereich */
-.bundle-summary {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+/* 2. Waveforms kompakter machen, damit sie in die schmalere Box passen */
+.waveformSets {
+  margin-top: 24px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  /* 1. HIER: Horizontale Lücke vergrößert (von 15px auf 30px) */
+  gap: 15px 30px !important; 
+
+  padding: 0;
+
+  /* 2. HIER: Linkes Padding auf 0 gesetzt für Bündigkeit */
+  padding-left: 0px !important; 
+  padding-right: 0px !important; /* Rechts auch 0, damit es symmetrisch ist */
+
+  padding-top: 10px;
+  padding-bottom: 0;
+  /* row-gap wird durch das 'gap' oben bereits abgedeckt */
 }
 
-.summary-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* 3. Den Titel der Player etwas kleiner, damit er nicht umbricht */
+.wave-title {
+    font-size: 11px !important; /* Vorher 12px */
+    white-space: nowrap;        /* Verhindert Umbruch */
+    overflow: hidden;           /* Schneidet zu langen Text ab */
+    text-overflow: ellipsis;    /* Fügt "..." hinzu */
 }
 
-/* GESAMT Zeile (Rot) */
-.total-calc {
-    color: #ef4444; /* Rot */
-    font-weight: 800;
-    font-size: 18px;
+/* 4. Play-Button etwas näher ranrücken */
+.wave-row {
+    gap: 8px !important; /* Vorher 12px */
 }
 
-.old-price {
+/* Disclaimer AUSSEN unter der Box */
+.artist-disclaimer {
+    text-align: right;          /* Rechtsbündig unter der Box */
+    font-size: 11px;            /* Dezent klein */
+    color: #727c84;             /* Grau */
+    margin-top: -25px;           /* Abstand zur Box nach oben */
+    margin-bottom: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    opacity: 0.8;
+    padding-right: 5px;         /* Damit es bündig mit der Box-Kante wirkt */
+}
+.inner-heading .artist-star {
+    font-size: 0.7em;       /* 60% der Größe vom Text -> deutlich kleiner */
+    font-weight: 300;       /* Dünn */
+    vertical-align: super;  /* Hochgestellt (wie eine Fußnote) */
+    opacity: 0.8;           /* Optional: Etwas transparenter, wirkt edler */
+}
+/* Durchgestrichener Preis im Upsell */
+.product-price-old {
+    font-size: 1.1rem;           /* Kleiner als der Hauptpreis */
+    color: #888;                 /* Grau/Inaktiv */
     text-decoration: line-through; /* Durchgestrichen */
+    font-weight: 500;
+    margin-bottom: -5px;         /* Zieht den 39€ Preis etwas näher ran */
+    font-family: 'Montserrat', sans-serif;
+}
+/* =========================================
+   PRICING UPDATE: 2 KARTEN (Gleiche Größe)
+   ========================================= */
+
+.pricing-grid {
+    display: grid;
+    /* Desktop: 2 nebeneinander | Handy: Untereinander */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 30px; 
+    /* WICHTIG: Stretch sorgt dafür, dass beide Boxen exakt gleich hoch sind */
+    align-items: stretch; 
+    max-width: 900px; 
+    margin: 40px auto 0 auto;
 }
 
-/* ARTIST PRESET PACK Zeile (Gelb) */
-.final-deal {
-    color: #fde047; /* Gelb */
+/* 1. Die Standard Karte (Links) */
+.pricing-card {
+    /* ... deine existierenden Styles für die Standardkarte ... */
+    /* Nur zur Sicherheit, falls wir margin resetten müssen: */
+    margin: 0; 
+}
+
+/* 2. Die Bestseller Karte (Rechts) - JETZT GLEICHE GRÖSSE */
+.pricing-card.premium-card {
+    /* Design: Gold & Dunkel */
+    border: 2px solid #f6d12e;
+    background: linear-gradient(145deg, #161616, #080808);
+    
+    /* WICHTIG: Kein "transform: scale" mehr -> gleiche Größe wie links */
+    transform: none; 
+    
+    position: relative;
+    z-index: 1;
+    
+    /* Etwas Schatten für den Glow, aber die Box bleibt am Boden */
+    box-shadow: 0 5px 30px rgba(246, 209, 46, 0.15);
+}
+
+/* Der Badge "BESTSELLER" */
+.best-value-badge {
+    position: absolute;
+    top: -15px; /* Sitzt auf der Kante */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    background-color: #f6d12e;
+    color: #000;
+    padding: 6px 18px;
     font-weight: 800;
-    font-size: 18px; /* Etwas größer */
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    white-space: nowrap;
+    z-index: 10;
 }
 
-/* Die weiße Linie ganz unten */
-.bottom-line {
-    margin-top: 20px;
-    height: 2px;
-    background-color: #ffffff;
-    width: 100%;
-    opacity: 0.9;
+/* "Du sparst 89%" Text */
+.savings-text {
+    text-align: center;
+    color: #f6d12e;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    font-weight: 650;
+    margin-bottom: -10px;
+    /* Optional: Ein kleines Icon davor? */
+    /* content: "\f00c"; font-family: "Font Awesome 5 Free"; */
 }
 
-/* Mobile Optimierung: Bei sehr kleinen Bildschirmen Text etwas kleiner */
-@media (max-width: 600px) {
-    .preset-row {
-        font-size: 14px;
+/* RESPONSIVE: Handy-Optimierung */
+@media (max-width: 768px) {
+    .pricing-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 40px; /* Genug Platz für den Badge dazwischen */
     }
-    .final-deal {
-        font-size: 18px;
+
+    .pricing-card.premium-card {
+        order: -1; /* Bundle steht auf dem Handy immer noch oben! */
+        margin-top: 10px; /* Platz für den Badge oben */
     }
 }
 /* --- DAW PREVIEW SECTION --- */
@@ -1944,11 +1918,8 @@ html {
         gap: 20px;
     }
     .daw-tab img {
-        height: 40px; /* Kleiner auf Handy */
+        height: 30px; /* Kleiner auf Handy */
     }
-    .daw-preview-section {
-        margin-top: -100px;
-  }
 }
 
 /* Style für die Überschrift der DAW Section */
