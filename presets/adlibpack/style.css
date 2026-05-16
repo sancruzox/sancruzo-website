@@ -128,12 +128,12 @@ body {
 }
 
 .main-heading {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-size: 4rem;
   color: #ffffff;
   text-align: center;
   font-weight: 300;
-  letter-spacing: -0.28rem;
+  letter-spacing: -0.055em;
   line-height: 1.1;
   margin-bottom: -10px;
 }
@@ -141,7 +141,7 @@ body {
   font-family: 'Instrument Serif', serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 4rem;
+  font-size: 1.08em;
   letter-spacing: 0;
 }
 .main-heading .highlight {
