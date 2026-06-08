@@ -3,6 +3,8 @@
 
 <head>
 <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/0d9ce736cf1c7d99a74bd0295c9a8e30.js"></script>
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+<script>Paddle.Initialize({ token: 'live_8551962d454585de6c4f571a18b' });</script>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -492,9 +494,9 @@ Inspiriert von T-Low
         <li>Tutorials zur Nutzung</li>
         <li class="unavailable">12 weitere Artist Presets</li>
       </ul>
-      <a href="https://www.sancruzo.de/cart/60951168516426:1" class="plan-button outline">
+      <button onclick="Paddle.Checkout.open({ items: [{ priceId: 'pri_01ktkwhf6jvqzg8zqp8nfpyg4c', quantity: 1 }] })" class="plan-button outline">
         Zum Einzelkauf
-      </a>
+      </button>
     </div>
 
     <div class="pricing-card premium-card">
