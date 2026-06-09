@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <script>Paddle.Initialize({ token: 'live_8551962d454585de6c4f571a18b' });</script>
 </head>
 
 <nav class="main-nav">
@@ -492,9 +494,7 @@ Inspiriert von Reezy
         <li>Tutorials zur Nutzung</li>
         <li class="unavailable">12 weitere Artist Presets</li>
       </ul>
-      <a href="https://www.sancruzo.de/cart/60951137911114:1" class="plan-button outline">
-        Zum Einzelkauf
-      </a>
+      <button onclick="Paddle.Checkout.open({ items: [{ priceId: 'pri_01ktkv8ch0kxjn095nvcdwd3qy', quantity: 1 }] })" class="plan-button outline">Zum Einzelkauf</button>
     </div>
 
     <div class="pricing-card premium-card">

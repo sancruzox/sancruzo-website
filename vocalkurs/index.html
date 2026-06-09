@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <script>
+        Paddle.Initialize({
+            token: 'live_8551962d454585de6c4f571a18b'
+        });
+    </script>
     
     <link rel="icon" type="image/png" href="https://sancruzowebsite.b-cdn.net/S-Blitz%20Logo%20Design%202024.png">
 </head>
@@ -72,7 +78,7 @@
                         <span class="price-tag">€79</span> 
                     </div>
                     
-                    <a href="https://sancruzo.podia.com/moderne-vocals-abmischen-der-weg-zum-besseren-vocal-mix/buy" class="btn btn-gold btn-lg">JETZT LOSLEGEN</a>
+                    <button onclick="Paddle.Checkout.open({ items: [{ priceId: 'pri_01kt6r1wwer0rn42hvt1yvgk14', quantity: 1 }], settings: { successUrl: 'https://sancruzo.com/vocalkurs/danke/' } })" class="btn btn-gold btn-lg">JETZT LOSLEGEN</button>
 
                     <div class="offer-features-row mb-4">
                         <div class="feature-item">
@@ -447,7 +453,7 @@
                     <div class="price-wrapper mb-4">
                          <span class="price-tag">€79</span></div>
                     
-                    <a href="https://sancruzo.podia.com/moderne-vocals-abmischen-der-weg-zum-besseren-vocal-mix/buy" class="btn btn-gold btn-lg">JETZT LOSLEGEN</a>
+                    <button onclick="Paddle.Checkout.open({ items: [{ priceId: 'pri_01kt6r1wwer0rn42hvt1yvgk14', quantity: 1 }], settings: { successUrl: 'https://sancruzo.com/vocalkurs/danke/' } })" class="btn btn-gold btn-lg">JETZT LOSLEGEN</button>
                      <div class="offer-features-row mb-4">
                         <div class="feature-item">
                             <span class="feature-star">★</span> 

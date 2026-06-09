@@ -1,0 +1,236 @@
+/* ─── COLLAPSED SIDEBAR ───────────────────────── */
+.sidebar-collapsed {
+    width: 70px;
+}
+
+.sidebar-nav-collapsed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 16px 0;
+}
+
+.nav-item-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.nav-item-icon:hover .nav-icon {
+    background: rgba(255,255,255,0.1);
+    color: #ccc;
+}
+
+.nav-item-icon.active .nav-icon {
+    background: #f7d638;
+    color: #000;
+}
+
+/* ─── PLAYER MAIN ─────────────────────────────── */
+.player-main {
+    margin-left: 70px;
+    flex: 1;
+    padding: 32px 20px 32px 36px;
+    min-height: calc(100vh - 60px);
+}
+
+.player-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    max-width: calc(74vh * 16 / 9 + 260px + 20px);
+}
+
+/* ─── LEFT: VIDEO + INFO ──────────────────────── */
+.player-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.academy-video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-width: calc(74vh * 16 / 9);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+.academy-video-wrapper .video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.academy-video-wrapper .play-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    background: rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.academy-video-wrapper .play-circle {
+    width: 80px;
+    height: 70px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.academy-video-wrapper .play-circle svg {
+    margin-left: 5px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.academy-video-wrapper .play-circle:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.05);
+}
+
+.video-info {
+    margin-top: 20px;
+}
+
+.video-meta {
+    font-size: 0.78rem;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: none;
+}
+
+.video-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+.video-description {
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.7;
+    max-width: 700px;
+}
+
+/* ─── RIGHT: NEXT LESSONS ─────────────────────── */
+.player-right {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.next-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.next-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.next-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 6px;
+    transition: background 0.15s;
+}
+
+.next-item:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.next-thumb {
+    flex-shrink: 0;
+    width: 110px;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+.next-thumb-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #3a3b48;
+    aspect-ratio: 16 / 9;
+}
+
+.next-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.next-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-top: 2px;
+}
+
+.next-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    line-height: 1.3;
+}
+
+.next-chapter {
+    font-size: 0.72rem;
+    color: #666;
+}
+
+.next-duration {
+    font-size: 0.72rem;
+    color: #666;
+}
+
+.no-next {
+    font-size: 0.8rem;
+    color: #555;
+    padding: 8px 0;
+}
+
+.all-lessons-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #ccc;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+}
+
+.all-lessons-link:hover {
+    color: #fff;
+}

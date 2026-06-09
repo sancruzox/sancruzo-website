@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <script>Paddle.Initialize({ token: 'live_8551962d454585de6c4f571a18b' });</script>
 </head>
 
 <body>
@@ -633,10 +635,7 @@
         <li class="unavailable">Pro Mastering Preset</li>
       </ul>
 
-      <a href="https://www.sancruzo.de/cart/60924108865866:1"
-         class="plan-button outline">
-        Kaufen
-      </a>
+      <button onclick="Paddle.Checkout.open({ items: [{ priceId: 'pri_01ktkqz0g49dxb5s8e2z6q6gks', quantity: 1 }] })" class="plan-button outline">Kaufen</button>
     </div>
 
     <div class="pricing-card highlight">
@@ -655,10 +654,7 @@
         <li>Pro Mastering Preset</li>
       </ul>
 
-      <a href="https://www.sancruzo.de/cart/60924124102986:1"
-         class="plan-button filled">
-        Kaufen
-      </a>
+      <button onclick="Paddle.Checkout.open({ items: [{ priceId: 'pri_01ktktrm65h16ftcxv8s1abzwh', quantity: 1 }] })" class="plan-button filled">Kaufen</button>
     </div>
 
   </div>

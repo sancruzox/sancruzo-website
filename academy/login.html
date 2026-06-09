@@ -1,0 +1,156 @@
+s<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Cruzo Academy – Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://sancruzowebsite.b-cdn.net/S-Blitz%20Logo%20Design%202024.png">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #1a1b22;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 0 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+        }
+        .login-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .login-logo img { height: 32px; width: auto; }
+        .login-logo-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        .login-logo-text em {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 1.15em;
+        }
+        .login-card {
+            width: 100%;
+            background: #13141a;
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 14px;
+            padding: 36px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .login-card h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+        }
+        .login-card p {
+            font-size: 0.8rem;
+            color: #666;
+            text-align: center;
+            margin-top: -8px;
+        }
+        .login-input {
+            width: 100%;
+            background: #22232e;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .login-input:focus { border-color: rgba(247,214,56,0.5); }
+        .login-btn {
+            width: 100%;
+            background: #f7d638;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            padding: 13px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .login-btn:hover { background: #f7d638; }
+        .login-error {
+            font-size: 0.8rem;
+            color: #e05555;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <div class="login-logo">
+            <img src="https://sancruzowebsite.b-cdn.net/S-Blitz%20Logo%20Design%202024.png" alt="Logo">
+            <span class="login-logo-text">San Cruzo <em>Academy</em></span>
+        </div>
+
+        <div class="login-card">
+            <h2>Willkommen zurück</h2>
+            <p>Bitte gib dein Passwort ein, um loszulegen.</p>
+            <input class="login-input" type="password" id="password-input" placeholder="Passwort" />
+            <button class="login-btn" id="login-btn">Einloggen</button>
+            <span class="login-error" id="login-error">Falsches Passwort. Bitte versuche es erneut.</span>
+        </div>
+    </div>
+
+<script>
+    // ── PASSWÖRTER HIER VERWALTEN ─────────────────
+    const PASSWOERTER = [
+        "903268",   // Kunde 1
+        "kunde2-xyz",     // Kunde 2
+        "kunde3-abc",     // Kunde 3
+    ];
+    // ─────────────────────────────────────────────
+
+    if (localStorage.getItem('academy_auth') === 'true') {
+        window.location.href = 'index.html';
+    }
+
+    function tryLogin() {
+        const input = document.getElementById('password-input').value;
+        if (PASSWOERTER.includes(input)) {
+            localStorage.setItem('academy_auth', 'true');
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('login-error').style.display = 'block';
+            document.getElementById('password-input').value = '';
+            document.getElementById('password-input').focus();
+        }
+    }
+
+    document.getElementById('login-btn').addEventListener('click', tryLogin);
+    document.getElementById('password-input').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') tryLogin();
+    });
+</script>
+
+</body>
+</html>

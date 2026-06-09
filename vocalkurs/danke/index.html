@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vielen Dank – San Cruzo Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://sancruzowebsite.b-cdn.net/S-Blitz%20Logo%20Design%202024.png">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #1a1b22;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
+        }
+
+        .thank-you-box {
+            width: 100%;
+            max-width: 560px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img { height: 32px; width: auto; }
+
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .logo-text em {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 1.15em;
+        }
+
+        .checkmark {
+            width: 64px;
+            height: 64px;
+            background: rgba(247,214,56,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .card {
+            width: 100%;
+            background: #13141a;
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 14px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: left;
+        }
+
+        .card h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #f7d638;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #2a2b38;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #f7d638;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .step-text {
+            font-size: 0.85rem;
+            color: #bbb;
+            line-height: 1.6;
+        }
+
+        .step-text strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .btn-academy {
+            display: inline-block;
+            background: #f7d638;
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            padding: 14px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .btn-academy:hover { background: #f7d638; }
+
+        .footer-note {
+            font-size: 0.75rem;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="thank-you-box">
+
+        <div class="logo">
+            <img src="https://sancruzowebsite.b-cdn.net/S-Blitz%20Logo%20Design%202024.png" alt="Logo">
+            <span class="logo-text">San Cruzo <em>Academy</em></span>
+        </div>
+
+        <div class="checkmark">✓</div>
+
+        <h1>Willkommen im Kurs!</h1>
+
+        <p style="font-size:0.9rem; color:#888; margin-top:-16px; max-width:420px;">
+            Deine Zahlung war erfolgreich. Hier sind deine nächsten Schritte:
+        </p>
+
+        <div class="card">
+            <h3>So geht es weiter</h3>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-text">
+                    Schau in dein <strong>E-Mail-Postfach</strong> — du erhältst in Kürze eine E-Mail von uns mit deinem persönlichen <strong>Zugangspasswort</strong> für die Academy.
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text">
+                    Geh auf <strong>sancruzo.com/academy</strong> und melde dich mit dem Passwort aus der E-Mail an.
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">
+                    Starte direkt mit <strong>Kapitel 1 – Vorbereitung</strong> und bring deine Vocals auf das nächste Level.
+                </div>
+            </div>
+        </div>
+
+        <a href="https://sancruzo.com/academy/" class="btn-academy">Zur Academy →</a>
+
+        <p class="footer-note">Bei Fragen erreichst du uns unter support@sancruzo.com</p>
+
+    </div>
+
+</body>
+</html>
