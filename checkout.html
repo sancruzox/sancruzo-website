@@ -21,7 +21,8 @@
         .checkout-nav {
             width: 100%;
             padding: 20px 32px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            background: #f0f0f0;
         }
         .checkout-nav a {
             display: inline-flex;
@@ -44,8 +45,54 @@
         .checkout-wrapper {
             width: 100%;
             max-width: 580px;
-            padding: 40px 24px 64px;
+            padding: 32px 24px 64px;
             flex: 1;
+        }
+
+        /* Produktkarte */
+        .product-card {
+            display: none;
+            align-items: center;
+            gap: 16px;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+        }
+        .product-card.visible { display: flex; }
+
+        .product-img-wrap {
+            flex-shrink: 0;
+            width: 52px;
+            height: 52px;
+            background: #e8e8e8;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+        .product-label {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 3px;
+        }
+        .product-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #111;
         }
 
         #paddle-checkout-container {
@@ -56,7 +103,7 @@
             text-align: center;
             padding: 80px 0;
             font-size: 14px;
-            color: #666;
+            color: #999;
             letter-spacing: 0.01em;
         }
         .status-msg.error { color: #e05555; }
@@ -72,12 +119,47 @@
     </nav>
 
     <div class="checkout-wrapper">
+
+        <div class="product-card" id="product-card">
+            <div class="product-img-wrap">
+                <img id="product-img" src="" alt="">
+            </div>
+            <div class="product-info">
+                <p class="product-label">Dein Kauf</p>
+                <p class="product-name" id="product-name"></p>
+            </div>
+        </div>
+
         <div id="paddle-checkout-container" class="paddle-checkout-container">
             <p class="status-msg">Checkout wird geladen…</p>
         </div>
+
     </div>
 
 <script>
+    const PRODUCTS = {
+        'pri_01ktkv8ch0kxjn095nvcdwd3qy': { name: 'Vocal Preset "Shawty"',              img: 'https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/REEZY%20Preset%20Artwork%20Dark%203d%20edit%20(heller).png' },
+        'pri_01ktkw6s4m3nhthfvstpyvt02v': { name: 'Vocal Preset "Shabab"',              img: 'https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Pashanim%20Preset%20Artwork%20Dark%203d%20edit.png' },
+        'pri_01ktkw8f6gsz10gtec0kk64d7a': { name: 'Vocal Preset "UFO"',                 img: 'https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/ufo%20Preset%20Artwork%20Dark%203d%20edit.png' },
+        'pri_01ktkw9r87n8ycgysq35ntr674': { name: 'Vocal Preset "Akh"',                 img: 'https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/nizi%20preset%20artwork%20dark%203d%20edit.png' },
+        'pri_01ktkwayca8wd7vw0zz7fj4q0w': { name: 'Vocal Preset "Absinth"',             img: 'https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Absent%20Preset%20Artwork%20Dark%203d%20edit.png' },
+        'pri_01ktkwbx1v5d150ahzqkpq57p4': { name: 'Vocal Preset "101"',                 img: 'https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/lucio101%20preset%20artwork%20dark%203d%20edit.png' },
+        'pri_01ktkwcrkpfp9x2p3tk9xrs4df': { name: 'Vocal Preset "Palmen"',              img: 'https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/raf%20Preset%20Artwork%20Dark%203d%20edit.png' },
+        'pri_01ktkwefavzr4c0j7tcqmy35j1': { name: 'Vocal Preset "Feuer"',               img: 'https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Faroon%20Preset%20Artwork%20Dark%203d%20edit.png' },
+        'pri_01ktkwff3eccqk8yt1zvmapbrj': { name: 'Vocal Preset "New Era"',             img: 'https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Luis%20Preset%20Artwork%20Dark%203d%20edit.png' },
+        'pri_01ktkwggaqste7gpd0nkp8g13k': { name: 'Vocal Preset "Cataleya"',            img: 'https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/Samra%20preset%20artwork%20dark%203d%20edit.png' },
+        'pri_01ktkwjhms1mrqk4983gbs4ybq': { name: 'Vocal Preset "La Cassetta"',         img: 'https://artist-pack.b-cdn.net/Preview%20Tabs/lacazette%20procuct%20card%203d%20dark%20version%20v2%20edit3.png' },
+        'pri_01ktkwhf6jvqzg8zqp8nfpyg4c': { name: 'Vocal Preset "We Made It"',          img: 'https://artist-pack.b-cdn.net/Preview%20Tabs/Dark%20Versions/tlow%20Preset%20Artwork%20Dark%203d%20edit.png' },
+        'pri_01ktkqz0g49dxb5s8e2z6q6gks': { name: 'Artist Preset Bundle',               img: 'https://artist-pack.b-cdn.net/Sonstige%20Bilder/Artist%20Preset%20Bundle%20V2.0%20Artwork%20Vertikal.png' },
+        'pri_01ktktrm65h16ftcxv8s1abzwh': { name: 'Artist Preset Bundle + Mastering',   img: 'https://artist-pack.b-cdn.net/Sonstige%20Bilder/Artist%20Preset%20Bundle%20V2.0%20Artwork%20Vertikal.png' },
+        'pri_01kt6sygdpbkdty9t155mfz6zh': { name: 'Pro Vocal Preset',                   img: 'https://pvpp-images.b-cdn.net/Main%20Bundle%20Artwork/pro%20vocal%20preset%20mockup%20remaster%20v3%20edit.png' },
+        'pri_01ktkty0m4m3njc70kmfv3m252': { name: 'Pro Vocal Preset + Mastering Chain', img: 'https://pvpp-images.b-cdn.net/Main%20Bundle%20Artwork/pro%20vocal%20preset%20mockup%20remaster%20v3%20edit.png' },
+        'pri_01ktkv15yx08zp2dz6j8k50zge': { name: 'Pro Adlib Preset Pack',              img: 'https://sancruzowebsite.b-cdn.net/Mockups/Pro%20Adlibs%20Pack%20Mockup%20Remaster%20edit_.png' },
+        'pri_01ktkv3kwh0enm6nvsyze7rygs': { name: 'Pro Adlibs + Pro Filler FX Bundle',  img: 'https://sancruzowebsite.b-cdn.net/Mockups/Pro%20Adlibs%20Pack%20Mockup%20Remaster%20edit_.png' },
+        'pri_01ktkv65tsjk505sywmyx7adzp': { name: 'Pro Filler FX Presets',              img: 'https://sancruzowebsite.b-cdn.net/Mockups/Filller%20FX%20Product%20Mockup%20NEU%20v2%20edit_.png' },
+        'pri_01kt6r1wwer0rn42hvt1yvgk14': { name: 'Vocals Abmischen – Online Video Kurs', img: 'https://sancruzowebsite.b-cdn.net/Vocal%20Kurs/Kurs2_Artwork_Vertikalv2.png' },
+    };
+
     const params     = new URLSearchParams(window.location.search);
     const priceId    = params.get('price');
     const successUrl = params.get('success');
@@ -86,6 +168,15 @@
         document.getElementById('paddle-checkout-container').innerHTML =
             '<p class="status-msg error">Kein Produkt angegeben.</p>';
     } else {
+        // Produktkarte befüllen
+        const product = PRODUCTS[priceId];
+        if (product) {
+            document.getElementById('product-img').src = product.img;
+            document.getElementById('product-img').alt = product.name;
+            document.getElementById('product-name').textContent = product.name;
+            document.getElementById('product-card').classList.add('visible');
+        }
+
         Paddle.Initialize({
             token: 'live_8551962d454585de6c4f571a18b',
             checkout: {
