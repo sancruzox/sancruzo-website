@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Preview – San Cruzo</title>
+    <link rel="icon" type="image/png" href="https://sancruzowebsite.b-cdn.net/S-Blitz%20Logo%20Design%202024.png">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #111111;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .checkout-nav {
+            width: 100%;
+            padding: 20px 32px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .checkout-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .checkout-nav img {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+        }
+        .checkout-nav span {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+
+        .checkout-wrapper {
+            width: 100%;
+            max-width: 580px;
+            padding: 40px 24px 64px;
+            flex: 1;
+        }
+
+        /* Platzhalter für den Paddle iFrame */
+        .paddle-mock {
+            width: 100%;
+            height: 500px;
+            background: #ffffff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 13px;
+            letter-spacing: 0.03em;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="checkout-nav">
+        <a href="https://sancruzo.com/">
+            <img src="https://sancruzowebsite.b-cdn.net/San%20Cruzo%20Logo%202026%20-%20Rund.png" alt="San Cruzo">
+            <span>San Cruzo</span>
+        </a>
+    </nav>
+
+    <div class="checkout-wrapper">
+        <!-- Platzhalter: gleiche Größe wie echter Paddle Checkout -->
+        <div class="paddle-mock">Paddle Checkout erscheint hier</div>
+    </div>
+
+</body>
+</html>
