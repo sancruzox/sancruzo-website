@@ -20,7 +20,21 @@
 
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
-    <script>Paddle.Initialize({ token: 'live_8551962d454585de6c4f571a18b' });</script>
+    <script>
+Paddle.Initialize({
+  token: 'live_8551962d454585de6c4f571a18b',
+  checkout: {
+    settings: {
+      displayMode: "inline",
+      theme: "light",
+      locale: "de",
+      frameTarget: "paddle-checkout-container",
+      frameInitialHeight: "450",
+      frameStyle: "width: 100%; min-width: 312px; background-color: transparent; border: none;"
+    }
+  }
+});
+</script>
 </head>
 
 <body>
@@ -225,6 +239,8 @@
             </div>
         </div>
     </div>
+
+<div class="paddle-checkout-container" style="display:none; width:100%; margin-top:8px;"></div>
 </section>
 
     <section class="highlight-section sec">
@@ -635,7 +651,7 @@
         <li class="unavailable">Pro Mastering Preset</li>
       </ul>
 
-      <button onclick="Paddle.Checkout.open({ items: [{ priceId: 'pri_01ktkqz0g49dxb5s8e2z6q6gks', quantity: 1 }] })" class="plan-button outline">Kaufen</button>
+      <button onclick="openPaddleCheckout('pri_01ktkqz0g49dxb5s8e2z6q6gks')" class="plan-button outline">Kaufen</button>
     </div>
 
     <div class="pricing-card highlight">
@@ -654,7 +670,7 @@
         <li>Pro Mastering Preset</li>
       </ul>
 
-      <button onclick="Paddle.Checkout.open({ items: [{ priceId: 'pri_01ktktrm65h16ftcxv8s1abzwh', quantity: 1 }] })" class="plan-button filled">Kaufen</button>
+      <button onclick="openPaddleCheckout('pri_01ktktrm65h16ftcxv8s1abzwh')" class="plan-button filled">Kaufen</button>
     </div>
 
   </div>
@@ -1840,5 +1856,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+<script>
+function openPaddleCheckout(priceId) {
+    var el = document.querySelector('.paddle-checkout-container');
+    el.style.display = 'block';
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    Paddle.Checkout.open({ items: [{ priceId: priceId, quantity: 1 }] });
+}
+</script>
 </body>
 </html>
