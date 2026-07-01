@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout – San Cruzo</title>
+    <link rel="icon" type="image/png" href="https://sancruzowebsite.b-cdn.net/S-Blitz%20Logo%20Design%202024.png">
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #111111;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .checkout-nav {
+            width: 100%;
+            padding: 20px 32px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .checkout-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .checkout-nav img {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+        }
+        .checkout-nav span {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+
+        .checkout-wrapper {
+            width: 100%;
+            max-width: 580px;
+            padding: 40px 24px 64px;
+            flex: 1;
+        }
+
+        #paddle-checkout-container {
+            width: 100%;
+        }
+
+        .status-msg {
+            text-align: center;
+            padding: 80px 0;
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 0.01em;
+        }
+        .status-msg.error { color: #e05555; }
+    </style>
+</head>
+<body>
+
+    <nav class="checkout-nav">
+        <a href="https://sancruzo.com/">
+            <img src="https://sancruzowebsite.b-cdn.net/San%20Cruzo%20Logo%202026%20-%20Rund.png" alt="San Cruzo">
+            <span>San Cruzo</span>
+        </a>
+    </nav>
+
+    <div class="checkout-wrapper">
+        <div id="paddle-checkout-container">
+            <p class="status-msg">Checkout wird geladen…</p>
+        </div>
+    </div>
+
+<script>
+    const params     = new URLSearchParams(window.location.search);
+    const priceId    = params.get('price');
+    const successUrl = params.get('success');
+
+    if (!priceId) {
+        document.getElementById('paddle-checkout-container').innerHTML =
+            '<p class="status-msg error">Kein Produkt angegeben.</p>';
+    } else {
+        Paddle.Initialize({
+            token: 'live_8551962d454585de6c4f571a18b',
+            checkout: {
+                settings: {
+                    displayMode: "inline",
+                    theme: "light",
+                    locale: "de",
+                    frameTarget: "paddle-checkout-container",
+                    frameInitialHeight: "450",
+                    frameStyle: "width: 100%; min-width: 312px; background-color: transparent; border: none;"
+                }
+            }
+        });
+
+        const checkoutOptions = {
+            items: [{ priceId: priceId, quantity: 1 }]
+        };
+        if (successUrl) {
+            checkoutOptions.settings = { successUrl: decodeURIComponent(successUrl) };
+        }
+
+        Paddle.Checkout.open(checkoutOptions);
+    }
+</script>
+
+</body>
+</html>

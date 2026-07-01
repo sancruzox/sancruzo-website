@@ -16,22 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="./style.css">
-    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
-    <script>
-        Paddle.Initialize({
-            token: 'live_8551962d454585de6c4f571a18b',
-            checkout: {
-                settings: {
-                    displayMode: "inline",
-                    theme: "light",
-                    locale: "de",
-                    frameTarget: "paddle-checkout-container",
-                    frameInitialHeight: "450",
-                    frameStyle: "width: 100%; min-width: 312px; background-color: transparent; border: none;"
-                }
-            }
-        });
-    </script>
     
     <link rel="icon" type="image/png" href="https://sancruzowebsite.b-cdn.net/S-Blitz%20Logo%20Design%202024.png">
 </head>
@@ -88,7 +72,7 @@
                         <span class="price-tag">€79</span> 
                     </div>
                     
-                    <button onclick="openPaddleCheckout('pri_01kt6r1wwer0rn42hvt1yvgk14')" class="btn btn-gold btn-lg">JETZT LOSLEGEN</button>
+                    <a href="/checkout.html?price=pri_01kt6r1wwer0rn42hvt1yvgk14&success=https%3A%2F%2Fsancruzo.com%2Fvocalkurs%2Fdanke%2F" class="btn btn-gold btn-lg">JETZT LOSLEGEN</a>
 
                     <div class="offer-features-row mb-4">
                         <div class="feature-item">
@@ -463,7 +447,7 @@
                     <div class="price-wrapper mb-4">
                          <span class="price-tag">€79</span></div>
                     
-                    <button onclick="openPaddleCheckout('pri_01kt6r1wwer0rn42hvt1yvgk14')" class="btn btn-gold btn-lg">JETZT LOSLEGEN</button>
+                    <a href="/checkout.html?price=pri_01kt6r1wwer0rn42hvt1yvgk14&success=https%3A%2F%2Fsancruzo.com%2Fvocalkurs%2Fdanke%2F" class="btn btn-gold btn-lg">JETZT LOSLEGEN</a>
                      <div class="offer-features-row mb-4">
                         <div class="feature-item">
                             <span class="feature-star">★</span> 
@@ -479,7 +463,6 @@
         </div>
     </section>
 
-    <div class="paddle-checkout-container" style="display:none; width:100%; max-width:600px; margin:0 auto 32px;"></div>
 
     <footer class="site-footer">
         <div class="container">
@@ -581,16 +564,5 @@
 </script>
 
 
-<script>
-function openPaddleCheckout(priceId) {
-    var el = document.querySelector('.paddle-checkout-container');
-    el.style.display = 'block';
-    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    Paddle.Checkout.open({
-        items: [{ priceId: priceId, quantity: 1 }],
-        settings: { successUrl: 'https://sancruzo.com/vocalkurs/danke/' }
-    });
-}
-</script>
 </body>
 </html>

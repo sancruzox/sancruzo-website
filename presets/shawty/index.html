@@ -22,22 +22,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
-    <script>
-Paddle.Initialize({
-  token: 'live_8551962d454585de6c4f571a18b',
-  checkout: {
-    settings: {
-      displayMode: "inline",
-      theme: "light",
-      locale: "de",
-      frameTarget: "paddle-checkout-container",
-      frameInitialHeight: "450",
-      frameStyle: "width: 100%; min-width: 312px; background-color: transparent; border: none;"
-    }
-  }
-});
-</script>
 </head>
 
 <nav class="main-nav">
@@ -244,7 +228,6 @@ Inspiriert von Reezy
         </div>
     </div>
 
-<div class="paddle-checkout-container" style="display:none; width:100%; margin-top:8px;"></div>
 </section>
 
     <section class="highlight-section sec">
@@ -510,7 +493,7 @@ Inspiriert von Reezy
         <li>Tutorials zur Nutzung</li>
         <li class="unavailable">12 weitere Artist Presets</li>
       </ul>
-      <button onclick="openPaddleCheckout('pri_01ktkv8ch0kxjn095nvcdwd3qy')" class="plan-button outline">Zum Einzelkauf</button>
+      <a href="/checkout.html?price=pri_01ktkv8ch0kxjn095nvcdwd3qy" class="plan-button outline">Zum Einzelkauf</a>
     </div>
 
     <div class="pricing-card premium-card">
@@ -932,14 +915,6 @@ Inspiriert von Reezy
 </script>
 
 
-<script>
-function openPaddleCheckout(priceId) {
-    var el = document.querySelector('.paddle-checkout-container');
-    el.style.display = 'block';
-    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    Paddle.Checkout.open({ items: [{ priceId: priceId, quantity: 1 }] });
-}
-</script>
 </body>
 
 </html>
