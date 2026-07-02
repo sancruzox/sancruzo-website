@@ -218,8 +218,8 @@ body {
 }
 @media (max-width: 767px) {
     .main-heading {
-        font-size: 1.6rem;
-        font-weight: 700;
+        font-size: 2.2rem;
+        font-weight: 600;
         letter-spacing: -0.055em;
     }
     .main-heading-serif {
@@ -1746,13 +1746,42 @@ html {
     scroll-margin-top: 10vh; 
 }
 
+/* Desktop: mobilen Disclaimer verstecken */
+.mobile-disclaimer {
+    display: none;
+}
+
 @media (max-width: 767px) {
     .bundle-image {
         width: 90%;
         height: auto;
-        /* Damit es zentriert ist: */
-        display: block !important;  
-        margin: 0 auto !important;  
+        display: block !important;
+        margin: 0 auto !important;
+    }
+
+    /* Audio-Preview-Box: negative margin und overflow zurücksetzen */
+    .display-area .col-lg-7 {
+        margin-left: 0 !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    .display-content-box {
+        padding: 20px !important;
+    }
+
+    /* Disclaimer und "29€"-Label in der Box ausblenden */
+    .display-text div[style*="position: absolute"],
+    .display-title div[style*="position: absolute"] {
+        display: none !important;
+    }
+
+    /* Mobiler Disclaimer unterhalb der Box */
+    .mobile-disclaimer {
+        display: block;
+        font-size: 10px;
+        color: #888;
+        margin-top: 10px;
+        padding-left: 2px;
     }
 }
 
