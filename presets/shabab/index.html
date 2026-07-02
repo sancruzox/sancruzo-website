@@ -28,12 +28,19 @@
 <nav class="main-nav">
     <div class="container nav-wrapper">
         
-        <a href="https://sancruzo.com/" class="nav-logo">
+        <button class="nav-toggle" aria-label="Menü öffnen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+                <a href="https://sancruzo.com/" class="nav-logo">
             <img src="https://sancruzowebsite.b-cdn.net/S-Blitz%20Logo%20Design%202024.png" alt="San Cruzo Logo">
         </a>
 
         <ul class="nav-links">
-            <li><a href="https://sancruzo.com/presets/">Vocal Presets</a></li>
+            <button class="nav-close" aria-label="Menü schließen">&times;</button>
+                        <li><a href="https://sancruzo.com/presets/">Vocal Presets</a></li>
             <li><a href="https://sancruzo.com/vocalkurs/">Vocal Mixing Kurs</a></li>
             <li><a href="https://sancruzo.com/mixmaster/">Mix & Master Service</a></li>
             </ul>
@@ -879,6 +886,22 @@ Inspiriert von Pashanim
 </script>
 
 
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.querySelector('.nav-toggle');
+        const closeBtn  = document.querySelector('.nav-close');
+        const navLinks  = document.querySelector('.nav-links');
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        closeBtn.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+</script>
 </body>
 
 </html>
