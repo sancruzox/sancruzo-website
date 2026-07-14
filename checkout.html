@@ -293,6 +293,9 @@
         Paddle.Initialize({
             token: 'live_8551962d454585de6c4f571a18b',
             eventCallback: function(event) {
+                // DEBUG: alle Paddle-Events sichtbar machen
+                console.log('[Paddle event]', event.name, event.data);
+
                 if (event.name !== 'checkout.completed') return;
 
                 // Duplikat-Schutz: dasselbe Event nur einmal pro Session feuern
@@ -302,9 +305,9 @@
                 if (txId) sessionStorage.setItem(dedupeKey, '1');
 
                 // Betrag kommt von Paddle in Minor Units (Cent) → durch 100 teilen
-                const totalMinor  = event.data?.totals?.total;
-                const currency    = event.data?.totals?.currency_code || 'EUR';
-                const value       = totalMinor != null ? totalMinor / 100 : undefined;
+                const totalMinor = event.data?.totals?.total;
+                const currency   = event.data?.totals?.currency_code || 'EUR';
+                const value      = totalMinor != null ? totalMinor / 100 : undefined;
 
                 const items = (event.data?.items || []).map(item => ({
                     item_id:   item.price_id,
@@ -313,11 +316,16 @@
                     price:     item.totals?.subtotal != null ? item.totals.subtotal / 100 : undefined
                 }));
 
+                console.log('[GA4 purchase] wird jetzt gesendet:', { txId, value, currency, items });
+
+                // transport_type: 'beacon' stellt sicher, dass der Request
+                // auch bei sofortigem successUrl-Redirect noch rausgeht
                 gtag('event', 'purchase', {
-                    transaction_id: txId,
-                    value:          value,
-                    currency:       currency,
-                    items:          items
+                    transaction_id:  txId,
+                    value:           value,
+                    currency:        currency,
+                    items:           items,
+                    transport_type:  'beacon'
                 });
             },
             checkout: {
