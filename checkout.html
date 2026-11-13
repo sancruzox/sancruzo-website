@@ -181,6 +181,37 @@
             color: #111;
         }
 
+
+        /* MwSt.-Hinweis unter Gesamtbetrag */
+        .summary-tax {
+            font-size: 12px;
+            color: #888;
+            margin-top: 4px;
+            text-align: right;
+        }
+
+        /* Vertrauenshinweise */
+        .trust-list {
+            list-style: none;
+            margin-top: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .trust-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #555;
+        }
+        .trust-list svg { flex-shrink: 0; margin-top: 1px; }
+        .trust-mobile { display: none; }
+
+        /* Ladezustand: bleibt sichtbar, bis Paddle "checkout.loaded" meldet */
+        .col-checkout .status-msg.hidden { display: none; }
+
         /* MOBILE */
         @media (max-width: 700px) {
             .checkout-layout {
@@ -197,6 +228,15 @@
                 width: 100%;
                 order: -1;
             }
+            /* Kompakter Warenkorb oben, damit das Formular schneller sichtbar ist */
+            .summary-title { display: none; }
+            .back-link { margin-bottom: 12px; }
+            .summary-product { margin-bottom: 12px; }
+            .summary-img { width: 48px; height: 48px; }
+            .summary-divider { margin: 10px 0; }
+            .summary-total-label, .summary-total-price { font-size: 15px; }
+            .col-summary .trust-list { display: none; }
+            .trust-mobile { display: flex; margin: 20px 4px 4px; }
         }
     </style>
 </head>
@@ -213,9 +253,13 @@
 
         <!-- LINKS: Paddle Checkout (weiße Karte) -->
         <div class="col-checkout">
-            <div id="paddle-checkout-container" class="paddle-checkout-container">
-                <p class="status-msg">Checkout wird geladen…</p>
-            </div>
+            <p class="status-msg" id="status-msg">Checkout wird geladen…</p>
+            <div id="paddle-checkout-container" class="paddle-checkout-container"></div>
+            <ul class="trust-list trust-mobile">
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a7f37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Sichere Zahlung mit PayPal, Karte oder Apple Pay</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a7f37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg><span>Download-Link sofort per E-Mail</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a7f37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Endpreis inkl. MwSt. – keine versteckten Kosten</span></li>
+            </ul>
         </div>
 
         <!-- RECHTS: Warenkorb (grau, kein weißer Container) -->
@@ -243,6 +287,13 @@
                 <span class="summary-total-label">Gesamtbetrag</span>
                 <span class="summary-total-price" id="total-price"></span>
             </div>
+            <p class="summary-tax" id="total-tax">inkl. MwSt.</p>
+
+            <ul class="trust-list">
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a7f37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Sichere Zahlung mit PayPal, Karte oder Apple Pay</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a7f37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg><span>Download-Link sofort per E-Mail</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a7f37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Endpreis inkl. MwSt. – keine versteckten Kosten</span></li>
+            </ul>
         </div>
 
     </div>
@@ -274,63 +325,138 @@
     const params     = new URLSearchParams(window.location.search);
     const priceId    = params.get('price');
     const successUrl = params.get('success');
+    const product    = priceId ? PRODUCTS[priceId] : null;
 
-    if (!priceId) {
-        document.getElementById('paddle-checkout-container').innerHTML =
-            '<p class="status-msg error">Kein Produkt angegeben.</p>';
-    } else {
-        const product = PRODUCTS[priceId];
-        if (product) {
-            document.getElementById('product-img').src            = product.img;
-            document.getElementById('product-img').alt            = product.name;
-            document.getElementById('product-name').textContent   = product.name;
-            document.getElementById('product-price').textContent  = product.price;
-            document.getElementById('total-price').textContent    = product.price;
-            if (product.sub) document.getElementById('product-name').nextElementSibling.textContent = product.sub;
-            document.getElementById('col-summary').classList.add('visible');
+    const $ = (id) => document.getElementById(id);
+
+    function formatMoney(amount, currency) {
+        try {
+            return new Intl.NumberFormat('de-DE', { style: 'currency', currency: currency }).format(amount);
+        } catch (e) {
+            return amount + ' ' + currency;
         }
+    }
 
-        Paddle.Initialize({
-            token: 'live_8551962d454585de6c4f571a18b',
-            eventCallback: function(event) {
-                // DEBUG: alle Paddle-Events sichtbar machen
-                console.log('[Paddle event]', event.name, event.data);
+    // Warenkorb rechts mit den echten Paddle-Beträgen aktualisieren
+    // (Währung und MwSt. hängen vom Land des Käufers ab).
+    // Paddle.js liefert Beträge als Dezimalzahl, z. B. 29 oder 24.37 – nicht in Cent.
+    function updateSummary(data) {
+        const totals   = data?.totals;
+        const currency = data?.currency_code;
+        if (!totals || !currency) return;
 
-                if (event.name !== 'checkout.completed') return;
+        const item = data.items?.[0];
+        if (item?.totals?.total != null) $('product-price').textContent = formatMoney(item.totals.total, currency);
+        $('total-price').textContent = formatMoney(totals.total, currency);
+        $('total-tax').textContent = totals.tax > 0
+            ? 'inkl. ' + formatMoney(totals.tax, currency) + ' MwSt.'
+            : 'inkl. MwSt.';
+    }
 
-                // Duplikat-Schutz: dasselbe Event nur einmal pro Session feuern
-                const txId = event.data?.transaction_id || event.data?.id;
+    function ga4Items(data) {
+        return (data?.items || []).map(item => ({
+            item_id:   item.price_id,
+            item_name: item.product?.name || item.price_name || (product && product.name) || item.price_id,
+            quantity:  item.quantity,
+            price:     item.totals?.total
+        }));
+    }
+
+    // Jedes Funnel-Event nur einmal pro Checkout senden
+    const sentEvents = new Set();
+    function trackOnce(key, eventName, payload) {
+        if (sentEvents.has(key)) return;
+        sentEvents.add(key);
+        if (typeof gtag === 'function') gtag('event', eventName, payload);
+    }
+
+    function handlePaddleEvent(event) {
+        const data = event.data;
+        const base = data?.totals ? { currency: data.currency_code, value: data.totals.total } : {};
+
+        switch (event.name) {
+            case 'checkout.loaded':
+                $('status-msg').classList.add('hidden');
+                updateSummary(data);
+                trackOnce('loaded', 'begin_checkout', { ...base, items: ga4Items(data) });
+                break;
+
+            case 'checkout.updated':
+            case 'checkout.items.updated':
+                updateSummary(data);
+                break;
+
+            case 'checkout.customer.created':
+                trackOnce('customer', 'checkout_email_entered', { ...base, country: data?.customer?.address?.country_code });
+                break;
+
+            case 'checkout.payment.selected': {
+                const type = data?.payment?.method_details?.type || 'unknown';
+                trackOnce('payment_selected_' + type, 'add_payment_info', { ...base, payment_type: type, items: ga4Items(data) });
+                break;
+            }
+
+            case 'checkout.payment.initiated': {
+                const type = data?.payment?.method_details?.type || 'unknown';
+                // Bei jedem Versuch senden (zählt Zahlungsversuche)
+                if (typeof gtag === 'function') gtag('event', 'checkout_payment_initiated', { ...base, payment_type: type });
+                break;
+            }
+
+            case 'checkout.payment.failed':
+            case 'checkout.payment.error': {
+                const type = data?.payment?.method_details?.type || 'unknown';
+                if (typeof gtag === 'function') gtag('event', 'checkout_payment_failed', { ...base, payment_type: type });
+                break;
+            }
+
+            case 'checkout.error':
+                if (typeof gtag === 'function') gtag('event', 'checkout_error', { error: String(event.error?.detail || event.detail || 'unknown') });
+                break;
+
+            case 'checkout.completed': {
+                // Duplikat-Schutz: dasselbe Event nur einmal pro Session
+                const txId = data?.transaction_id || data?.id;
                 const dedupeKey = 'ga4_purchase_' + txId;
                 if (txId && sessionStorage.getItem(dedupeKey)) return;
                 if (txId) sessionStorage.setItem(dedupeKey, '1');
 
-                // Betrag kommt von Paddle in Minor Units (Cent) → durch 100 teilen
-                const totalMinor = event.data?.totals?.total;
-                const currency   = event.data?.totals?.currency_code || 'EUR';
-                const value      = totalMinor != null ? totalMinor / 100 : undefined;
-
-                const items = (event.data?.items || []).map(item => ({
-                    item_id:   item.price_id,
-                    item_name: item.price?.description || item.price_id,
-                    quantity:  item.quantity,
-                    price:     item.totals?.subtotal != null ? item.totals.subtotal / 100 : undefined
-                }));
-
-                console.log('[GA4 purchase] wird jetzt gesendet:', { txId, value, currency, items });
-
-                // transport_type: 'beacon' stellt sicher, dass der Request
-                // auch bei sofortigem successUrl-Redirect noch rausgeht
-                gtag('event', 'purchase', {
-                    transaction_id:  txId,
-                    value:           value,
-                    currency:        currency,
-                    items:           items,
-                    transport_type:  'beacon'
+                // transport_type 'beacon': Request geht auch bei sofortigem Redirect raus
+                if (typeof gtag === 'function') gtag('event', 'purchase', {
+                    transaction_id: txId,
+                    value:          data?.totals?.total,
+                    tax:            data?.totals?.tax,
+                    currency:       data?.currency_code || data?.totals?.currency_code || 'EUR',
+                    payment_type:   data?.payment?.method_details?.type,
+                    items:          ga4Items(data),
+                    transport_type: 'beacon'
                 });
-            },
+                break;
+            }
+        }
+    }
+
+    if (!priceId) {
+        $('status-msg').textContent = 'Kein Produkt angegeben.';
+        $('status-msg').classList.add('error');
+    } else {
+        if (product) {
+            $('product-img').src           = product.img;
+            $('product-img').alt           = product.name;
+            $('product-name').textContent  = product.name;
+            $('product-price').textContent = product.price;   // Platzhalter, bis Paddle die echten Beträge liefert
+            $('total-price').textContent   = product.price;
+            if (product.sub) $('product-name').nextElementSibling.textContent = product.sub;
+            $('col-summary').classList.add('visible');
+        }
+
+        Paddle.Initialize({
+            token: 'live_8551962d454585de6c4f571a18b',
+            eventCallback: handlePaddleEvent,
             checkout: {
                 settings: {
                     displayMode: "inline",
+                    variant: "one-page",            // E-Mail, Land und Zahlung auf EINER Seite
                     theme: "light",
                     locale: "de",
                     frameTarget: "paddle-checkout-container",
@@ -340,10 +466,9 @@
             }
         });
 
-        document.getElementById('paddle-checkout-container').innerHTML = '';
-
         const checkoutOptions = {
-            items: [{ priceId: priceId, quantity: 1 }]
+            items: [{ priceId: priceId, quantity: 1 }],
+            customData: { source_page: (function () { try { return document.referrer ? new URL(document.referrer).pathname : 'direct'; } catch (e) { return 'unknown'; } })() }
         };
         if (successUrl) {
             checkoutOptions.settings = { successUrl: decodeURIComponent(successUrl) };
