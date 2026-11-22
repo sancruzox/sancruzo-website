@@ -411,7 +411,7 @@ color: #000000;
 }
 .compat-divider {
   width: 1px;
-  height: 130px;
+  height: 112px;
   background: rgba(255, 255, 255, 0.15);
   align-self: center;
   flex-shrink: 0;
@@ -428,16 +428,12 @@ color: #000000;
 .compat-icon {
   display: flex;
   align-items: center;
-  height: 78px;
+  height: 60px;
 }
 .compat-icon img {
   display: block;
-  width: 74px;
-  height: 74px;
-}
-.compat-icon img.compat-logic {
-  width: 78px;
-  height: 77.69px;
+  width: 60px;
+  height: 60px;
 }
 .compat-item span {
   font-family: "Montserrat", sans-serif;
@@ -453,7 +449,7 @@ color: #000000;
     padding: 14px 0 16px;
   }
   .compat-groups {
-    gap: 18px;
+    gap: 14px;
   }
   .compat-group-title {
     font-size: 12px;
@@ -461,21 +457,10 @@ color: #000000;
     margin-bottom: 10px;
   }
   .compat-divider {
-    height: 92px;
+    height: 100px;
   }
   .compat-items {
-    gap: 14px;
-  }
-  .compat-icon {
-    height: 55px;
-  }
-  .compat-icon img {
-    width: 52px;
-    height: 52px;
-  }
-  .compat-icon img.compat-logic {
-    width: 55px;
-    height: 54.78px;
+    gap: 12px;
   }
   .compat-item span {
     font-size: 10px;
