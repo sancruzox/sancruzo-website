@@ -2066,13 +2066,13 @@ html {
 /* ===== San Cruzo Plugin Teaser ===== */
 /* Verhaeltnisse 1:1 aus Figma "CruzoPlugin Teaser Section" (Titel 66px,
    Eyebrow 20px, Zeile 26px, Abstaende 36/17/78px). Alles ist in em relativ
-   zur Titelgroesse angegeben; die Titelgroesse selbst entspricht den anderen
-   Section-Ueberschriften (2rem, mobil 1.5rem) und wird nur hier gesetzt. */
+   zur Titelgroesse angegeben und wird nur ueber .plugin-teaser-inner gesetzt.
+   40px ergibt Eyebrow 12px / Zeile 16px (Referenz: animos.app Showcase). */
 .plugin-teaser {
   overflow: hidden;
 }
 .plugin-teaser-inner {
-  font-size: 2rem;              /* = Titelgroesse */
+  font-size: 2.5rem;            /* = Titelgroesse (40px) */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2126,5 +2126,5 @@ html {
 }
 
 @media (max-width: 767px) {
-  .plugin-teaser-inner { font-size: 1.5rem; }
+  .plugin-teaser-inner { font-size: 1.875rem; }   /* 30px */
 }
