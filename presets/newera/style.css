@@ -2067,6 +2067,10 @@ html {
 .plugin-teaser {
   overflow: hidden;
   padding-top: 25em;
+  /* Unsichtbarer Verlauf (1 Farbstufe). Ohne ihn zeichnet Chrome auf dem Mac
+     die leere Flaeche des grossen Abstands als "einfarbige Kachel" mit anderer
+     Farbumrechnung -> sichtbarer dunkler Streifen. Nicht entfernen. */
+  background-image: linear-gradient(#0a0c13, #0a0c14);
 }
 .plugin-teaser-inner {
   font-size: 2.5rem;            /* = Titelgroesse (40px) */
