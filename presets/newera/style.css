@@ -2066,7 +2066,7 @@ html {
 /* ===== San Cruzo Plugin Teaser ===== */
 .plugin-teaser {
   overflow: hidden;
-  padding-top: 25em;
+  padding-top: 15em;
   /* Unsichtbarer Verlauf (1 Farbstufe). Ohne ihn zeichnet Chrome auf dem Mac
      die leere Flaeche des grossen Abstands als "einfarbige Kachel" mit anderer
      Farbumrechnung -> sichtbarer dunkler Streifen. Nicht entfernen. */
@@ -2107,19 +2107,51 @@ html {
   color: #B7B7B7;
   margin: 0.654em 0 0;          /* 17 / 26 */
 }
-/* plugin-bundle.webp: aus dem 6000px-Render (SC Plugin Bundle rendereditv2)
-   auf den sichtbaren Inhalt zugeschnitten, 1600x941, kein Transparenzrand. */
-.plugin-teaser-img {
+.plugin-teaser-accent { color: #ffd60a; }
+
+/* ----- Plugin-Karussell: 3 Reihen, Mitte gross und vorne, oben/unten
+   kleiner und abgedunkelt. Alle Masse in em der Titelgroesse. ----- */
+.plugin-carousel {
   width: 100%;
-  max-width: 14.56em;           /* 961 / 66: Bildinhalt im Figma-Frame */
-  margin-top: 1.182em;          /* 78 / 66 */
+  margin-top: 3em;
+  padding: 0.5em 0 1.5em;       /* Platz fuer den Schatten der mittleren Reihe */
+  overflow: hidden;
+  /* weiches Ausblenden links und rechts */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
 }
-.plugin-teaser-img img {
+.plugin-row { position: relative; }
+.plugin-row--side { --plugin-h: 6em; z-index: 1; filter: brightness(0.5); }
+.plugin-row--main { --plugin-h: 7.25em; z-index: 2; margin: -2.2em 0; }   /* ueberlappt die Nachbarreihen */
+.plugin-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: plugin-marquee var(--plugin-dur, 80s) linear infinite;
+}
+.plugin-row--right .plugin-track { animation-direction: reverse; }
+/* kuerzere Reihen laufen kuerzer, damit alle etwa gleich schnell sind */
+.plugin-row--main .plugin-track { --plugin-dur: 62s; }
+.plugin-row:nth-child(3) .plugin-track { --plugin-dur: 56s; }
+.plugin-track img {
   display: block;
-  width: 100%;
-  height: auto;
+  height: var(--plugin-h);
+  width: auto;
+  margin-right: 0.6em;          /* Abstand als margin, damit -50% exakt eine Haelfte ist */
+  flex: none;
+}
+.plugin-row--main .plugin-track img {
+  filter: drop-shadow(0 0.5em 0.9em rgba(0, 0, 0, 0.65));
+}
+@keyframes plugin-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plugin-track { animation-play-state: paused; }
 }
 
 @media (max-width: 767px) {
   .plugin-teaser-inner { font-size: 1.875rem; }   /* 30px */
+  .plugin-carousel { font-size: 0.75em; margin-top: 3em; }
 }
